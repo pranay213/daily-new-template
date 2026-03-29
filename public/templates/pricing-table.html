@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pricing Table</title>
+  <style>
+    :root {
+      --primary: #8b5cf6;
+      --bg-main: #f8fafc;
+      --bg-surface: #ffffff;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --border: #e2e8f0;
+    }
+    [data-theme="dark"] {
+      --bg-main: #020617;
+      --bg-surface: #0f172a;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --border: #1e293b;
+    }
+    body { font-family: system-ui, sans-serif; background: var(--bg-main); color: var(--text-primary); margin: 0; padding: 4rem 2rem; }
+    .header { text-align: center; margin-bottom: 4rem; }
+    .header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .header p { color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+    
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; align-items: center; }
+    
+    .card { background: var(--bg-surface); padding: 3rem 2rem; border-radius: 1rem; border: 1px solid var(--border); text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .card.popular { border-color: var(--primary); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04); transform: scale(1.05); position: relative; }
+    @media (max-width: 768px) { .card.popular { transform: none; } }
+    
+    .badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 0.25rem 1rem; border-radius: 9999px; font-size: 0.75rem; font-weight: bold; letter-spacing: 0.05em; text-transform: uppercase; }
+    
+    .tier-name { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .price { font-size: 3rem; font-weight: bold; margin-bottom: 2rem; }
+    .price span { font-size: 1rem; color: var(--text-secondary); font-weight: normal; }
+    
+    .features { list-style: none; padding: 0; margin: 0 0 2rem 0; text-align: left; }
+    .features li { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; color: var(--text-secondary); }
+    .features li svg { width: 20px; height: 20px; color: var(--primary); flex-shrink: 0; }
+    
+    .btn { display: block; width: 100%; padding: 1rem; border-radius: 0.5rem; font-weight: bold; text-decoration: none; cursor: pointer; transition: background 0.2s; box-sizing: border-box; }
+    .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+    .btn-outline:hover { background: color-mix(in srgb, var(--primary) 10%, transparent); }
+    .btn-primary { background: var(--primary); border: 2px solid var(--primary); color: white; }
+    .btn-primary:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Simple, transparent pricing</h1>
+    <p>No hidden fees. No surprise charges. Choose the plan that best fits your needs and start building today.</p>
+  </div>
+  
+  <div class="pricing-grid">
+    <!-- Basic Plan -->
+    <div class="card">
+      <div class="tier-name">Hobby</div>
+      <div class="price">$0<span>/mo</span></div>
+      <ul class="features">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          1 User
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          5 Projects
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Community Support
+        </li>
+      </ul>
+      <a href="#" class="btn btn-outline">Start for free</a>
+    </div>
+    
+    <!-- Pro Plan -->
+    <div class="card popular">
+      <div class="badge">Most Popular</div>
+      <div class="tier-name">Pro</div>
+      <div class="price">$29<span>/mo</span></div>
+      <ul class="features">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Up to 5 Users
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Unlimited Projects
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Priority Email Support
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Advanced Analytics
+        </li>
+      </ul>
+      <a href="#" class="btn btn-primary">Get started</a>
+    </div>
+    
+    <!-- Enterprise Plan -->
+    <div class="card">
+      <div class="tier-name">Enterprise</div>
+      <div class="price">$99<span>/mo</span></div>
+      <ul class="features">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Unlimited Users
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Unlimited Projects
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          24/7 Phone Support
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Custom Integrations
+        </li>
+      </ul>
+      <a href="#" class="btn btn-outline">Contact sales</a>
+    </div>
+  </div>
+</body>
+</html>

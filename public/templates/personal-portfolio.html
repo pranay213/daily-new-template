@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personal Portfolio</title>
+  <style>
+    :root {
+      --primary: #8b5cf6;
+      --bg-main: #f8fafc;
+      --bg-surface: #ffffff;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+    }
+    [data-theme="dark"] {
+      --bg-main: #020617;
+      --bg-surface: #0f172a;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+    }
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg-main);
+      color: var(--text-primary);
+      margin: 0;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      border: 4px solid var(--primary);
+      margin-bottom: 2rem;
+      object-fit: cover;
+    }
+    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .subtitle { font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 2rem; }
+    
+    .social-links { display: flex; gap: 1rem; margin-bottom: 3rem; }
+    .social-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .social-links a:hover { text-decoration: underline; }
+    
+    .section-title { margin-top: 3rem; border-bottom: 2px solid var(--bg-surface); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+    
+    .project { margin-bottom: 2rem; }
+    .project h3 { margin: 0 0 0.5rem 0; color: var(--primary); }
+    .project p { color: var(--text-secondary); margin: 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&h=200&fit=crop" alt="Profile" class="profile-img">
+    
+    <h1>Alex Designer</h1>
+    <p class="subtitle">Creative Interface Developer & UI/UX Specialist based in NY.</p>
+    
+    <div class="social-links">
+      <a href="#">Twitter</a>
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Dribbble</a>
+    </div>
+    
+    <h2 class="section-title">Selected Works</h2>
+    
+    <div class="project">
+      <h3>Fintech Dashboard Redesign</h3>
+      <p>A complete overhaul of the core banking experience, improving task completion time by 40%.</p>
+    </div>
+    
+    <div class="project">
+      <h3>E-commerce Conversion Optimization</h3>
+      <p>Implemented a highly performant checkout flow resulting in a 15% increase in conversion rates.</p>
+    </div>
+    
+    <div class="project">
+      <h3>Open Source React Library</h3>
+      <p>Created and maintain a popular animation library used by over 5,000 developers.</p>
+    </div>
+  </div>
+</body>
+</html>

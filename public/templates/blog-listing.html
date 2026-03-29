@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog Listing</title>
+  <style>
+    :root {
+      --primary: #8b5cf6;
+      --bg-main: #f8fafc;
+      --bg-surface: #ffffff;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+    }
+    [data-theme="dark"] {
+      --bg-main: #020617;
+      --bg-surface: #0f172a;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+    }
+    body { font-family: system-ui, sans-serif; background: var(--bg-main); color: var(--text-primary); margin: 0; padding: 2rem; }
+    .header { text-align: center; margin-bottom: 3rem; }
+    .header h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+    .card { background: var(--bg-surface); border-radius: 0.5rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s; }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width: 100%; height: 200px; object-fit: cover; }
+    .card-body { padding: 1.5rem; }
+    .category { color: var(--primary); font-size: 0.875rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; }
+    .title { font-size: 1.25rem; margin: 0.5rem 0; font-weight: bold; }
+    .excerpt { color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.5; }
+    .meta { display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary); }
+    .avatar { width: 24px; height: 24px; border-radius: 50%; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Latest Insights</h1>
+    <p style="color: var(--text-secondary);">Thoughts, stories and ideas.</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643" alt="Blog post">
+      <div class="card-body">
+        <div class="category">Design</div>
+        <h2 class="title">10 Rules of Good UI Design</h2>
+        <p class="excerpt">Discover the fundamental principles that guide the creation of intuitive and beautiful user interfaces...</p>
+        <div class="meta">
+          <img src="https://i.pravatar.cc/100?img=1" class="avatar" alt="Author">
+          <span>Sarah Walker &bull; Mar 29, 2026</span>
+        </div>
+      </div>
+    </article>
+    <!-- Repeat card 2 -->
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040" alt="Blog post">
+      <div class="card-body">
+        <div class="category">Technology</div>
+        <h2 class="title">The Future of AI in Web Development</h2>
+        <p class="excerpt">How large language models and code generation tools are fundamentally changing how we build software...</p>
+        <div class="meta">
+          <img src="https://i.pravatar.cc/100?img=2" class="avatar" alt="Author">
+          <span>Alex Chen &bull; Mar 28, 2026</span>
+        </div>
+      </div>
+    </article>
+    <!-- Repeat card 3 -->
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="Blog post">
+      <div class="card-body">
+        <div class="category">Business</div>
+        <h2 class="title">Scaling Your SaaS to $1M ARR</h2>
+        <p class="excerpt">Actionable transition strategies for moving from founder-led sales to a scalable go-to-market engine...</p>
+        <div class="meta">
+          <img src="https://i.pravatar.cc/100?img=3" class="avatar" alt="Author">
+          <span>Chris Doe &bull; Mar 27, 2026</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</body>
+</html>

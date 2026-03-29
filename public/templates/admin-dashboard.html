@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <style>
+    :root {
+      --primary: #8b5cf6;
+      --bg-main: #f1f5f9;
+      --bg-surface: #ffffff;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --border: #e2e8f0;
+      --sidebar-width: 250px;
+    }
+    [data-theme="dark"] {
+      --bg-main: #020617;
+      --bg-surface: #0f172a;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --border: #1e293b;
+    }
+    body { font-family: system-ui, sans-serif; background: var(--bg-main); color: var(--text-primary); margin: 0; display: flex; min-height: 100vh; }
+    
+    .sidebar { width: var(--sidebar-width); background: var(--bg-surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+    .brand { padding: 1.5rem; font-size: 1.25rem; font-weight: bold; color: var(--primary); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem; }
+    .nav-links { padding: 1rem; flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+    .nav-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; color: var(--text-secondary); text-decoration: none; border-radius: 0.5rem; transition: background 0.2s; font-weight: 500; }
+    .nav-item:hover, .nav-item.active { background: color-mix(in srgb, var(--primary) 10%, transparent); color: var(--primary); }
+    
+    .main { flex: 1; display: flex; flex-direction: column; }
+    .header { height: 70px; background: var(--bg-surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; }
+    .search { width: 300px; padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary); }
+    .user-profile { width: 40px; height: 40px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+    
+    .content { padding: 2rem; flex: 1; overflow-y: auto; }
+    .page-title { margin: 0 0 2rem 0; font-size: 1.5rem; }
+    
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+    .stat-card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+    .stat-title { color: var(--text-secondary); font-size: 0.875rem; font-weight: 500; }
+    .stat-value { font-size: 2rem; font-weight: bold; }
+    .stat-change { font-size: 0.875rem; display: flex; align-items: center; gap: 0.25rem; }
+    .change-positive { color: #10b981; }
+    .change-negative { color: #ef4444; }
+    
+    .chart-container { background: var(--bg-surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; min-height: 300px; margin-bottom: 2rem; display: flex; flex-direction: column; }
+    .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    .chart-placeholder { flex: 1; background: repeating-linear-gradient(45deg, transparent, transparent 10px, color-mix(in srgb, var(--primary) 5%, transparent) 10px, color-mix(in srgb, var(--primary) 5%, transparent) 20px); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); }
+    
+    .table-container { background: var(--bg-surface); border: 1px solid var(--border); border-radius: 0.75rem; overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th, td { padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); }
+    th { background: color-mix(in srgb, var(--bg-main) 50%, var(--bg-surface)); color: var(--text-secondary); font-weight: 500; font-size: 0.875rem; }
+    .badge { padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; }
+    .badge.completed { background: #d1fae5; color: #065f46; }
+    .badge.pending { background: #fef3c7; color: #92400e; }
+    [data-theme="dark"] .badge.completed { background: color-mix(in srgb, #059669 20%, transparent); color: #10b981; }
+    [data-theme="dark"] .badge.pending { background: color-mix(in srgb, #d97706 20%, transparent); color: #fbbf24; }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      Dashly
+    </div>
+    <div class="nav-links">
+      <a href="#" class="nav-item active">Overview</a>
+      <a href="#" class="nav-item">Analytics</a>
+      <a href="#" class="nav-item">Customers</a>
+      <a href="#" class="nav-item">Products</a>
+      <a href="#" class="nav-item">Settings</a>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="header">
+      <input type="text" class="search" placeholder="Search anything...">
+      <div class="user-profile">AD</div>
+    </header>
+    <div class="content">
+      <h1 class="page-title">Dashboard Overview</h1>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-title">Total Revenue</div>
+          <div class="stat-value">$45,231.89</div>
+          <div class="stat-change change-positive">↑ +20.1% from last month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-title">Active Users</div>
+          <div class="stat-value">+2,350</div>
+          <div class="stat-change change-positive">↑ +180 since last week</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-title">Sales</div>
+          <div class="stat-value">+12,234</div>
+          <div class="stat-change change-positive">↑ +19% from last month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-title">Bounce Rate</div>
+          <div class="stat-value">22.4%</div>
+          <div class="stat-change change-negative">↓ -2% from last week</div>
+        </div>
+      </div>
+      
+      <div class="chart-container">
+        <div class="chart-header">
+          <h2 style="margin: 0; font-size: 1.125rem;">Revenue Analytics</h2>
+          <select style="padding: 0.5rem; border-radius: 0.5rem; border: 1px solid var(--border); background: var(--bg-main); color: var(--text-primary);">
+            <option>Last 7 Days</option>
+            <option>Last 30 Days</option>
+            <option>This Year</option>
+          </select>
+        </div>
+        <div class="chart-placeholder">
+          Bar Chart Visualization
+        </div>
+      </div>
+      
+      <div class="table-container">
+        <div style="padding: 1.5rem; border-bottom: 1px solid var(--border);"><h2 style="margin: 0; font-size: 1.125rem;">Recent Transactions</h2></div>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Customer</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#TRX-8293</td>
+              <td style="font-weight: 500;">Olivia Martin</td>
+              <td>$1,299.00</td>
+              <td><span class="badge completed">Completed</span></td>
+              <td>Today, 2:45 PM</td>
+            </tr>
+            <tr>
+              <td>#TRX-8292</td>
+              <td style="font-weight: 500;">Jackson Lee</td>
+              <td>$39.00</td>
+              <td><span class="badge pending">Pending</span></td>
+              <td>Today, 1:12 PM</td>
+            </tr>
+            <tr>
+              <td>#TRX-8291</td>
+              <td style="font-weight: 500;">Isabella Nguyen</td>
+              <td>$299.00</td>
+              <td><span class="badge completed">Completed</span></td>
+              <td>Yesterday</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
