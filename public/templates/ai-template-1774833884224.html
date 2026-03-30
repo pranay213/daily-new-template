@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modern Responsive Template</title>
+  <style>
+    /*--------------------------------------------------------------
+    CSS Variables – Theme
+    --------------------------------------------------------------*/
+    :root {
+      --primary: #4f46e5;           /* Indigo 600 */
+      --bg-main: #f9fafb;           /* Gray 50 */
+      --bg-surface: #ffffff;        /* White */
+      --text-primary: #111827;      /* Gray 900 */
+      --text-secondary: #6b7280;    /* Gray 500 */
+      --border: #e5e7eb;           /* Gray 200 */
+      --radius: .5rem;
+      --transition: 0.3s ease;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: #818cf8;         /* Indigo 400 */
+        --bg-main: #111827;         /* Gray 900 */
+        --bg-surface: #1f2937;      /* Gray 800 */
+        --text-primary: #f9fafb;    /* Gray 50 */
+        --text-secondary: #d1d5db;  /* Gray 300 */
+        --border: #374151;          /* Gray 700 */
+      }
+    }
+
+    /*--------------------------------------------------------------
+    Reset + Base
+    --------------------------------------------------------------*/
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      background: var(--bg-main);
+      color: var(--text-primary);
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    img, picture, video, canvas, svg { display: block; max-width: 100%; }
+    button { cursor: pointer; border:none; }
+
+    /*--------------------------------------------------------------
+    Layout
+    --------------------------------------------------------------*/
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .75rem 0;
+    }
+    .nav .logo {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav a {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .nav a:hover { color: var(--primary); }
+
+    /* Hero */
+    .hero {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: .5rem;
+    }
+    .hero p {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+      opacity: .9;
+    }
+    .hero .cta {
+      display: inline-flex;
+      gap: .75rem;
+    }
+    .hero button {
+      background: #fff;
+      color: var(--primary);
+      padding: .75rem 1.5rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .hero button:hover {
+      background: #e0e7ff;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .section-title h2 {
+      font-size: 2rem;
+      margin-bottom: .5rem;
+    }
+    .section-title p {
+      color: var(--text-secondary);
+    }
+
+    /* Card Grid */
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.08);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-body {
+      flex: 1;
+      padding: 1rem;
+    }
+    .card-body h3 {
+      margin-bottom: .5rem;
+      font-size: 1.25rem;
+    }
+    .card-body p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+    .card-body a {
+      margin-top: auto;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: .875rem;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      .nav ul { gap: .75rem; }
+      .hero { padding: 2.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div class="logo">Brand</div>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Elegant &amp; Responsive Design</h1>
+      <p>Build beautiful web experiences with a minimal, theme‑ready template.</p>
+      <div class="cta">
+        <button>Get Started</button>
+        <button style="background:transparent;color:#fff;border:1px solid #fff;">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>Why Choose This Template?</h2>
+        <p>Crafted with modern standards and flexibility in mind.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <img src="https://picsum.photos/seed/1/600/400" alt="Feature 1">
+          <div class="card-body">
+            <h3>Responsive Layout</h3>
+            <p>Works flawlessly on mobile, tablet and desktop.</p>
+            <a href="#">Read More →</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/seed/2/600/400" alt="Feature 2">
+          <div class="card-body">
+            <h3>CSS Variables</h3>
+            <p>Instantly re‑theme by editing a few variables.</p>
+            <a href="#">Read More →</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/seed/3/600/400" alt="Feature 3">
+          <div class="card-body">
+            <h3>Clean Code</h3>
+            <p>Well‑structured HTML &amp; CSS for easy customization.</p>
+            <a href="#">Read More →</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/seed/4/600/400" alt="Feature 4">
+          <div class="card-body">
+            <h3>Fast Performance</h3>
+            <p>Lightweight and optimized for quick load times.</p>
+            <a href="#">Read More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      © 2026 Brand. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
