@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modern Single‑Page Template</title>
+    <style>
+        :root {
+            /* Theme colors – replace values to re‑theme */
+            --primary: #4a90e2;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        nav {
+            margin-top: 0.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        main {
+            flex: 1;
+            width: 100%;
+        }
+
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+        .btn-primary {
+            background: #fff;
+            color: var(--primary);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        .btn-primary:hover {
+            background: var(--bg-surface);
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        @media (min-width: 600px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 900px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .card-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-title {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+        .card-text {
+            flex: 1;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .card a {
+            align-self: flex-start;
+            font-weight: 500;
+        }
+
+        footer {
+            background: var(--bg-surface);
+            color: var(--text-secondary);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">MyBrand</div>
+    <nav>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <h1>Welcome to the Future of Web Design</h1>
+        <p>Elegant, responsive, and fully customizable templates to boost your presence.</p>
+        <button class="btn-primary">Get Started</button>
+    </section>
+
+    <section id="features" class="section">
+        <h2 style="margin-bottom:1.5rem;">Features</h2>
+        <div class="grid grid-3">
+            <div class="card">
+                <img src="https://picsum.photos/seed/1/600/400" alt="Feature 1">
+                <div class="card-body">
+                    <h3 class="card-title">Responsive Layout</h3>
+                    <p class="card-text">Automatically adapts to any screen size, ensuring a flawless experience on mobile, tablet, and desktop.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://picsum.photos/seed/2/600/400" alt="Feature 2">
+                <div class="card-body">
+                    <h3 class="card-title">Customizable Theme</h3>
+                    <p class="card-text">Change colors with a single CSS variable edit – perfect for branding and rapid redesigns.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://picsum.photos/seed/3/600/400" alt="Feature 3">
+                <div class="card-body">
+                    <h3 class="card-title">Fast Performance</h3>
+                    <p class="card-text">Optimized assets and clean code keep load times minimal and SEO rankings high.</p>
+                    <a href="#">Learn more →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section">
+        <h2 style="margin-bottom:1.5rem;">Pricing</h2>
+        <div class="grid grid-2">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Basic</h3>
+                    <p class="card-text"><strong>$9/mo</strong> – Perfect for freelancers and small projects.</p>
+                    <a href="#">Choose Plan →</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Pro</h3>
+                    <p class="card-text"><strong>$29/mo</strong> – Ideal for agencies and growing businesses.</p>
+                    <a href="#">Choose Plan →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2 style="margin-bottom:1.5rem;">About Us</h2>
+        <p style="max-width:800px;margin:auto;color:var(--text-secondary);">
+            We are a team of passionate developers and designers dedicated to crafting beautiful, functional
+            web experiences. Our mission is to make high‑quality design accessible to everyone, regardless of
+            skill level or budget.
+        </p>
+    </section>
+</main>
+
+<footer>
+    © 2026 MyBrand. All rights reserved.
+</footer>
+
+</body>
+</html>
