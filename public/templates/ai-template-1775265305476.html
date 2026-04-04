@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Template</title>
+    <style>
+        /* ---- Theme variables ---- */
+        :root {
+            --primary: #0066ff;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #555555;
+            --border: #e0e0e0;
+        }
+
+        /* ---- Reset & base ---- */
+        *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            scroll-behavior: smooth;
+        }
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* ---- Layout ---- */
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+        .logo { font-weight: 600; font-size: 1.25rem; color: var(--primary); }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* ---- Mobile menu ---- */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-surface);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                border-bottom: 1px solid var(--border);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height .3s ease;
+            }
+            .nav-links.open { max-height: 300px; }
+            .nav-links a {
+                padding: 1rem;
+                width: 100%;
+            }
+            .menu-toggle { display: block; }
+        }
+
+        /* ---- Hero ---- */
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: .5rem; }
+        .hero p { font-size: 1.125rem; max-width: 40rem; margin: 0 auto; }
+
+        /* ---- Main content ---- */
+        main { padding: 2rem 0; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: .5rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,.05);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0,0,0,.1);
+        }
+        .card h3 { margin-bottom: .5rem; font-size: 1.25rem; }
+        .card p { font-size: .95rem; color: var(--text-secondary); }
+
+        /* ---- Footer ---- */
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            font-size: .9rem;
+            color: var(--text-secondary);
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+        .footer-col h4 { margin-bottom: .75rem; color: var(--text-primary); }
+        .footer-col ul { list-style:none; }
+        .footer-col li { margin-bottom:.5rem; }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: .8rem;
+        }
+
+        /* ---- Utility ---- */
+        .btn {
+            display: inline-block;
+            padding: .75rem 1.5rem;
+            background: var(--primary);
+            color:#fff;
+            border-radius:.25rem;
+            font-weight:500;
+            transition: background .2s ease;
+        }
+        .btn:hover { background:#0050cc; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">MyBrand</div>
+            <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="container">
+        <h1>Welcome to Modern Design</h1>
+        <p>Craft beautiful, responsive web experiences with a clean, theme‑able template. Ready to start?</p>
+        <a href="#features" class="btn">Explore Features</a>
+    </div>
+</section>
+
+<main class="container">
+    <section id="features">
+        <h2 style="margin-bottom:1rem;">Features</h2>
+        <div class="grid">
+            <article class="card">
+                <h3>Responsive Layout</h3>
+                <p>Flexbox and CSS Grid make your site look great on any device.</p>
+            </article>
+            <article class="card">
+                <h3>Themeable Colors</h3>
+                <p>Easily switch palettes by editing CSS variables.</p>
+            </article>
+            <article class="card">
+                <h3>Fast Performance</h3>
+                <p>Minimal CSS, no frameworks, low footprint.</p>
+            </article>
+            <article class="card">
+                <h3>Accessible</h3>
+                <p>Semantic HTML and ARIA‑friendly navigation.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="pricing" style="margin-top:3rem;">
+        <h2 style="margin-bottom:1rem;">Pricing</h2>
+        <div class="grid">
+            <article class="card">
+                <h3>Basic</h3>
+                <p>$0 / month</p>
+                <p>Essential features for personal projects.</p>
+                <a href="#" class="btn">Get Started</a>
+            </article>
+            <article class="card">
+                <h3>Pro</h3>
+                <p>$19 / month</p>
+                <p>Advanced tools for growing businesses.</p>
+                <a href="#" class="btn">Upgrade</a>
+            </article>
+            <article class="card">
+                <h3>Enterprise</h3>
+                <p>Contact us</p>
+                <p>Custom solutions and dedicated support.</p>
+                <a href="#" class="btn">Contact Sales</a>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="#">Company</a></li>
+                    <li><a href="#">Team</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">API Docs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@example.com">info@example.com</a></li>
+                    <li><a href="tel:+1234567890">+1 (234) 567‑890</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 MyBrand. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Simple mobile menu toggle
+    const toggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    toggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+    });
+</script>
+
+</body>
+</html>
