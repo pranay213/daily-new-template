@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stunning Responsive Template</title>
+  <style>
+    /* Reset & basics */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Theme variables (default light) */
+    :root {
+      --primary: #0066ff;
+      --bg-main: #f5f7fa;
+      --bg-surface: #ffffff;
+      --text-primary: #222222;
+      --text-secondary: #555555;
+      --border: #e0e0e0;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    a:hover {
+      opacity: .8;
+    }
+
+    header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    nav {
+      margin-top: 0.5rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .hero {
+      background: var(--primary);
+      color: #fff;
+      padding: 4rem 2rem;
+      border-radius: 0.75rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+    }
+    .hero .cta {
+      display: inline-block;
+      background: #fff;
+      color: var(--primary);
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: background .2s, color .2s;
+    }
+    .hero .cta:hover {
+      background: #f0f0f0;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .feature-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .feature-card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    .feature-card p {
+      color: var(--text-secondary);
+    }
+
+    .cta-section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 2rem;
+      text-align: center;
+      margin: 4rem 0;
+    }
+    .cta-section h2 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .cta-section .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: background .2s;
+    }
+    .cta-section .btn:hover {
+      background: #004ecb;
+    }
+
+    footer {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header, footer {
+        padding: 1rem;
+      }
+      .hero {
+        padding: 3rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">MyBrand</div>
+    <nav>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#cta">Get Started</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Elegant &amp; Modern Web Design</h1>
+      <p>Responsive, fast, and ready to be themed with just a few CSS variables.</p>
+      <a href="#cta" class="cta">Explore Now</a>
+    </section>
+
+    <section id="features" class="features">
+      <div class="feature-card">
+        <h3>Responsive Layout</h3>
+        <p>Adapts gracefully to any screen size using CSS Grid and Flexbox.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Customizable Theme</h3>
+        <p>Easily adjust colors with CSS variables—no code changes required.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Fast Performance</h3>
+        <p>Lightweight HTML/CSS, minimal assets, optimized for speed.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Accessible</h3>
+        <p>Semantic markup and sufficient contrast for better accessibility.</p>
+      </div>
+    </section>
+
+    <section id="cta" class="cta-section">
+      <h2>Ready to Build Something Amazing?</h2>
+      <a href="#" class="btn">Start Your Project</a>
+    </section>
+  </main>
+
+  <footer id="contact">
+    © 2026 MyBrand • All rights reserved.
+  </footer>
+</body>
+</html>
