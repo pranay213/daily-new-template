@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Template</title>
+<style>
+:root {
+  --primary: #4A90E2;
+  --bg-main: #f5f7fa;
+  --bg-surface: #ffffff;
+  --text-primary: #222222;
+  --text-secondary: #555555;
+  --border: #e0e0e0;
+  --radius: 8px;
+  --transition: 0.3s ease;
+}
+
+/* Reset & base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-main);
+}
+
+/* Layout */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background: var(--bg-surface);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: color var(--transition);
+}
+.nav-links a:hover,
+.nav-links a:focus {
+  color: var(--primary);
+}
+
+/* Hero */
+.hero {
+  background: var(--primary);
+  color: #fff;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+.hero h1 {
+  font-size: clamp(2rem,5vw,3.5rem);
+  margin-bottom: 1rem;
+}
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+.hero button {
+  background: #fff;
+  color: var(--primary);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.hero button:hover,
+.hero button:focus {
+  background: var(--text-primary);
+  color: #fff;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+section {
+  margin-bottom: 3rem;
+}
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform var(--transition);
+}
+.card:hover {
+  transform: translateY(-4px);
+}
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.card-content {
+  padding: 1rem;
+}
+.card-content h3 {
+  margin: 0 0 .5rem;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+.card-content p {
+  font-size: .9rem;
+  color: var(--text-secondary);
+}
+
+/* Footer */
+footer {
+  background: var(--bg-surface);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+footer p {
+  font-size: .9rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .nav-links {
+    gap: 1rem;
+  }
+  .hero {
+    padding: 3rem 1rem;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">MySite</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Pricing</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Welcome to Your New Website</h1>
+  <p>Crafted with modern design, responsive layout, and themable colors. Get started by customizing the colors to match your brand.</p>
+  <button>Get Started</button>
+</section>
+
+<main>
+  <section>
+    <h2>Features</h2>
+    <div class="card-grid">
+      <div class="card">
+        <img src="https://via.placeholder.com/400x200" alt="Feature 1">
+        <div class="card-content">
+          <h3>Responsive Design</h3>
+          <p>Looks great on any device, from phones to desktops.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/400x200" alt="Feature 2">
+        <div class="card-content">
+          <h3>Customizable Theme</h3>
+          <p>Easily change colors with CSS variables.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/400x200" alt="Feature 3">
+        <div class="card-content">
+          <h3>Clean Code</h3>
+          <p>Well‑structured HTML and CSS for maintainability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>About Us</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 MySite. All rights reserved.</p>
+</footer>
+</body>
+</html>
