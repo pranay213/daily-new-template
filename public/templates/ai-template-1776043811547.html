@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CSS‑Variable Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Theme colors – change these to re‑theme */
+            --primary: #0066ff;
+            --bg-main: #f4f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #495057;
+            --border: #e0e0e0;
+
+            /* Typography */
+            --font-sans: 'Inter', system-ui, sans-serif;
+            --header-size: 2.5rem;
+            --subheader-size: 1.75rem;
+            --body-size: 1rem;
+        }
+
+        /* Optional dark mode */
+        .dark {
+            --primary: #4da6ff;
+            --bg-main: #121212;
+            --bg-surface: #1e1e1e;
+            --text-primary: #f1f1f1;
+            --text-secondary: #b3b3b3;
+            --border: #333333;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav__brand {
+            font-size: var(--header-size);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav__links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav__links a {
+            font-weight: 500;
+        }
+
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero__title {
+            font-size: var(--header-size);
+            margin-bottom: 1rem;
+        }
+
+        .hero__subtitle {
+            font-size: var(--subheader-size);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero__cta {
+            display: inline-block;
+            background: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.4rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .hero__cta:hover {
+            background: #f0f0f0;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 2rem auto;
+            width: 100%;
+            padding: 0 1.5rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card__img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .card__body {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card__title {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .card__text {
+            flex: 1;
+            font-size: var(--body-size);
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .card__link {
+            align-self: flex-start;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 480px) {
+            .nav__brand {
+                font-size: 1.8rem;
+            }
+            .hero {
+                padding: 3rem 1rem;
+            }
+            .hero__title {
+                font-size: 1.8rem;
+            }
+            .hero__subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body class="">
+    <header>
+        <nav class="nav" aria-label="Main navigation">
+            <div class="nav__brand">MySite</div>
+            <div class="nav__links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 class="hero__title">Stunning Modern Design</h1>
+        <p class="hero__subtitle">Responsive, themeable, and ready to ship.</p>
+        <a href="#features" class="hero__cta">Explore Features</a>
+    </section>
+
+    <main id="features">
+        <section>
+            <h2 style="font-size: var(--subheader-size); margin-bottom: 1rem; text-align:center;">Features</h2>
+            <div class="grid">
+                <article class="card">
+                    <img src="https://picsum.photos/seed/1/600/400" alt="Feature 1" class="card__img">
+                    <div class="card__body">
+                        <h3 class="card__title">Responsive Layout</h3>
+                        <p class="card__text">Automatically adapts to any screen size using CSS Grid and Flexbox.</p>
+                        <a href="#" class="card__link">Read more →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/2/600/400" alt="Feature 2" class="card__img">
+                    <div class="card__body">
+                        <h3 class="card__title">CSS Variables</h3>
+                        <p class="card__text">Easily re‑theme the site by overriding a handful of variables.</p>
+                        <a href="#" class="card__link">Read more →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/3/600/400" alt="Feature 3" class="card__img">
+                    <div class="card__body">
+                        <h3 class="card__title">Semantic HTML</h3>
+                        <p class="card__text">Clean, accessible markup that works well with screen readers.</p>
+                        <a href="#" class="card__link">Read more →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/4/600/400" alt="Feature 4" class="card__img">
+                    <div class="card__body">
+                        <h3 class="card__title">Fast Load</h3>
+                        <p class="card__text">Minimal CSS, no external libraries, and optimized images.</p>
+                        <a href="#" class="card__link">Read more →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 MySite • <a href="#contact" style="color:var(--primary);">Contact</a>
+    </footer>
+</body>
+</html>

@@ -1,5 +1,14 @@
 export const templates = [
   {
+    id: 'ai-template-1776043811547',
+    title: 'AI Generated Template (2026-04-13)',
+    description: 'A brand new layout generated automatically by Ollama AI.',
+    dateAdded: '2026-04-13',
+    fileUrl: '/templates/ai-template-1776043811547.html',
+    category: 'Generated',
+    thumbnail: 'https://images.unsplash.com/photo-1620121692029-d088224ddc74?auto=format&fit=crop&q=80&w=800'
+  },
+  {
     id: 'ai-template-1775957294878',
     title: 'AI Generated Template (2026-04-12)',
     description: 'A brand new layout generated automatically by Ollama AI.',
