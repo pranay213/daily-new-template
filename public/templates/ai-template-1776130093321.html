@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stunning Template</title>
+  <style>
+    :root {
+      --primary: #4f46e5;            /* Indigo */
+      --bg-main: #f5f7fa;            /* Light gray */
+      --bg-surface: #ffffff;         /* White */
+      --text-primary: #111827;      /* Dark gray */
+      --text-secondary: #4b5563;    /* Medium gray */
+      --border: #e5e7eb;            /* Light border */
+      --radius: .5rem;
+      --transition: .3s ease;
+      --max-width: 1200px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-main);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4rem;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-toggle svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--text-primary);
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: .5rem;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero .btn {
+      background: #fff;
+      color: var(--primary);
+      padding: .75rem 1.5rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .hero .btn:hover {
+      background: #f0f0f0;
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 1rem;
+    }
+
+    section:nth-of-type(even) {
+      background: var(--bg-surface);
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+    }
+
+    .card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      margin-bottom: .5rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-surface);
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+      padding: 2rem 1rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    footer a {
+      color: var(--text-secondary);
+    }
+
+    footer a:hover {
+      color: var(--primary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-surface);
+        flex-direction: column;
+        gap: 0;
+        border-bottom: 1px solid var(--border);
+        display: none;
+        z-index: 10;
+      }
+
+      .nav-links a {
+        padding: 1rem;
+        border-top: 1px solid var(--border);
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-active .nav-links {
+        display: flex;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.querySelector('.navbar');
+      toggle.addEventListener('click', () => nav.classList.toggle('nav-active'));
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="logo">MyBrand</div>
+        <button class="nav-toggle" aria-label="Toggle menu">
+          <svg viewBox="0 0 100 80" width="30" height="30">
+            <rect width="100" height="15"></rect>
+            <rect y="30" width="100" height="15"></rect>
+            <rect y="60" width="100" height="15"></rect>
+          </svg>
+        </button>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Design That Inspires</h1>
+    <p>Craft beautiful, responsive experiences with ease.</p>
+    <a href="#features" class="btn">Explore Features</a>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <h2>Features</h2>
+      <div class="card-grid">
+        <div class="card">
+          <img src="https://via.placeholder.com/300x180" alt="Responsive layout">
+          <h3>Responsive Layout</h3>
+          <p>Optimized for every screen size, from mobiles to desktops.</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x180" alt="Customizable theme">
+          <h3>Customizable Theme</h3>
+          <p>Change colors instantly with CSS variables.</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x180" alt="Performance">
+          <h3>Performance First</h3>
+          <p>Lightweight and fast loading to improve SEO.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" style="background: var(--bg-surface);">
+    <div class="container">
+      <h2>Pricing</h2>
+      <p style="text-align:center;">Simple, transparent pricing for everyone.</p>
+      <!-- Future pricing table -->
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p style="max-width:800px;margin:auto;">
+        We are a passionate team of designers and developers dedicated to creating modern, user‑centric web experiences.
+      </p>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="container footer-grid">
+      <div>
+        <h4>MyBrand</h4>
+        <p>© 2026 MyBrand. All rights reserved.</p>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <ul style="list-style:none;">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>Email: <a href="mailto:info@mybrand.com">info@mybrand.com</a></p>
+        <p>Phone: +1 (555) 123‑4567</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
