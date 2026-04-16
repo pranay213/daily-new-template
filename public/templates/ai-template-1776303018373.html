@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CSS‑Variable Theme Template</title>
+    <style>
+        :root {
+            /* Theme variables – adjust these to re‑theme */
+            --primary: #0066ff;
+            --bg-main: #f5f8ff;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+
+            /* Typography */
+            --font-base: 16px;
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        /* Global reset & base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: var(--font-base);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        img, picture, video, canvas, svg {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover, a:focus {
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        header, footer {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero .cta {
+            display: inline-block;
+            background: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .hero .cta:hover {
+            background: var(--bg-surface);
+        }
+
+        /* Features grid */
+        .features {
+            display: grid;
+            gap: 2rem;
+            padding: 3rem 0;
+        }
+
+        @media (min-width: 600px) {
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .features {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
+            padding: 2rem 0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-col {
+            flex: 1 1 200px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col a {
+            color: var(--text-secondary);
+        }
+
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive nav */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: var(--bg-surface);
+                flex-direction: column;
+                width: 200px;
+                border: 1px solid var(--border);
+                border-radius: 0 0 0.5rem 0.5rem;
+                overflow: hidden;
+                max-height: 0;
+                transition: max-height 0.3s ease;
+            }
+
+            .nav-links.open {
+                max-height: 500px; /* enough for links */
+            }
+
+            .nav-toggle {
+                display: block;
+                color: var(--text-primary);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav aria-label="Main navigation">
+                <a href="#" class="logo">MySite</a>
+                <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Toggle menu">
+                    ☰
+                </button>
+                <ul class="nav-links" id="primary-menu">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Elegant &amp; Responsive Design</h1>
+            <p>Build beautiful, accessible web experiences with a modern, CSS‑variable based template.</p>
+            <a href="#features" class="cta">Explore Features</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="features" class="features">
+            <article class="feature-card">
+                <h3>Customizable Theme</h3>
+                <p>Just change a handful of CSS variables to match your brand colors and typography.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Responsive Layout</h3>
+                <p>Built with Flexbox and CSS Grid, the design adapts gracefully from mobile to desktop.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Accessible Markup</h3>
+                <p>Semantic HTML and ARIA attributes ensure a great experience for all users.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Performance First</h3>
+                <p>No external libraries, minimal CSS, and lazy‑loaded images keep the page fast.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Reusable Components</h3>
+                <p>Easily copy‑paste sections like cards, buttons, and forms into any project.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Future‑Proof</h3>
+                <p>Leverages modern CSS features while remaining compatible with all evergreen browsers.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <p>We craft clean, lightweight web solutions that make a lasting impression.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info@example.com">info@example.com</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567‑890</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p style="margin-top:1.5rem;text-align:center;">© 2026 MySite. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile‑nav toggle
+        const toggleBtn = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        toggleBtn.addEventListener('click', () => {
+            const expanded = toggleBtn.getAttribute('aria-expanded') === 'true' || false;
+            toggleBtn.setAttribute('aria-expanded', !expanded);
+            navLinks.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
