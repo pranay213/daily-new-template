@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stunning Single‑File Template</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin: 0 0 1rem;
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            margin: 0 0 2rem;
+            font-size: 1.125rem;
+            max-width: 40rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .cta {
+            background: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .hero .cta:hover {
+            background: #f0f0f0;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body h3 {
+            margin: 0 0 .5rem;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .card-body p {
+            flex-grow: 1;
+            margin: 0 0 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .card-body .read-more {
+            margin-top: auto;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+
+        .footer-col h4 {
+            margin: 0 0 .5rem;
+            color: var(--text-primary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-col li {
+            margin-bottom: .5rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">MySite</div>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to the Future of Web Design</h1>
+            <p>Craft beautiful, responsive experiences with minimal effort. Our component‑driven approach lets you focus on creativity, not code.</p>
+            <a href="#" class="cta">Get Started</a>
+        </div>
+    </section>
+
+    <main class="container" style="padding: 3rem 0;">
+        <section>
+            <h2 style="margin-bottom:1.5rem; font-size:2rem; color:var(--text-primary);">Features</h2>
+            <div class="grid">
+                <article class="card">
+                    <img src="https://picsum.photos/seed/1/400/250" alt="Feature 1">
+                    <div class="card-body">
+                        <h3>Responsive Layouts</h3>
+                        <p>Design that looks great on any device, from phones to large screens, using flexible grids and media queries.</p>
+                        <a href="#" class="read-more">Learn More →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/2/400/250" alt="Feature 2">
+                    <div class="card-body">
+                        <h3>Themeable Colors</h3>
+                        <p>Easily switch color schemes with CSS variables. No need to edit the core stylesheet.</p>
+                        <a href="#" class="read-more">Learn More →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/3/400/250" alt="Feature 3">
+                    <div class="card-body">
+                        <h3>Modern UI</h3>
+                        <p>Clean typography, subtle shadows, and smooth interactions create a polished experience.</p>
+                        <a href="#" class="read-more">Learn More →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/4/400/250" alt="Feature 4">
+                    <div class="card-body">
+                        <h3>Performance Focused</h3>
+                        <p>Lightweight HTML & CSS, no heavy JavaScript frameworks. Faster load times for better SEO.</p>
+                        <a href="#" class="read-more">Learn More →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Email: <a href="mailto:info@mysite.com">info@mysite.com</a></li>
+                        <li>Phone: +1 (555) 123‑4567</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <p>&copy; 2026 MySite. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
