@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Responsive Web Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --primary: #4a90e2;
+  --bg-main: #f5f7fa;
+  --bg-surface: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border: #e0e0e0;
+  --max-width: 1200px;
+  --radius: 8px;
+  --transition: 0.3s ease;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Layout */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+header {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: var(--transition);
+}
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, #0077b6 100%);
+  color: #fff;
+  padding: 6rem 1rem;
+  text-align: center;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+.hero .cta {
+  background-color: #fff;
+  color: var(--primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.hero .cta:hover {
+  background-color: rgba(255,255,255,0.9);
+}
+
+/* Sections */
+section {
+  padding: 4rem 0;
+}
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+/* Features Grid */
+.features {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.feature-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition);
+}
+.feature-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+}
+.feature-card i {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+.feature-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+/* About */
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+.about img {
+  max-width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.about-text {
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Contact */
+.contact form {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font: inherit;
+}
+.contact button {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.contact button:hover {
+  opacity: 0.9;
+}
+
+/* Footer */
+footer {
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+footer a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+/* Responsive tweaks */
+@media (min-width: 768px) {
+  .about {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .about img {
+    flex: 1 1 40%;
+  }
+  .about-text {
+    flex: 1 1 60%;
+    text-align: left;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container navbar">
+    <a href="#" class="logo">MySite</a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Modern & Responsive Design</h1>
+    <p>Craft beautiful web experiences with clean code and flexible theming.</p>
+    <a href="#features" class="cta">Explore Features</a>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <h2>Features</h2>
+    <div class="features">
+      <div class="feature-card">
+        <i class="fas fa-palette"></i>
+        <h3>Custom Themes</h3>
+        <p>Easily switch colors using CSS variables.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Responsive Layout</h3>
+        <p>Looks great on any device, from phones to desktops.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-code"></i>
+        <h3>Clean Code</h3>
+        <p>Well‑structured HTML and modular CSS.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-bolt"></i>
+        <h3>Fast Performance</h3>
+        <p>Optimized assets and minimal CSS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2>About Us</h2>
+    <div class="about">
+      <img src="https://via.placeholder.com/500x300" alt="About Image">
+      <div class="about-text">
+        <p>We are a passionate team dedicated to delivering modern web solutions. Our approach combines creativity with solid engineering practices to build interfaces that delight users and meet business goals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form action="#" method="post">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 MySite. All rights reserved. <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+
+<!-- Font Awesome CDN for icons -->
+<script src="https://kit.fontawesome.com/a2d9c3b6e1.js" crossorigin="anonymous"></script>
+</body>
+</html>
