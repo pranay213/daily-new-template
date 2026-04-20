@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stunning Responsive Template</title>
+    <style>
+        :root {
+            --primary: #0066ff;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #222222;
+            --text-secondary: #555555;
+            --border: #e0e0e0;
+        }
+
+        /* Dark theme (optional) */
+        [data-theme="dark"] {
+            --primary: #4dabf7;
+            --bg-main: #1e1e1e;
+            --bg-surface: #2b2b2b;
+            --text-primary: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --border: #444444;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text-primary);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:focus {
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .nav .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav ul li a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero .cta {
+            background: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.4rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .hero .cta:hover {
+            background: #f0f0f0;
+        }
+
+        /* Content Grid */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            padding: 3rem 0;
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .card-content h3 {
+            margin-bottom: .5rem;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .card-content p {
+            font-size: .95rem;
+            color: var(--text-secondary);
+        }
+
+        .card-content .read-more {
+            margin-top: 1rem;
+            font-size: .9rem;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: .9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (min-width: 600px) {
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            }
+        }
+
+        @media (min-width: 900px) {
+            .nav ul {
+                gap: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">MyBrand</div>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" aria-label="Toggle theme">🌓</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Elegant, Responsive Design</h1>
+            <p>Crafted with modern CSS, CSS‑variables theming and a mobile‑first approach.</p>
+            <a href="#features" class="cta">Explore Features</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="features" class="grid">
+            <article class="card">
+                <img src="https://picsum.photos/seed/1/400/300" alt="Feature 1">
+                <div class="card-content">
+                    <h3>Responsive Layout</h3>
+                    <p>Adapts flawlessly to any screen size using CSS Grid and Flexbox.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/2/400/300" alt="Feature 2">
+                <div class="card-content">
+                    <h3>Customizable Theme</h3>
+                    <p>Switch colors instantly with CSS variables — light or dark.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/3/400/300" alt="Feature 3">
+                <div class="card-content">
+                    <h3>Fast Performance</h3>
+                    <p>Minimal JavaScript, optimized assets, and clean markup.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/4/400/300" alt="Feature 4">
+                <div class="card-content">
+                    <h3>Elegant UI</h3>
+                    <p>Thoughtful spacing, typography, and subtle interactions.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+            </article>
+        </section>
+
+        <section id="pricing" style="padding:3rem 0;">
+            <h2 style="text-align:center; margin-bottom:2rem; color:var(--text-primary);">Pricing Plans</h2>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <article class="card" style="padding:2rem;">
+                    <h3 style="margin-bottom:.5rem;">Basic</h3>
+                    <p style="font-size:2rem; margin:.5rem 0;">$9/mo</p>
+                    <ul style="margin:1rem 0; list-style:disc inside; color:var(--text-secondary);">
+                        <li>5 Projects</li>
+                        <li>Email Support</li>
+                        <li>Basic Analytics</li>
+                    </ul>
+                    <a href="#" class="cta">Choose</a>
+                </article>
+                <article class="card" style="padding:2rem;">
+                    <h3 style="margin-bottom:.5rem;">Pro</h3>
+                    <p style="font-size:2rem; margin:.5rem 0;">$29/mo</p>
+                    <ul style="margin:1rem 0; list-style:disc inside; color:var(--text-secondary);">
+                        <li>Unlimited Projects</li>
+                        <li>Priority Support</li>
+                        <li>Advanced Analytics</li>
+                    </ul>
+                    <a href="#" class="cta">Choose</a>
+                </article>
+                <article class="card" style="padding:2rem;">
+                    <h3 style="margin-bottom:.5rem;">Enterprise</h3>
+                    <p style="font-size:2rem; margin:.5rem 0;">Contact Us</p>
+                    <ul style="margin:1rem 0; list-style:disc inside; color:var(--text-secondary);">
+                        <li>Custom Solutions</li>
+                        <li>Dedicated Manager</li>
+                        <li>Full Integration</li>
+                    </ul>
+                    <a href="#" class="cta">Contact</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2026 MyBrand • All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.querySelector('.theme-toggle');
+        const root = document.documentElement;
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            root.dataset.theme = 'dark';
+        }
+
+        toggle.addEventListener('click', () => {
+            const isDark = root.dataset.theme === 'dark';
+            if (isDark) {
+                root.dataset.theme = '';
+                localStorage.setItem('theme', 'light');
+            } else {
+                root.dataset.theme = 'dark';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+</body>
+</html>
