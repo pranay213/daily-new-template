@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modern Single-Page Template</title>
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+            --radius: 8px;
+            --transition: 0.3s ease;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            opacity: 0.85;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+            padding: 6rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .cta {
+            display: inline-block;
+            background: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .hero .cta:hover {
+            background: rgba(255,255,255,0.9);
+        }
+
+        .section {
+            padding: 4rem 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            color: var(--text-primary);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .cards {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            flex: 1;
+            padding: 1.5rem;
+        }
+
+        .card-body h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .card-body p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-body a {
+            margin-top: auto;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 1rem;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+
+        .footer-col {
+            flex: 1 1 200px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .nav ul {
+                display: none;
+            }
+            .hero {
+                padding: 4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">MyBrand</div>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Stunning Design, Seamless Experience</h1>
+            <p>Build modern, responsive websites with our clean, component‑based HTML/CSS template. Ready to customize, ready to shine.</p>
+            <a href="#features" class="cta">Explore Features</a>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title">Features</h2>
+            <div class="grid cards">
+                <div class="card">
+                    <img src="https://picsum.photos/seed/1/400/300" alt="Feature 1">
+                    <div class="card-body">
+                        <h3>Responsive Layout</h3>
+                        <p>Optimized for all screen sizes using CSS Grid and Flexbox, ensuring a flawless experience.</p>
+                        <a href="#">Learn more →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/2/400/300" alt="Feature 2">
+                    <div class="card-body">
+                        <h3>Themeable Colors</h3>
+                        <p>Control the entire color palette with a few CSS variables. Switch themes in seconds.</p>
+                        <a href="#">Learn more →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/3/400/300" alt="Feature 3">
+                    <div class="card-body">
+                        <h3>Accessibility First</h3>
+                        <p>Semantic markup, focus styles, and sufficient color contrast for all users.</p>
+                        <a href="#">Learn more →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/4/400/300" alt="Feature 4">
+                    <div class="card-body">
+                        <h3>Fast Performance</h3>
+                        <p>Lightweight HTML/CSS, no external libraries needed, reducing load times.</p>
+                        <a href="#">Learn more →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section" style="background: var(--bg-surface);">
+        <div class="container">
+            <h2 class="section-title">Pricing</h2>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+                <div class="card" style="border: 2px solid var(--primary);">
+                    <div class="card-body">
+                        <h3>Free</h3>
+                        <p style="color: var(--primary); font-size: 2rem; margin: 0.5rem 0;">$0</p>
+                        <p>Basic access to components and layouts.</p>
+                        <a href="#">Get started →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Pro</h3>
+                        <p style="color: var(--primary); font-size: 2rem; margin: 0.5rem 0;">$49/mo</p>
+                        <p>All features + premium support.</p>
+                        <a href="#">Upgrade →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Enterprise</h3>
+                        <p style="color: var(--primary); font-size: 2rem; margin: 0.5rem 0;">Custom</p>
+                        <p>Tailored solutions for large teams.</p>
+                        <a href="#">Contact sales →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <p style="max-width: 800px; margin: 0 auto; text-align: center; color: var(--text-secondary);">
+                We are a small team of designers and developers passionate about clean code and beautiful interfaces.
+                Our mission is to make high‑quality web design accessible to everyone.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>MyBrand</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                        Creating elegant, responsive web experiences with simplicity at core.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info@mybrand.com">info@mybrand.com</a></li>
+                        <li><a href="tel:+1234567890">+1 234 567 890</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2026 MyBrand. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
