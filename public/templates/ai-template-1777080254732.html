@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Single‑File Template</title>
+    <style>
+        :root {
+            /* Theme variables – change these to re‑theme the whole page */
+            --primary:        #4a90e2;
+            --bg-main:        #f5f7fa;
+            --bg-surface:     #ffffff;
+            --text-primary:  #2c3e50;
+            --text-secondary:#7f8c8d;
+            --border:         #e0e4e8;
+        }
+
+        /* Reset & base */
+        *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Layout */
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Hero */
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: 6rem 1rem 4rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: clamp(2rem,5vw,3.5rem);
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: clamp(1rem,2.5vw,1.25rem);
+            max-width: 40rem;
+            margin: 0 auto 2rem;
+        }
+        .hero .cta {
+            background: #fff;
+            color: var(--primary);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            transition: background .3s, color .3s;
+        }
+        .hero .cta:hover {
+            background: var(--bg-surface);
+            color: var(--primary);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 1rem;
+        }
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        @media (min-width: 640px) {
+            .grid-2 { grid-template-columns: repeat(2, 1fr); }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            transition: transform .2s, box-shadow .2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .card-body {
+            padding: 1.5rem;
+        }
+        .card-body h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+        .card-body p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .footer-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        @media (min-width: 640px) {
+            .footer-grid { flex-direction: row; justify-content: space-between; }
+        }
+        .footer-grid a { color: var(--text-secondary); }
+        .footer-grid a:hover { color: var(--primary); }
+
+        /* Responsive Nav (mobile) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+        @media (max-width: 639px) {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-surface);
+                flex-direction: column;
+                border-bottom: 1px solid var(--border);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height .3s ease-out;
+            }
+            .nav-links.open { max-height: 20rem; }
+            .menu-toggle { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">MyBrand</div>
+                <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+                <div class="nav-links" id="navLinks">
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Elevate Your Digital Presence</h1>
+        <p>Beautiful, responsive designs that adapt to every device. Build your brand with confidence using our modern UI toolkit.</p>
+        <button class="cta">Get Started</button>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2 style="text-align:center;margin-bottom:2rem;color:var(--text-primary);">Features</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <img src="https://picsum.photos/seed/p1/600/400" alt="Feature 1">
+                    <div class="card-body">
+                        <h3>Responsive Layouts</h3>
+                        <p>Seamlessly adapt to any screen size using flexible grids and media queries.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/p2/600/400" alt="Feature 2">
+                    <div class="card-body">
+                        <h3>Customizable Themes</h3>
+                        <p>Change colors, fonts, and spacing with just a few CSS variables.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/p3/600/400" alt="Feature 3">
+                    <div class="card-body">
+                        <h3>Fast Performance</h3>
+                        <p>Lightweight codebase and optimized assets for lightning‑quick loading.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" style="background:var(--bg-surface);">
+        <div class="container">
+            <h2 style="text-align:center;margin-bottom:2rem;color:var(--text-primary);">Pricing</h2>
+            <div class="grid grid-2" style="max-width:800px;margin:auto;">
+                <div class="card" style="border:none;box-shadow:none;">
+                    <div class="card-body" style="text-align:center;">
+                        <h3>Basic</h3>
+                        <p style="font-size:2rem;margin:1rem 0;color:var(--primary);">$9<span style="font-size:1rem;">/mo</span></p>
+                        <p>Essential features for small projects.</p>
+                        <button class="cta" style="background:var(--primary);color:#fff;">Choose</button>
+                    </div>
+                </div>
+                <div class="card" style="border:none;box-shadow:none;">
+                    <div class="card-body" style="text-align:center;">
+                        <h3>Pro</h3>
+                        <p style="font-size:2rem;margin:1rem 0;color:var(--primary);">$29<span style="font-size:1rem;">/mo</span></p>
+                        <p>All features, priority support, unlimited sites.</p>
+                        <button class="cta" style="background:var(--primary);color:#fff;">Choose</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 style="text-align:center;margin-bottom:2rem;color:var(--text-primary);">About Us</h2>
+            <p style="max-width:720px;margin:auto;line-height:1.8;color:var(--text-secondary);text-align:center;">
+                We are a team of designers and developers passionate about creating clean, efficient, and beautiful web experiences.
+                Our mission is to empower creators with tools that let them focus on the content while we handle the design details.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact" style="background:var(--bg-surface);">
+        <div class="container">
+            <h2 style="text-align:center;margin-bottom:2rem;color:var(--text-primary);">Contact</h2>
+            <form style="max-width:600px;margin:auto;display:grid;gap:1rem;">
+                <input type="text" placeholder="Name" required style="padding:0.75rem;border:1px solid var(--border);border-radius:0.4rem;">
+                <input type="email" placeholder="Email" required style="padding:0.75rem;border:1px solid var(--border);border-radius:0.4rem;">
+                <textarea placeholder="Message" rows="5" required style="padding:0.75rem;border:1px solid var(--border);border-radius:0.4rem;"></textarea>
+                <button type="submit" class="cta" style="width:fit-content;justify-self:center;">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>&copy; 2026 MyBrand. All rights reserved.</div>
+            <div>
+                <a href="#privacy">Privacy Policy</a> |
+                <a href="#terms">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile navigation toggle
+        const toggle = document.querySelector('.menu-toggle');
+        const navLinks = document.getElementById('navLinks');
+
+        toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
