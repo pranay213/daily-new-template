@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stunning Responsive Template</title>
+<style>
+:root {
+    /* Theme colors – edit these to re‑theme */
+    --primary:        #0066ff;
+    --bg-main:        #f4f7fb;
+    --bg-surface:     #ffffff;
+    --text-primary:  #212529;
+    --text-secondary:#555555;
+    --border:        #e0e0e0;
+}
+
+/* Global reset & base styles */
+*, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+html { font-size: 16px; }
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    background: var(--bg-main);
+    color: var(--text-primary);
+}
+
+/* Layout helpers */
+.container {
+    width: min(100% - 2rem, 1200px);
+    margin-inline: auto;
+    padding: 1rem;
+}
+
+/* Header */
+header {
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color .2s;
+}
+nav a:hover { color: var(--primary); }
+
+/* Hero */
+.hero {
+    background: var(--primary);
+    color: #fff;
+    text-align: center;
+    padding: 5rem 1rem;
+}
+.hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: .5rem; }
+.hero p   { font-size: 1.125rem; margin-bottom: 2rem; max-width: 40rem; margin-inline:auto; }
+.hero .cta {
+    display: inline-block;
+    padding: .75rem 1.5rem;
+    background: #fff;
+    color: var(--primary);
+    border-radius: .4rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s, color .2s;
+}
+.hero .cta:hover {
+    background: #e6e6e6;
+}
+
+/* Section titles */
+.section-title {
+    text-align: center;
+    margin: 3rem 0 2rem;
+    font-size: 2rem;
+    color: var(--text-primary);
+}
+
+/* Card grid */
+.grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,.05);
+    transition: transform .2s, box-shadow .2s;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.10);
+}
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.card-body {
+    padding: 1rem;
+    flex-grow: 1;
+}
+.card-body h3 {
+    margin-bottom: .5rem;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+.card-body p {
+    color: var(--text-secondary);
+    flex-grow: 1;
+}
+.card-body .link {
+    margin-top: 1rem;
+    display: inline-block;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+.card-body .link:hover { text-decoration: underline; }
+
+/* Footer */
+footer {
+    background: var(--bg-surface);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--border);
+    font-size: .9rem;
+}
+footer a {
+    color: var(--primary);
+    text-decoration: none;
+}
+footer a:hover { text-decoration: underline; }
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    nav ul { flex-direction: column; gap: .5rem; margin-top: .5rem; }
+    .hero { padding: 3rem 1rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <a href="#" class="logo">MyBrand</a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Welcome to Your Next Project</h1>
+    <p>Elegant, responsive, and fully themable – get started in seconds and make a lasting impression.</p>
+    <a href="#" class="cta">Get Started</a>
+</section>
+
+<section class="container">
+    <h2 class="section-title">Features</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="https://picsum.photos/seed/1/600/400" alt="Feature 1">
+            <div class="card-body">
+                <h3>Modern Design</h3>
+                <p>Clean lines, subtle shadows and a focus on readability for a contemporary look.</p>
+                <a href="#" class="link">Learn more →</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://picsum.photos/seed/2/600/400" alt="Feature 2">
+            <div class="card-body">
+                <h3>Responsive Layout</h3>
+                <p>Optimized for every device with fluid grids and flexible typography.</p>
+                <a href="#" class="link">Learn more →</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://picsum.photos/seed/3/600/400" alt="Feature 3">
+            <div class="card-body">
+                <h3>CSS Variables</h3>
+                <p>Easily re‑theme the whole site by adjusting just a few variables.</p>
+                <a href="#" class="link">Learn more →</a>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://picsum.photos/seed/4/600/400" alt="Feature 4">
+            <div class="card-body">
+                <h3>Fast Load</h3>
+                <p>Lightweight markup and minimal dependencies for instant page loads.</p>
+                <a href="#" class="link">Learn more →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 MyBrand. All rights reserved.</p>
+    <p>Designed with <a href="https://openai.com/">OpenAI</a> – <a href="#">Privacy</a> • <a href="#">Terms</a></p>
+</footer>
+
+</body>
+</html>
