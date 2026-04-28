@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Stunning Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --primary: #4a90e2;
+  --bg-main: #f5f7fa;
+  --bg-surface: #ffffff;
+  --text-primary: #212121;
+  --text-secondary: #666666;
+  --border: #e0e0e0;
+  --radius: 8px;
+  --spacing: 1rem;
+}
+*, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  background: var(--bg-main);
+  color: var(--text-primary);
+}
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 1200px; margin: 0 auto; padding: var(--spacing); }
+header {
+  background: var(--bg-surface);
+  padding: var(--spacing) 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+.logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+nav { margin-left: auto; display: flex; gap: var(--spacing); }
+nav a {
+  padding: .5rem 1rem;
+  border-radius: var(--radius);
+}
+nav a:hover {
+  background: var(--primary);
+  color: #fff;
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 60vh;
+  background: var(--primary);
+  color: #fff;
+  padding: var(--spacing);
+}
+.hero h1 { font-size: 2.5rem; margin-bottom: .5rem; }
+.hero p { font-size: 1.125rem; max-width: 600px; }
+section { padding: calc(var(--spacing) * 2) 0; }
+.card-grid {
+  display: grid;
+  gap: var(--spacing);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--spacing);
+  box-shadow: 0 2px 4px rgba(0,0,0,.05);
+}
+.card h3 { margin-top: 0; color: var(--primary); }
+footer {
+  background: var(--bg-surface);
+  text-align: center;
+  padding: var(--spacing);
+  border-top: 1px solid var(--border);
+  font-size: .875rem;
+  color: var(--text-secondary);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-main: #121212;
+    --bg-surface: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --border: #333;
+    --primary: #82b1ff;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="logo">MySite</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Features</a>
+      <a href="#">Pricing</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Welcome to MySite</h1>
+    <p>Crafted with modern design principles, responsive layout, and themable colors using CSS variables.</p>
+    <a href="#" style="background:#fff;color:var(--primary);padding:0.75rem 1.5rem;border-radius:var(--radius);margin-top:1rem;display:inline-block;">Get Started</a>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 style="margin-bottom: var(--spacing);color: var(--primary);">Features</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Responsive</h3>
+        <p>Layout adjusts seamlessly across devices, from mobile phones to large desktops.</p>
+      </div>
+      <div class="card">
+        <h3>Customizable</h3>
+        <p>Easily switch themes by redefining a few CSS variables.</p>
+      </div>
+      <div class="card">
+        <h3>Performance</h3>
+        <p>Lightweight HTML and CSS ensure fast load times.</p>
+      </div>
+      <div class="card">
+        <h3>Accessibility</h3>
+        <p>Built with semantic markup and sufficient color contrast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    &copy; 2026 MySite. All rights reserved.
+  </div>
+</footer>
+</body>
+</html>
