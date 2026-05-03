@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Template</title>
+    <style>
+        :root {
+            /* Theme colors – override these in <html style="--primary:#..."> or via JS */
+            --primary: #0066ff;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+            --radius: .5rem;
+            --transition: .3s ease;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        a:hover {
+            color: #004fcc;
+        }
+
+        header {
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .container {
+            width: min(100% - 2rem, 1200px);
+            margin-inline: auto;
+            padding: 1rem;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-size: .95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #0052cc 100%);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: .5rem;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            margin-bottom: 1.5rem;
+            max-width: 40rem;
+            margin-inline: auto;
+        }
+
+        .hero .cta {
+            background-color: #fff;
+            color: var(--primary);
+            border: none;
+            border-radius: var(--radius);
+            padding: .75rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color var(--transition), transform var(--transition);
+        }
+
+        .hero .cta:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        main {
+            flex: 1;
+            background-color: var(--bg-main);
+            padding: 2rem 0;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,.08);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .card-body {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            margin-bottom: .5rem;
+            color: var(--text-primary);
+        }
+
+        .card-text {
+            font-size: .95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .card a {
+            align-self: flex-start;
+            font-size: .9rem;
+            font-weight: 600;
+        }
+
+        footer {
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 1.5rem 0;
+            text-align: center;
+            font-size: .9rem;
+            color: var(--text-secondary);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-main: #1e1e1e;
+                --bg-surface: #2b2b2b;
+                --text-primary: #e0e0e0;
+                --text-secondary: #b0b0b0;
+                --border: #444;
+            }
+
+            .hero {
+                background: linear-gradient(135deg, #0050bb 0%, #003a8c 100%);
+            }
+
+            .hero .cta {
+                background-color: #fff;
+                color: var(--primary);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">MyBrand</div>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Elegant &amp; Responsive Design</h1>
+        <p>Build beautiful, fast, and accessible web experiences with this clean, modern template. Customize colors effortlessly using CSS variables.</p>
+        <button class="cta">Get Started</button>
+    </section>
+
+    <main>
+        <div class="container">
+            <section class="grid">
+                <article class="card">
+                    <img src="https://picsum.photos/seed/1/600/400" alt="Sample image">
+                    <div class="card-body">
+                        <h2 class="card-title">Responsive Layout</h2>
+                        <p class="card-text">Built with CSS Grid and Flexbox, the design adjusts gracefully to any screen size.</p>
+                        <a href="#">Learn More →</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/2/600/400" alt="Sample image">
+                    <div class="card-body">
+                        <h2 class="card-title">Customizable Theme</h2>
+                        <p class="card-text">Use CSS variables to change the primary color, background shades, and more in a single place.</p>
+                        <a href="#">Learn More →</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/3/600/400" alt="Sample image">
+                    <div class="card-body">
+                        <h2 class="card-title">Accessible</h2>
+                        <p class="card-text">Proper contrast, focus states, and semantic markup ensure a great experience for everyone.</p>
+                        <a href="#">Learn More →</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/4/600/400" alt="Sample image">
+                    <div class="card-body">
+                        <h2 class="card-title">Performance Focused</h2>
+                        <p class="card-text">Minimal CSS, no external libraries, and optimized images keep load times low.</p>
+                        <a href="#">Learn More →</a>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        © 2024 MyBrand. All rights reserved.
+    </footer>
+</body>
+</html>
