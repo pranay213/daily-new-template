@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Single‑Page Template</title>
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212121;
+            --text-secondary: #666666;
+            --border: #e0e0e0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            background: var(--bg-surface);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: var(--text-secondary);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #357ab8;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: var(--text-primary);
+        }
+
+        .cards {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            flex: 1;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .card-body p {
+            flex: 1;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .card-body .btn-primary {
+            align-self: start;
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">MyBrand</div>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <h1>Elegant Design Meets Seamless Performance</h1>
+            <p>Build beautiful, responsive experiences with a clean, modern foundation. Customize the look instantly with CSS variables.</p>
+            <button class="btn-primary">Get Started</button>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title">Features</h2>
+            <div class="cards">
+                <article class="card">
+                    <img src="https://picsum.photos/seed/1/400/300" alt="Feature 1">
+                    <div class="card-body">
+                        <h3>Responsive Layout</h3>
+                        <p>Fluid grids and flexbox solutions ensure your content looks great on any device.</p>
+                        <a href="#" class="btn-primary">Learn More</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/2/400/300" alt="Feature 2">
+                    <div class="card-body">
+                        <h3>Customizable Theme</h3>
+                        <p>Control primary, background, and text colors through simple CSS variables.</p>
+                        <a href="#" class="btn-primary">Learn More</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/3/400/300" alt="Feature 3">
+                    <div class="card-body">
+                        <h3>Modern UI Elements</h3>
+                        <p>Buttons, cards, and navigation designed with the latest UI trends.</p>
+                        <a href="#" class="btn-primary">Learn More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section" style="background: var(--bg-main);">
+        <div class="container">
+            <h2 class="section-title">Pricing</h2>
+            <p style="text-align:center; color:var(--text-secondary); margin-bottom:2rem;">
+                Simple, transparent pricing that scales with your needs.
+            </p>
+            <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <article class="card" style="border:none; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+                    <div class="card-body" style="padding:2rem;">
+                        <h3>Starter</h3>
+                        <p style="font-size:1.5rem; margin:1rem 0;">$9<span style="font-size:0.8rem;">/mo</span></p>
+                        <ul style="list-style:none; padding-left:0; margin-bottom:1.5rem;">
+                            <li>✔︎ Basic Features</li>
+                            <li>✔︎ Community Support</li>
+                            <li>✔︎ 5 Projects</li>
+                        </ul>
+                        <a href="#" class="btn-primary">Choose Plan</a>
+                    </div>
+                </article>
+                <article class="card" style="border:none; box-shadow:0 4px 12px rgba(0,0,0,0.08);">
+                    <div class="card-body" style="padding:2rem;">
+                        <h3>Pro</h3>
+                        <p style="font-size:1.5rem; margin:1rem 0;">$29<span style="font-size:0.8rem;">/mo</span></p>
+                        <ul style="list-style:none; padding-left:0; margin-bottom:1.5rem;">
+                            <li>✔︎ All Starter Features</li>
+                            <li>✔︎ Priority Support</li>
+                            <li>✔︎ Unlimited Projects</li>
+                        </ul>
+                        <a href="#" class="btn-primary">Choose Plan</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2026 MyBrand. All rights reserved.</p>
+            <p>Made with ❤️ by designers for designers.</p>
+        </div>
+    </footer>
+</body>
+</html>
