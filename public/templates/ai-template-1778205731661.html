@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Template</title>
+    <style>
+        :root {
+            --primary: #6200ee;
+            --bg-main: #f5f5f5;
+            --bg-surface: #ffffff;
+            --text-primary: #212121;
+            --text-secondary: #757575;
+            --border: #e0e0e0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .container {
+            width: min(90%, 1200px);
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin: 0 0 1rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: var(--primary);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: rgba(255,255,255,0.9);
+        }
+
+        .features {
+            background: var(--bg-main);
+            padding: 3rem 0;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card h3 {
+            margin-top: 0.75rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+                cursor: pointer;
+                font-size: 1.5rem;
+                color: var(--text-primary);
+            }
+
+            .mobile-nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-surface);
+                border-bottom: 1px solid var(--border);
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .mobile-nav a {
+                color: var(--text-primary);
+                font-weight: 500;
+            }
+
+            .mobile-nav.show {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">MyBrand</div>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="mobile-menu" onclick="toggleMobileMenu()">☰</div>
+            </nav>
+            <div class="mobile-nav" id="mobileNav">
+                <a href="#">Home</a>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Elevate Your Web Experience</h1>
+            <p>Responsive, modern, and fully customizable. Build stunning interfaces with ease using our powerful CSS‑variables based theme.</p>
+            <button class="btn-primary">Get Started</button>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom:2rem;">Key Features</h2>
+            <div class="grid">
+                <div class="card">
+                    <svg width="48" height="48" fill="var(--primary)" aria-hidden="true"><circle cx="24" cy="24" r="24"/></svg>
+                    <h3>Design System</h3>
+                    <p>Consistent UI components guided by a unified design system.</p>
+                </div>
+                <div class="card">
+                    <svg width="48" height="48" fill="var(--primary)" aria-hidden="true"><rect width="48" height="48" rx="8"/></svg>
+                    <h3>Responsive Layout</h3>
+                    <p>Fluid grids that adapt seamlessly to any screen size.</p>
+                </div>
+                <div class="card">
+                    <svg width="48" height="48" fill="var(--primary)" aria-hidden="true"><polygon points="24,0 48,48 0,48"/></svg>
+                    <h3>Customizable Theme</h3>
+                    <p>Easily switch colors with CSS variables—no code changes needed.</p>
+                </div>
+                <div class="card">
+                    <svg width="48" height="48" fill="var(--primary)" aria-hidden="true"><path d="M24 0a24 24 0 110 48 24 24 0 010-48z"/></svg>
+                    <h3>Performance First</h3>
+                    <p>Lightweight markup and CSS for fast load times.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 MyBrand. All rights reserved.
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mobileNav');
+            nav.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
