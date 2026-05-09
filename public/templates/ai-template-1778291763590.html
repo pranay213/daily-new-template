@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Single‑Page Template</title>
+    <style>
+        :root {
+            --primary: #0066ff;
+            --bg-main: #f5f7fb;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+            --radius: 0.5rem;
+            --gap: 1rem;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background: var(--bg-main);
+            color: var(--text-primary);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--gap);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--gap);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: calc(var(--gap) * 1.5);
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+            padding: 4rem var(--gap);
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            max-width: 40rem;
+            margin: 0 auto;
+        }
+
+        main {
+            padding: var(--gap) 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--gap);
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .card-body {
+            flex: 1;
+            padding: var(--gap);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: var(--gap) 0;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">MyBrand</div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Welcome to Modern Design</h1>
+    <p>Craft beautiful, responsive websites with ease. Use the power of CSS variables to theme your project in seconds.</p>
+</section>
+
+<main>
+    <div class="container">
+        <section class="grid">
+            <article class="card">
+                <img src="https://picsum.photos/seed/1/400/250" alt="Sample image">
+                <div class="card-body">
+                    <h2 class="card-title">Elegant UI</h2>
+                    <p class="card-text">A clean, minimal interface that keeps the focus on content.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/2/400/250" alt="Sample image">
+                <div class="card-body">
+                    <h2 class="card-title">Responsive Layout</h2>
+                    <p class="card-text">Looks great on any device, from phones to large monitors.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/3/400/250" alt="Sample image">
+                <div class="card-body">
+                    <h2 class="card-title">Theming Ready</h2>
+                    <p class="card-text">Swap colors instantly with CSS variables.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/4/400/250" alt="Sample image">
+                <div class="card-body">
+                    <h2 class="card-title">Fast Performance</h2>
+                    <p class="card-text">Optimized code and assets for quick load times.</p>
+                </div>
+            </article>
+        </section>
+    </div>
+</main>
+
+<footer>
+    © 2026 MyBrand. All rights reserved.
+</footer>
+
+</body>
+</html>
