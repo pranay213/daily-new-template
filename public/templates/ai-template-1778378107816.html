@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern CSS Variable Template</title>
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+            --radius: .5rem;
+            --transition: .3s ease;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        a { color: var(--primary); text-decoration: none; transition: var(--transition); }
+        a:hover { opacity: .8; }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .container {
+            width: min(100% - 2rem, 1200px);
+            margin-inline: auto;
+            padding: 1rem 0;
+        }
+
+        /* ----- Navigation ----- */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav__brand {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav__menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav__link {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav__link:hover { color: var(--text-primary); }
+
+        /* Mobile menu toggle */
+        #nav-toggle {
+            display:none;
+        }
+
+        .nav__toggle {
+            display:none;
+            flex-direction: column;
+            gap:.2rem;
+            cursor:pointer;
+        }
+
+        .nav__toggle span {
+            width: 1.5rem;
+            height: .2rem;
+            background: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        /* ----- Hero ----- */
+        .hero {
+            background: var(--bg-surface);
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: .5rem;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            max-width: 45ch;
+            margin-inline:auto;
+        }
+
+        /* ----- Cards Grid ----- */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow:hidden;
+            display:flex;
+            flex-direction:column;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,.08);
+            transform: translateY(-4px);
+        }
+
+        .card__img {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card__body {
+            flex:1;
+            padding: 1rem;
+            display:flex;
+            flex-direction:column;
+            gap:.5rem;
+        }
+
+        .card__title {
+            font-size:1.125rem;
+            font-weight:600;
+        }
+
+        .card__text {
+            font-size:.95rem;
+            color: var(--text-secondary);
+            flex-grow:1;
+        }
+
+        .card__cta {
+            align-self:flex-start;
+            margin-top: .5rem;
+            font-weight:500;
+            color: var(--primary);
+        }
+
+        /* ----- Footer ----- */
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            text-align:center;
+            padding: 1.5rem 1rem;
+            font-size:.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ----- Responsive ----- */
+        @media (max-width: 768px) {
+            .nav__toggle { display:flex; }
+            .nav__menu {
+                position:absolute;
+                top:100%;
+                right:1rem;
+                background: var(--bg-surface);
+                flex-direction: column;
+                gap:0;
+                border:1px solid var(--border);
+                border-radius: var(--radius);
+                overflow:hidden;
+                max-height:0;
+                transition: max-height var(--transition);
+            }
+            .nav__menu a {
+                padding:.75rem 1rem;
+                border-bottom:1px solid var(--border);
+            }
+            .nav__menu a:last-child { border-bottom:none; }
+
+            #nav-toggle:checked + .nav__toggle + .nav__menu {
+                max-height: 20rem; /* enough for menu items */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav class="nav">
+            <a href="#" class="nav__brand">MySite</a>
+
+            <!-- Mobile toggle -->
+            <input type="checkbox" id="nav-toggle">
+            <label class="nav__toggle" for="nav-toggle">
+                <span></span><span></span><span></span>
+            </label>
+
+            <div class="nav__menu">
+                <a href="#" class="nav__link">Home</a>
+                <a href="#" class="nav__link">Features</a>
+                <a href="#" class="nav__link">Pricing</a>
+                <a href="#" class="nav__link">Contact</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>Elegant Design, Seamless Experience</h1>
+        <p>Crafted with modern CSS techniques, this template adapts beautifully to any device while keeping your brand colors at your fingertips.</p>
+    </div>
+</section>
+
+<main class="container">
+    <section class="grid">
+        <article class="card">
+            <div class="card__img" style="background-image:url('https://picsum.photos/id/1015/600/400')"></div>
+            <div class="card__body">
+                <h2 class="card__title">Responsive Layout</h2>
+                <p class="card__text">A flexible grid that works on mobile, tablet, and desktop without any media query headaches.</p>
+                <a href="#" class="card__cta">Learn more →</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="card__img" style="background-image:url('https://picsum.photos/id/1025/600/400')"></div>
+            <div class="card__body">
+                <h2 class="card__title">Theming Made Easy</h2>
+                <p class="card__text">Swap primary colors, backgrounds, and text tones in seconds using CSS variables.</p>
+                <a href="#" class="card__cta">Explore options →</a>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="card__img" style="background-image:url('https://picsum.photos/id/1035/600/400')"></div>
+            <div class="card__body">
+                <h2 class="card__title">Clean Code</h2>
+                <p class="card__text">Semantic HTML and well‑structured CSS keep your project maintainable and SEO‑friendly.</p>
+                <a href="#" class="card__cta">Get started →</a>
+            </div>
+        </article>
+    </section>
+</main>
+
+<footer>
+    © 2026 MySite • All rights reserved
+</footer>
+
+</body>
+</html>
