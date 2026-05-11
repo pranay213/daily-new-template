@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modern Single‑File Template</title>
+  <style>
+    :root {
+      /* Theme colors – replace these values to re‑theme */
+      --primary: #0066ff;
+      --bg-main: #f5f7fa;
+      --bg-surface: #ffffff;
+      --text-primary: #212529;
+      --text-secondary: #6c757d;
+      --border: #e0e0e0;
+      
+      /* Typography */
+      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-size-base: 1rem;
+      --line-height-base: 1.5;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      background: var(--bg-main);
+      color: var(--text-primary);
+    }
+
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(100% - 2rem, 1200px);
+      margin-inline: auto;
+      padding: 1rem;
+    }
+
+    header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo { font-weight: 600; font-size: 1.25rem; color: var(--primary); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://picsum.photos/1600/600') center/cover;
+      color: #fff;
+      padding: 6rem 1rem;
+      text-align: center;
+    }
+
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: .5rem; }
+    .hero p { font-size: 1.125rem; margin-bottom: 1.5rem; }
+    .hero .cta {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: .75rem 1.5rem;
+      border-radius: .5rem;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 4rem 1rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: var(--text-primary);
+    }
+
+    .cards {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: .5rem;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 1rem;
+    }
+
+    .card-body h3 {
+      margin-bottom: .5rem;
+      font-size: 1.25rem;
+    }
+
+    .card-body p {
+      color: var(--text-secondary);
+      font-size: .95rem;
+    }
+
+    footer {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      padding: 2rem 1rem;
+      font-size: .9rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    @media (min-width: 600px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">MyBrand</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Welcome to the Future</h1>
+      <p>Craft beautiful, responsive experiences with minimal effort.</p>
+      <a href="#" class="cta">Get Started</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="https://picsum.photos/seed/p1/400/300" alt="Service 1">
+          <div class="card-body">
+            <h3>Design</h3>
+            <p>Elegant UI/UX design that captures attention and drives conversion.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/p2/400/300" alt="Service 2">
+          <div class="card-body">
+            <h3>Development</h3>
+            <p>Fast, clean, and maintainable code built with modern standards.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/p3/400/300" alt="Service 3">
+          <div class="card-body">
+            <h3>Optimization</h3>
+            <p>Performance tuning and SEO best practices for maximum reach.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>&copy; 2026 MyBrand. All rights reserved.</div>
+      <div>
+        <a href="#">Privacy Policy</a> •
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
