@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stunning Single‑File Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;          /* Indigo */
+            --bg-main: #f9fafb;          /* Light gray */
+            --bg-surface: #ffffff;       /* White */
+            --text-primary: #111827;    /* Dark gray */
+            --text-secondary: #6b7280;  /* Medium gray */
+            --border: #e5e7eb;          /* Light border */
+            --radius: .5rem;
+            --transition: .25s ease-in-out;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Layout */
+        header {
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .container {
+            width: min(90%, 1200px);
+            margin-inline: auto;
+            padding: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: color var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            padding: .75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color var(--transition), transform var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: #4338ca;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: .5rem;
+            color: var(--text-primary);
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-img {
+            max-width: 500px;
+            margin-inline: auto;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--bg-surface);
+            border-radius: var(--radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,.05);
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .feature-card svg {
+            width: 3rem;
+            height: 3rem;
+            margin-bottom: .75rem;
+            fill: var(--primary);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: .5rem;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            font-size: .95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-surface);
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border);
+            font-size: .9rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .75rem;
+        }
+
+        .footer-inner a {
+            color: var(--text-secondary);
+            transition: color var(--transition);
+        }
+
+        .footer-inner a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Responsive tweaks */
+        @media (min-width: 640px) {
+            .hero {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-inner {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo"><a href="#" style="font-weight:700;font-size:1.25rem;color:var(--primary);">MyBrand</a></div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="btn-primary">Get Started</button>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero container">
+        <div class="hero-text">
+            <h1>Design that clicks</h1>
+            <p>Craft beautiful, responsive experiences with modern web technologies. Start building instantly with our ready‑to‑use components.</p>
+            <button class="btn-primary">Explore Demo</button>
+        </div>
+        <div class="hero-img">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="Creative workspace">
+        </div>
+    </section>
+
+    <section id="features" class="features container">
+        <h2 style="text-align:center;font-size:2rem;margin-bottom:2rem;color:var(--text-primary);">Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                <h3>Responsive Layout</h3>
+                <p>Automatically adapts to any screen size with fluid grids and media queries.</p>
+            </div>
+            <div class="feature-card">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16v2H4V4zm0 7h16v2H4v-2zm0 7h16v2H4v-2z"/></svg>
+                <h3>Modern UI</h3>
+                <p>Clean typography, subtle shadows, and smooth transitions for a polished look.</p>
+            </div>
+            <div class="feature-card">
+                <svg viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2zm7 14l5-5-1.41-1.42L13 14.17l-2.59-2.58L9 13l5 5z"/></svg>
+                <h3>Customizable Colors</h3>
+                <p>Theme the whole site by simply changing CSS variables in one place.</p>
+            </div>
+            <div class="feature-card">
+                <svg viewBox="0 0 24 24"><path d="M12 2a9 9 0 110 18 9 9 0 010-18zm0 2a7 7 0 100 14 7 7 0 000-14zm1 8h3v2h-5v-5h2v3z"/></svg>
+                <h3>Fast Performance</h3>
+                <p>Lightweight CSS and no external JS ensures quick load times.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container footer-inner">
+        <div>&copy; 2026 MyBrand. All rights reserved.</div>
+        <div>
+            <a href="#">Privacy Policy</a> &middot; 
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
