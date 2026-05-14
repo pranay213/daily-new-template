@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stunning Responsive Template</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0066ff;
+      --bg-main: #f5f7fa;
+      --bg-surface: #ffffff;
+      --text-primary: #212529;
+      --text-secondary: #6c757d;
+      --border: #e0e0e0;
+      --radius: 8px;
+      --shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.5;
+      color: var(--text-primary);
+      background-color: var(--bg-main);
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+
+    header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav__logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav__list {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav__list a {
+      font-weight: 600;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .hero__title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .hero__subtitle {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 40rem;
+      margin: 0 auto;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card__title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .card__text {
+      flex-grow: 1;
+      color: var(--text-secondary);
+    }
+
+    .card__link {
+      margin-top: 1rem;
+      align-self: flex-start;
+      font-weight: 600;
+    }
+
+    footer {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    /* Simple dark‑mode toggle (optional) */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: #4da6ff;
+        --bg-main: #1e1e1e;
+        --bg-surface: #2b2b2b;
+        --text-primary: #e0e0e0;
+        --text-secondary: #b0b0b0;
+        --border: #444;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="Primary navigation">
+      <div class="nav__logo">MyBrand</div>
+      <ul class="nav__list">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 class="hero__title">Stunning &amp; Responsive Design</h1>
+      <p class="hero__subtitle">
+        A clean, modern template built with CSS variables, Flexbox and Grid. Perfect for landing pages, portfolios, or small business sites.
+      </p>
+    </section>
+
+    <section id="features" class="grid">
+      <article class="card">
+        <h2 class="card__title">Responsive Layout</h2>
+        <p class="card__text">Works flawlessly on any device – from mobile phones to large desktops.</p>
+        <a href="#" class="card__link">Learn more →</a>
+      </article>
+      <article class="card">
+        <h2 class="card__title">Theming Ready</h2>
+        <p class="card__text">Swap colors instantly using CSS variables. Supports light and dark mode out of the box.</p>
+        <a href="#" class="card__link">See how →</a>
+      </article>
+      <article class="card">
+        <h2 class="card__title">Modern UI</h2>
+        <p class="card__text">Utilises clean typography, subtle shadows, and consistent spacing for a premium feel.</p>
+        <a href="#" class="card__link">Explore →</a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    © <script>document.write(new Date().getFullYear());</script> MyBrand. All rights reserved.
+  </footer>
+</body>
+</html>
