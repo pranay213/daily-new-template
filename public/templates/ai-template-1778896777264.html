@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modern Single‑File Template</title>
+  <style>
+    /* ---- CSS Variables (Theme) ---- */
+    :root {
+      --primary:        #4a90e2;
+      --bg-main:         #f5f7fa;
+      --bg-surface:      #ffffff;
+      --text-primary:   #212529;
+      --text-secondary: #6c757d;
+      --border:         #e0e0e0;
+      
+      --font-family:    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --radius:         8px;
+      --spacing:        1rem;
+    }
+
+    /* ---- Global Reset & Base ---- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background: var(--bg-main);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ---- Layout ---- */
+    header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 4rem;
+    }
+
+    .nav-brand {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--text-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 1.5rem;
+      height: 2px;
+      background: var(--text-primary);
+      margin: 4px 0;
+      transition: background 0.3s;
+    }
+
+    /* ---- Hero Section ---- */
+    .hero {
+      background: var(--primary);
+      color: #fff;
+      padding: 6rem var(--spacing);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+      max-width: 40rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero .btn-primary {
+      background: #fff;
+      color: var(--primary);
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .hero .btn-primary:hover {
+      background: var(--bg-surface);
+      color: var(--primary);
+    }
+
+    /* ---- Content Sections ---- */
+    section {
+      padding: 4rem var(--spacing);
+    }
+
+    .card-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: var(--spacing);
+    }
+
+    .card-body h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    .card-body p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* ---- Footer ---- */
+    footer {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      padding: 2rem var(--spacing);
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* ---- Responsive Nav (Mobile) ---- */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-surface);
+        flex-direction: column;
+        border-top: 1px solid var(--border);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      .nav-links a {
+        padding: 1rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-active .nav-links {
+        max-height: 500px; /* large enough for all links */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="nav-brand">MySite</div>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Stunning Design, Zero Effort</h1>
+    <p>Welcome to the modern HTML/CSS template that adapts to any brand with a single line of CSS. Ready to build beautiful experiences?</p>
+    <a href="#features" class="btn-primary">Explore Features</a>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <h2 style="text-align:center; margin-bottom:2rem;">Features</h2>
+    <div class="card-grid">
+      <article class="card">
+        <img src="https://picsum.photos/seed/1/400/200" alt="Feature 1">
+        <div class="card-body">
+          <h3>Responsive Layout</h3>
+          <p>Built with flexible grid and flexbox, this template looks perfect on any device.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/seed/2/400/200" alt="Feature 2">
+        <div class="card-body">
+          <h3>CSS Variables</h3>
+          <p>Easily recolor the whole site by overriding a few custom properties.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/seed/3/400/200" alt="Feature 3">
+        <div class="card-body">
+          <h3>Clean Code</h3>
+          <p>Semantic HTML5 and well‑structured CSS keep maintenance a breeze.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/seed/4/400/200" alt="Feature 4">
+        <div class="card-body">
+          <h3>Accessible Navigation</h3>
+          <p>Keyboard‑friendly, ARIA‑labelled menu with a proper focus order.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" style="background:var(--bg-surface);">
+  <div class="container">
+    <h2 style="text-align:center; margin-bottom:2rem;">Pricing</h2>
+    <p style="text-align:center; max-width:600px; margin:auto;">This template is free to use. Feel free to adapt it for personal or commercial projects.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © <script>document.write(new Date().getFullYear())</script> MySite – All rights reserved.
+  </div>
+</footer>
+
+<script>
+  // Simple mobile nav toggle
+  const toggleBtn = document.querySelector('.nav-toggle');
+  const header = document.querySelector('header');
+
+  toggleBtn.addEventListener('click', () => {
+    header.classList.toggle('nav-active');
+  });
+</script>
+</body>
+</html>
