@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Themeable Template</title>
+    <style>
+        /* -------------------------------------------------
+           CSS Variables – change these to re‑theme the site
+        ------------------------------------------------- */
+        :root {
+            --primary:        #4f46e5;      /* Indigo 600 */
+            --bg-main:        #f9fafb;      /* Gray 50 */
+            --bg-surface:    #ffffff;      /* White */
+            --text-primary:  #111827;      /* Gray 900 */
+            --text-secondary:#6b7280;      /* Gray 500 */
+            --border:        #e5e7eb;      /* Gray 200 */
+        }
+
+        /* Global reset & base */
+        *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+        html { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        body {
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Layout */
+        header, footer { background: var(--bg-surface); border-bottom: 1px solid var(--border); }
+        header { padding: 1rem 2rem; }
+        footer { padding: 2rem; border-top: 1px solid var(--border); margin-top:auto; }
+        .container { max-width: 1200px; margin: 0 auto; width: 100%; }
+
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo { font-weight: 700; font-size: 1.25rem; color: var(--primary); }
+        .nav-links { list-style:none; display:flex; gap:1.5rem; }
+        .nav-links a { color: var(--text-secondary); font-weight:500; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Hero */
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .hero h1 { font-size: clamp(2rem,5vw,3.5rem); margin-bottom: 0.5rem; }
+        .hero p { font-size: 1.125rem; margin-bottom: 1.5rem; opacity:0.9; }
+        .hero .cta { background:#fff; color:var(--primary); padding:0.75rem 1.5rem; border-radius:0.5rem; font-weight:600; }
+
+        /* Section */
+        section { padding: 4rem 2rem; }
+        .section-title { text-align:center; margin-bottom:2.5rem; font-size:2rem; color:var(--text-primary); }
+
+        /* Cards Grid */
+        .grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            overflow:hidden;
+            display:flex;
+            flex-direction:column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .card img { width:100%; height:auto; object-fit:cover; }
+        .card-body { flex:1; padding:1.5rem; display:flex; flex-direction:column; }
+        .card-title { margin-bottom:0.5rem; font-size:1.25rem; color:var(--text-primary); }
+        .card-text { flex:1; color:var(--text-secondary); margin-bottom:1rem; }
+        .card-link { align-self:flex-start; font-weight:600; color:var(--primary); }
+
+        /* Footer */
+        .footer-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        }
+        .footer-col h4 { margin-bottom:0.75rem; font-size:1rem; color:var(--text-primary); }
+        .footer-col ul { list-style:none; }
+        .footer-col li { margin-bottom:0.5rem; }
+        .footer-col a { color:var(--text-secondary); }
+        .footer-col a:hover { color:var(--primary); }
+        .footer-bottom { text-align:center; margin-top:2rem; font-size:0.875rem; color:var(--text-secondary); }
+
+        /* Responsive tweaks */
+        @media (max-width: 600px) {
+            header, .hero, section, footer { padding-left:1rem; padding-right:1rem; }
+            .nav-links { width:100%; justify-content:center; margin-top:1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">MySite</div>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Elegant Design, Seamless Experience</h1>
+        <p>Crafted with modern HTML &amp; CSS, fully responsive and easy to theme.</p>
+        <a href="#" class="cta">Get Started</a>
+    </section>
+
+    <!-- Features Grid -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Features</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://picsum.photos/seed/1/600/400" alt="Feature 1">
+                    <div class="card-body">
+                        <h3 class="card-title">Responsive Layout</h3>
+                        <p class="card-text">Automatically adapts to any screen size with fluid grids and flexible images.</p>
+                        <a href="#" class="card-link">Learn more</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/2/600/400" alt="Feature 2">
+                    <div class="card-body">
+                        <h3 class="card-title">Themeable Colors</h3>
+                        <p class="card-text">Change the look of the whole site by adjusting a handful of CSS variables.</p>
+                        <a href="#" class="card-link">Learn more</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/3/600/400" alt="Feature 3">
+                    <div class="card-body">
+                        <h3 class="card-title">Clean Code</h3>
+                        <p class="card-text">Well‑structured HTML5 and modular CSS for easy maintenance and extensions.</p>
+                        <a href="#" class="card-link">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call‑to‑Action -->
+    <section style="background: var(--bg-surface);">
+        <div class="container" style="text-align:center;">
+            <h2 class="section-title">Ready to dive in?</h2>
+            <a href="#" class="cta" style="background: var(--primary); color:#fff;">Download Template</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2026 MySite. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
