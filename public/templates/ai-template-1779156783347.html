@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Template</title>
+    <style>
+        :root {
+            --primary: #4A90E2;
+            --bg-main: #F5F7FA;
+            --bg-surface: #FFFFFF;
+            --text-primary: #212121;
+            --text-secondary: #555555;
+            --border: #E0E0E0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        nav {
+            margin-top: 0.5rem;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-list li a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-list li a.active,
+        .nav-list li a:hover {
+            color: var(--primary);
+        }
+
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            width: 100%;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #6CB4EE 100%);
+            color: #fff;
+            padding: 4rem 2rem;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .hero .btn-primary {
+            background-color: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .hero .btn-primary:hover {
+            background-color: #f0f0f0;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .card .btn {
+            align-self: flex-start;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 0.4rem;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .card .btn:hover {
+            background-color: #357ABD;
+        }
+
+        footer {
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 0.5rem 1rem;
+            }
+            .hero {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MySite</div>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Design Made Simple</h1>
+            <p>Elegant, responsive, and easily customizable templates that adapt to any device. Focus on content, not code.</p>
+            <a href="#" class="btn-primary">Get Started</a>
+        </section>
+
+        <section class="grid">
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1501504905252-47c5a85c0c39?w=800&h=600&fit=crop" alt="Feature 1">
+                <div class="card-body">
+                    <h2 class="card-title">Fast Performance</h2>
+                    <p class="card-text">Optimized for speed with modern web standards, ensuring quick load times on any device.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?w=800&h=600&fit=crop" alt="Feature 2">
+                <div class="card-body">
+                    <h2 class="card-title">Beautiful UI</h2>
+                    <p class="card-text">Clean, minimalist design with customizable color variables for effortless theming.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop" alt="Feature 3">
+                <div class="card-body">
+                    <h2 class="card-title">Responsive Layout</h2>
+                    <p class="card-text">Fluid grid system that looks great on mobile, tablet, and desktop screens.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop" alt="Feature 4">
+                <div class="card-body">
+                    <h2 class="card-title">Easy Customization</h2>
+                    <p class="card-text">Modify colors, fonts, and components with just a few CSS variable changes.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 MySite. All rights reserved.
+    </footer>
+</body>
+</html>
