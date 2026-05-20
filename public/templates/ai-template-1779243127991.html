@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant HTML Template</title>
+    <style>
+        /* -------------------- CSS Variables -------------------- */
+        :root {
+            --primary: #4a90e2;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e2e8f0;
+        }
+
+        /* Dark theme (optional) */
+        [data-theme="dark"] {
+            --primary: #4a90e2;
+            --bg-main: #181a1b;
+            --bg-surface: #242525;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --border: #3c3f41;
+        }
+
+        /* -------------------- Reset & Base -------------------- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 100%; /* 16px base */
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* -------------------- Layout -------------------- */
+        .container {
+            width: min(90%, 1200px);
+            margin-inline: auto;
+            padding: 1rem;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .nav__brand {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav__menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav__menu a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav__menu a:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile navigation */
+        .nav__toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav__menu {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: var(--bg-surface);
+                flex-direction: column;
+                width: 200px;
+                padding: 0.5rem 0;
+                box-shadow: 0 4px 12px rgba(0,0,0,.1);
+                border: 1px solid var(--border);
+                display: none;
+            }
+
+            .nav__menu.show {
+                display: flex;
+            }
+
+            .nav__toggle {
+                display: block;
+            }
+        }
+
+        /* -------------------- Hero Section -------------------- */
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            max-width: 45ch;
+            margin-inline: auto;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            background: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background .3s, color .3s;
+        }
+
+        .hero .btn:hover {
+            background: #e6e6e6;
+        }
+
+        /* -------------------- Content Sections -------------------- */
+        section {
+            padding: 3rem 0;
+        }
+
+        .section__title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: var(--text-primary);
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,.08);
+        }
+
+        .card__img {
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .card__body {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card__title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .card__text {
+            flex: 1;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .card__link {
+            margin-top: auto;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* -------------------- Footer -------------------- */
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            margin-top: auto;
+        }
+
+        .footer__content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .footer__social a {
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+        }
+
+        .footer__social a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="nav" aria-label="Main navigation">
+                <a href="#" class="nav__brand">Brand</a>
+                <button class="nav__toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle menu">
+                    ☰
+                </button>
+                <ul class="nav__menu" id="nav-menu">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Elegant Design, Seamless Experience</h1>
+            <p>Responsive, modern, and ready to customize. Start building your next project with this clean template.</p>
+            <a href="#features" class="btn">Explore Features</a>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section id="features">
+        <div class="container">
+            <h2 class="section__title">Features</h2>
+            <div class="grid">
+                <article class="card">
+                    <img src="https://picsum.photos/seed/1/400/225" alt="Feature 1" class="card__img">
+                    <div class="card__body">
+                        <h3 class="card__title">Responsive Layout</h3>
+                        <p class="card__text">Fluid grids and flexible media ensure your site looks great on any device.</p>
+                        <a href="#" class="card__link">Learn more →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/2/400/225" alt="Feature 2" class="card__img">
+                    <div class="card__body">
+                        <h3 class="card__title">Theming Support</h3>
+                        <p class="card__text">Swap colors effortlessly with CSS variables – light, dark, or brand palettes.</p>
+                        <a href="#" class="card__link">Learn more →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/3/400/225" alt="Feature 3" class="card__img">
+                    <div class="card__body">
+                        <h3 class="card__title">Accessible Components</h3>
+                        <p class="card__text">Built with semantic HTML and ARIA attributes for inclusive experiences.</p>
+                        <a href="#" class="card__link">Learn more →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/4/400/225" alt="Feature 4" class="card__img">
+                    <div class="card__body">
+                        <h3 class="card__title">Fast Performance</h3>
+                        <p class="card__text">Optimized assets and minimal CSS keep load times low.</p>
+                        <a href="#" class="card__link">Learn more →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" style="background: var(--bg-surface);">
+        <div class="container">
+            <h2 class="section__title">Pricing</h2>
+            <div class="grid" style="max-width: 800px; margin-inline:auto;">
+                <div class="card" style="border:none; box-shadow:0 4px 12px rgba(0,0,0,.05);">
+                    <div class="card__body" style="text-align:center;">
+                        <h3 class="card__title">Basic</h3>
+                        <p class="card__text" style="font-size:2rem; margin:1rem 0;">$9<span style="font-size:.6rem;">/mo</span></p>
+                        <ul style="list-style:none; padding:0; margin-bottom:1rem;">
+                            <li>✔️ 5 Projects</li>
+                            <li>✔️ Basic Support</li>
+                        </ul>
+                        <a href="#" class="btn">Choose</a>
+                    </div>
+                </div>
+                <div class="card" style="border:none; box-shadow:0 4px 12px rgba(0,0,0,.1);">
+                    <div class="card__body" style="text-align:center;">
+                        <h3 class="card__title">Pro</h3>
+                        <p class="card__text" style="font-size:2rem; margin:1rem 0;">$29<span style="font-size:.6rem;">/mo</span></p>
+                        <ul style="list-style:none; padding:0; margin-bottom:1rem;">
+                            <li>✔️ Unlimited Projects</li>
+                            <li>✔️ Priority Support</li>
+                            <li>✔️ Advanced Analytics</li>
+                        </ul>
+                        <a href="#" class="btn">Choose</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Call to Action -->
+    <section id="contact" style="background: var(--primary); color:#fff;">
+        <div class="container" style="text-align:center; padding:3rem 0;">
+            <h2>Get in Touch</h2>
+            <p>Have questions? We're here to help. Reach out and we'll respond promptly.</p>
+            <a href="mailto:info@example.com" class="btn" style="background:#fff; color:var(--primary);">Email Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer__content">
+                <div>&copy; 2026 Brand • All rights reserved.</div>
+                <div class="footer__social">
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="LinkedIn">🔗</a>
+                    <a href="#" aria-label="GitHub">💻</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple script for mobile menu toggle -->
+    <script>
+        const toggle = document.querySelector('.nav__toggle');
+        const menu = document.getElementById('nav-menu');
+
+        toggle.addEventListener('click', () => {
+            const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
+            toggle.setAttribute('aria-expanded', !expanded);
+            menu.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
