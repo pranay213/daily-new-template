@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modern Responsive Template</title>
+    <style>
+        /* --- Theme variables --- */
+        :root {
+            --primary:          #0066ff;
+            --bg-main:          #f5f7fa;
+            --bg-surface:       #ffffff;
+            --text-primary:    #212529;
+            --text-secondary:  #6c757d;
+            --border:          #e0e0e0;
+        }
+
+        /* --- Global reset & base styles --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover, a:focus {
+            text-decoration: underline;
+        }
+
+        /* --- Layout components --- */
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Hero section --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80')
+                        center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            padding: 6rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            max-width: 32rem;
+            margin: 0 auto 2rem;
+        }
+
+        .hero .cta {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.4rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .hero .cta:hover {
+            background: #0052cc;
+        }
+
+        /* --- Main content --- */
+        main {
+            flex: 1;
+            background: var(--bg-main);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        /* --- Call to action section --- */
+        .cta-section {
+            background: var(--bg-surface);
+            padding: 3rem 1rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.75rem,4vw,2.25rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 30rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .cta-section .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.4rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cta-section .btn-primary:hover {
+            background: #0052cc;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--bg-surface);
+            color: var(--text-secondary);
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .footer-grid h4 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .footer-grid ul {
+            list-style: none;
+        }
+
+        .footer-grid li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-grid a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        /* --- Responsive tweaks --- */
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 4rem 1rem;
+            }
+
+            .cta-section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav aria-label="Main navigation">
+                <div class="logo">MyBrand</div>
+                <ul class="nav-links" role="list">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#cta">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Elevate Your Online Presence</h1>
+            <p>Modern, responsive, and customizable templates built with best‑in‑class design principles.</p>
+            <a href="#cta" class="cta">Get Started</a>
+        </div>
+    </section>
+
+    <main>
+        <section id="features" class="container">
+            <h2 style="text-align:center; margin-bottom:2rem; font-size:2rem; color:var(--text-primary);">
+                What We Offer
+            </h2>
+            <div class="features">
+                <article class="card">
+                    <div class="icon">⚡️</div>
+                    <h3>Fast Performance</h3>
+                    <p>Optimized code and assets ensure lightning‑quick load times on any device.</p>
+                </article>
+                <article class="card">
+                    <div class="icon">🔧</div>
+                    <h3>Easy Customization</h3>
+                    <p>CSS variables let you rebrand in seconds without digging through code.</p>
+                </article>
+                <article class="card">
+                    <div class="icon">📱</div>
+                    <h3>Responsive Layout</h3>
+                    <p>Designed to look perfect on phones, tablets, laptops, and large screens.</p>
+                </article>
+                <article class="card">
+                    <div class="icon">🔒</div>
+                    <h3>Secure</h3>
+                    <p>Built with modern HTML5 standards and follows accessibility best practices.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="cta" class="cta-section">
+            <div class="container">
+                <h2>Ready to Launch?</h2>
+                <p>Start today with a free trial and see how our design can transform your project.</p>
+                <a href="#contact" class="btn-primary">Contact Us</a>
+            </div>
+        </section>
+
+        <section id="contact" class="container" style="padding:3rem 0;">
+            <h2 style="text-align:center; margin-bottom:1.5rem; font-size:1.75rem; color:var(--text-primary);">
+                Get in Touch
+            </h2>
+            <form action="#" method="POST" style="max-width:500px;margin:0 auto;display:grid;gap:1rem;">
+                <input type="text" name="name" placeholder="Your name" required
+                       style="padding:0.75rem;border:1px solid var(--border);border-radius:0.4rem;">
+                <input type="email" name="email" placeholder="Email address" required
+                       style="padding:0.75rem;border:1px solid var(--border);border-radius:0.4rem;">
+                <textarea name="message" rows="4" placeholder="Your message" required
+                          style="padding:0.75rem;border:1px solid var(--border);border-radius:0.4rem;"></textarea>
+                <button type="submit"
+                        style="background:var(--primary);color:#fff;padding:0.75rem;border:none;border-radius:0.4rem;font-weight:600;cursor:pointer;">
+                    Send Message
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Documentation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="footer-bottom">&copy; 2026 MyBrand. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
