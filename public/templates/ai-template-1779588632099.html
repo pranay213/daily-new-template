@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Single‑File Template</title>
+    <style>
+        /* ==== Theme Variables ==== */
+        :root {
+            --primary: #4a90e2;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+            --radius: .5rem;
+            --spacing: 1rem;
+            --max-width: 1200px;
+            --font-base: 'Inter', sans-serif;
+        }
+
+        /* ==== Global Styles ==== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-base);
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ==== Layout ==== */
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--spacing) 0;
+        }
+
+        header {
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        header .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing) 0;
+        }
+
+        .nav .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: var(--spacing);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #6ab7ff 100%);
+            color: #fff;
+            text-align: center;
+            padding: calc(var(--spacing) * 3) var(--spacing);
+        }
+
+        .hero h1 {
+            margin: 0 0 .5rem;
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            margin: 0 0 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .hero .cta {
+            display: inline-block;
+            background-color: #fff;
+            color: var(--primary);
+            padding: .75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: background-color .2s;
+        }
+
+        .hero .cta:hover {
+            background-color: #f0f0f0;
+        }
+
+        main {
+            background-color: var(--bg-main);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--spacing);
+            margin-top: var(--spacing);
+        }
+
+        .card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: var(--spacing);
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow .2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,.08);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: .5rem;
+            color: var(--primary);
+        }
+
+        .card p {
+            flex-grow: 1;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .card .read-more {
+            align-self: flex-start;
+            font-size: .9rem;
+            font-weight: 600;
+        }
+
+        footer {
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: var(--spacing) 0;
+            color: var(--text-secondary);
+            font-size: .875rem;
+        }
+
+        /* ==== Responsive Tweaks ==== */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav" aria-label="Main navigation">
+                <div class="logo">MySite</div>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Elegant Design, Seamless Experience</h1>
+            <p>Build beautiful, responsive websites with a single, themable template.</p>
+            <a href="#" class="cta">Get Started</a>
+        </div>
+    </section>
+
+    <main>
+        <div class="container">
+            <section class="cards">
+                <article class="card">
+                    <h3>Feature One</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel urna at sapien.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </article>
+                <article class="card">
+                    <h3>Feature Two</h3>
+                    <p>Quisque dictum, metus in consequat aliquet, ante diam tempus tortor, at aliquet.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </article>
+                <article class="card">
+                    <h3>Feature Three</h3>
+                    <p>Sed euismod ligula ac velit maximus, a porta justo gravida. Nullam tincidunt.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </article>
+                <article class="card">
+                    <h3>Feature Four</h3>
+                    <p>Fusce congue, ligula ac sollicitudin fermentum, metus massa dapibus ex, vitae.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        © 2026 MySite • All rights reserved.
+    </footer>
+</body>
+</html>
