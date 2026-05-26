@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive CSS‑Variable Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            /* Theme variables – change these to re‑theme the site */
+            --primary: #4a90e2;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --border: #e0e0e0;
+            --radius: 8px;
+            --max-width: 1200px;
+            --transition: 0.3s ease;
+        }
+
+        /* Reset & base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Layout */
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 40rem;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: background var(--transition), color var(--transition);
+        }
+
+        .btn-primary:hover {
+            background: rgba(255,255,255,0.9);
+        }
+
+        /* Grid cards */
+        .grid {
+            display: grid;
+            gap: 2rem;
+            padding: 3rem 0;
+        }
+
+        @media (min-width: 600px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
+        .card img {
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .card-body {
+            flex: 1;
+            padding: 1.25rem;
+        }
+
+        .card-title {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .card-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="logo">MySite</div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to the Future of Web Design</h1>
+            <p>Elegant, responsive, and fully themable. Build beautiful experiences with minimal effort.</p>
+            <a href="#" class="btn-primary">Get Started</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="grid">
+            <article class="card">
+                <img src="https://picsum.photos/seed/1/800/450" alt="Sample">
+                <div class="card-body">
+                    <h2 class="card-title">Modern Layouts</h2>
+                    <p class="card-text">Flexible grid systems and utility‑first classes make layout a breeze.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/2/800/450" alt="Sample">
+                <div class="card-body">
+                    <h2 class="card-title">Custom Themes</h2>
+                    <p class="card-text">Adjust a handful of CSS variables to match any brand palette instantly.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/3/800/450" alt="Sample">
+                <div class="card-body">
+                    <h2 class="card-title">Responsive Design</h2>
+                    <p class="card-text">Optimized for all devices, from phones to large monitors.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/4/800/450" alt="Sample">
+                <div class="card-body">
+                    <h2 class="card-title">Performance Focused</h2>
+                    <p class="card-text">Lightweight markup and CSS ensure fast load times.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/5/800/450" alt="Sample">
+                <div class="card-body">
+                    <h2 class="card-title>Accessibility</h2>
+                    <p class="card-text">Semantic HTML and sufficient contrast for inclusive experiences.</p>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/6/800/450" alt="Sample">
+                <div class="card-body">
+                    <h2 class="card-title">Easy Integration</h2>
+                    <p class="card-text">Drop‑in template, no build tools required.</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        © <span id="year"></span> MySite. All rights reserved.
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
