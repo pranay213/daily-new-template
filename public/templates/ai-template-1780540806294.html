@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Single‑Page Template</title>
+    <style>
+        /* ==== Theme Variables ==== */
+        :root {
+            --primary: #4f46e5;          /* Indigo */
+            --bg-main: #f5f7fa;          /* Light gray */
+            --bg-surface: #ffffff;      /* Surface (cards) */
+            --text-primary: #111827;    /* Almost black */
+            --text-secondary: #6b7280;  /* Gray */
+            --border: #e5e7eb;          /* Light border */
+        }
+
+        /* ==== Reset & Base ==== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            font-size: 16px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        a:hover,
+        a:focus {
+            text-decoration: underline;
+        }
+
+        /* ==== Layout ==== */
+        header, footer {
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+        }
+        header {
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        nav a:hover,
+        nav a:focus {
+            color: var(--primary);
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+        }
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
+            color: #fff;
+            padding: 4rem 2rem;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+        }
+        .hero .cta {
+            display: inline-block;
+            background-color: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+        }
+
+        .section {
+            margin-top: 3rem;
+        }
+        .section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        .card-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+        .card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card:hover,
+        .card:focus-within {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        /* ==== Responsive Adjustments ==== */
+        @media (max-width: 640px) {
+            header, footer {
+                padding: 1rem;
+            }
+            .hero {
+                padding: 3rem 1rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">MyBrand</div>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Elegant &amp; Responsive Design</h1>
+            <p>Build beautiful web experiences fast with this modern, CSS‑variable‑driven template.</p>
+            <a href="#features" class="cta">Explore Features</a>
+        </section>
+
+        <section class="section" id="features">
+            <h2>Key Features</h2>
+            <div class="card-grid">
+                <article class="card" tabindex="0">
+                    <h3>Customizable Theme</h3>
+                    <p>Easily adapt colors across the whole site by editing a few CSS variables.</p>
+                </article>
+                <article class="card" tabindex="0">
+                    <h3>Responsive Layout</h3>
+                    <p>Built with Flexbox and Grid, it looks great on phones, tablets, and desktops.</p>
+                </article>
+                <article class="card" tabindex="0">
+                    <h3>Accessible Markup</h3>
+                    <p>Semantic HTML and focus styles ensure a good experience for all users.</p>
+                </article>
+                <article class="card" tabindex="0">
+                    <h3>Performance First</h3>
+                    <p>No external libraries—just clean, native CSS and HTML.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="pricing">
+            <h2>Simple Pricing</h2>
+            <div class="card-grid">
+                <article class="card" tabindex="0">
+                    <h3>Free</h3>
+                    <p>Perfect for personal projects and prototypes.</p>
+                </article>
+                <article class="card" tabindex="0">
+                    <h3>Pro</h3>
+                    <p>Advanced components and priority support.</p>
+                </article>
+                <article class="card" tabindex="0">
+                    <h3>Enterprise</h3>
+                    <p>Custom integrations, SLA, and dedicated account manager.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <h2>Get In Touch</h2>
+            <p>Have questions? <a href="mailto:hello@mybrand.com">Email us</a> or follow us on social media.</p>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 MyBrand. All rights reserved.
+    </footer>
+
+</body>
+</html>
