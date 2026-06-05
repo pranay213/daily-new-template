@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CSS‑Variable Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --bg-main: #f5f7ff;
+            --bg-surface: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+            --radius: .5rem;
+            --transition: .2s ease-in-out;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        a:hover {
+            color: darken(var(--primary), 10%);
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+
+        .nav__logo {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .nav__list {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav__link {
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color var(--transition);
+        }
+
+        .nav__link:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav__list {
+                display: none;
+            }
+            .nav__toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--text-primary);
+            }
+        }
+
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: 8rem 0 6rem;
+            text-align: center;
+        }
+
+        .hero__title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero__subtitle {
+            font-size: 1.125rem;
+            max-width: 45rem;
+            margin: 0 auto;
+            opacity: .9;
+        }
+
+        .section {
+            padding: 4rem 0;
+            background: var(--bg-surface);
+        }
+
+        .section:nth-child(even) {
+            background: var(--bg-main);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .grid--2col {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid--3col {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,.08);
+        }
+
+        .card__title {
+            margin-bottom: .5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .card__text {
+            color: var(--text-secondary);
+            font-size: .9375rem;
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: .875rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav" aria-label="Main navigation">
+                <a href="#" class="nav__logo">Brand</a>
+                <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+                <ul class="nav__list">
+                    <li><a href="#" class="nav__link">Home</a></li>
+                    <li><a href="#" class="nav__link">Features</a></li>
+                    <li><a href="#" class="nav__link">Pricing</a></li>
+                    <li><a href="#" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero__title">Stunning Responsive Template</h1>
+            <p class="hero__subtitle">
+                A clean, modern design built with CSS variables for effortless theming. Perfect for portfolios,
+                landing pages, and small business websites.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom:2rem;">Features</h2>
+            <div class="grid grid--3col">
+                <article class="card">
+                    <h3 class="card__title">Responsive Layout</h3>
+                    <p class="card__text">Fully adapts to any screen size using Flexbox and CSS Grid.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card__title">Theming</h3>
+                    <p class="card__text">Change colors globally by editing a few CSS variables.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card__title">Modern UI</h3>
+                    <p class="card__text">Clean typography, subtle shadows, and smooth interactions.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card__title">Accessible</h3>
+                    <p class="card__text">Semantic HTML and keyboard‑friendly navigation.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card__title">Performance</h3>
+                    <p class="card__text">Minimal CSS, no external frameworks, fast load times.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card__title">Customizable</h3>
+                    <p class="card__text">Easily extend with your own components and styles.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom:2rem;">Get Started</h2>
+            <div class="grid grid--2col" style="align-items:center;">
+                <div>
+                    <p class="card__text">
+                        Clone the repository, install dependencies, and customize the CSS variables to match your brand.
+                    </p>
+                    <p class="card__text">
+                        <a href="#" class="nav__link">Download Template →</a>
+                    </p>
+                </div>
+                <div style="text-align:center;">
+                    <img src="https://via.placeholder.com/500x300.png?text=Preview" alt="Template preview" style="max-width:100%; border-radius:var(--radius);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 Brand. All rights reserved.
+    </footer>
+
+    <script>
+        // Simple mobile nav toggle
+        const toggleBtn = document.querySelector('.nav__toggle');
+        const navList = document.querySelector('.nav__list');
+
+        toggleBtn.addEventListener('click', () => {
+            const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+            toggleBtn.setAttribute('aria-expanded', !expanded);
+            navList.style.display = expanded ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
