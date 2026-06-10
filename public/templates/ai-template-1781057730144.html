@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Modern One‑Page Template</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --primary: #0066ff;
+  --bg-main: #f5f7fa;
+  --bg-surface: #ffffff;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --border: #e0e0e0;
+  --radius: 8px;
+  --transition: 0.3s ease;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+a:hover {
+  opacity: 0.8;
+}
+header {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+.menu {
+  display: flex;
+  gap: 1.5rem;
+}
+.menu a {
+  font-weight: 500;
+}
+.main-hero {
+  background: var(--primary);
+  color: #fff;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+.main-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.main-hero p {
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+.cta-btn {
+  display: inline-block;
+  background: #fff;
+  color: var(--primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: var(--transition);
+}
+.cta-btn:hover {
+  background: #f0f0f0;
+}
+section {
+  padding: 4rem 2rem;
+}
+section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: var(--text-primary);
+}
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 600px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.card img {
+  max-width: 100%;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+.card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+}
+.card p {
+  flex-grow: 1;
+  color: var(--text-secondary);
+}
+.card a {
+  align-self: flex-start;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+footer {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+@media (max-width: 599px) {
+  .main-hero {
+    padding: 4rem 1rem;
+  }
+  .main-hero h1 {
+    font-size: 2rem;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">MyBrand</div>
+    <div class="menu">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="main-hero">
+  <h1>Elegant &amp; Responsive Design</h1>
+  <p>Build beautiful, fast, and accessible web experiences with this starter template. Customize colors instantly via CSS variables.</p>
+  <a href="#features" class="cta-btn">Explore Features</a>
+</section>
+
+<section id="features">
+  <h2>Features</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="https://via.placeholder.com/400x200" alt="Responsive layout">
+      <h3>Responsive Layout</h3>
+      <p>Designed to work on any device, from phones to large desktops, using flexible grids and media queries.</p>
+      <a href="#">Read more →</a>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x200" alt="CSS variables">
+      <h3>CSS Variables</h3>
+      <p>Easily switch themes by updating the root variables – no need to touch the markup.</p>
+      <a href="#">Read more →</a>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x200" alt="Accessibility">
+      <h3>Accessibility Focus</h3>
+      <p>Semantic HTML, proper color contrast, and keyboard‑friendly navigation ensure inclusivity.</p>
+      <a href="#">Read more →</a>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <h2>Pricing</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Free</h3>
+      <p class="price" style="font-size:2rem;font-weight:600;margin:1rem 0;">$0</p>
+      <p>Perfect for personal projects and learning.</p>
+      <a href="#">Get started →</a>
+    </div>
+    <div class="card">
+      <h3>Pro</h3>
+      <p class="price" style="font-size:2rem;font-weight:600;margin:1rem 0;">$19/mo</p>
+      <p>All features, priority support, and updates.</p>
+      <a href="#">Upgrade →</a>
+    </div>
+    <div class="card">
+      <h3>Enterprise</h3>
+      <p class="price" style="font-size:2rem;font-weight:600;margin:1rem 0;">Contact us</p>
+      <p>Custom solutions for large teams and organizations.</p>
+      <a href="#">Contact →</a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <p>© 2026 MyBrand. All rights reserved.</p>
+  <p><a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a></p>
+</footer>
+</body>
+</html>
