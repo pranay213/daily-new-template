@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Template</title>
+    <style>
+        :root {
+            /* Theme colors – change these to re‑theme the site */
+            --primary: #0066ff;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+
+            /* Additional utility variables */
+            --radius: 0.5rem;
+            --gap: 1rem;
+            --max-width: 1200px;
+            --transition: 0.3s ease;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        a:hover,
+        a:focus {
+            color: #0047b3;
+        }
+
+        /* Layout */
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--gap) 0;
+        }
+
+        header {
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--gap) 0;
+        }
+
+        .nav__logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav__list {
+            display: flex;
+            gap: var(--gap);
+            list-style: none;
+        }
+
+        .nav__item a {
+            font-weight: 500;
+        }
+
+        main {
+            padding: calc(var(--gap) * 2) 0;
+        }
+
+        .hero {
+            display: grid;
+            place-items: center;
+            text-align: center;
+            min-height: 60vh;
+            background: linear-gradient(135deg, var(--primary) 0%, #003399 100%);
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            max-width: 40ch;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin-top: calc(var(--gap) * 3);
+        }
+
+        .section__title {
+            font-size: 2rem;
+            margin-bottom: var(--gap);
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .cards {
+            display: grid;
+            gap: var(--gap);
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .card:hover,
+        .card:focus-within {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .card__image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card__content {
+            flex: 1;
+            padding: var(--gap);
+        }
+
+        .card__title {
+            margin: 0 0 0.5rem;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .card__text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .card__footer {
+            padding: var(--gap) var(--gap) 0;
+            margin-top: auto;
+        }
+
+        .card__footer a {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        footer {
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: var(--gap) 0;
+            margin-top: calc(var(--gap) * 4);
+        }
+
+        .footer__grid {
+            display: grid;
+            gap: var(--gap);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .footer__col h4 {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .footer__col ul {
+            list-style: none;
+        }
+
+        .footer__col li + li {
+            margin-top: 0.3rem;
+        }
+
+        .footer__col a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <div class="nav__logo">MyBrand</div>
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#">Home</a></li>
+                    <li class="nav__item"><a href="#">Features</a></li>
+                    <li class="nav__item"><a href="#">Pricing</a></li>
+                    <li class="nav__item"><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Elegant, Responsive Design</h1>
+            <p>Build beautiful web experiences with a flexible, themable template that works everywhere.</p>
+        </section>
+
+        <section class="container section">
+            <h2 class="section__title">Features</h2>
+            <div class="cards">
+                <article class="card">
+                    <img src="https://picsum.photos/seed/1/400/300" alt="" class="card__image">
+                    <div class="card__content">
+                        <h3 class="card__title">Modern UI</h3>
+                        <p class="card__text">Clean, minimalistic components that adapt to any device.</p>
+                    </div>
+                    <div class="card__footer"><a href="#">Learn More →</a></div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/2/400/300" alt="" class="card__image">
+                    <div class="card__content">
+                        <h3 class="card__title">Theming Made Easy</h3>
+                        <p class="card__text">Swap colors instantly by updating CSS variables.</p>
+                    </div>
+                    <div class="card__footer"><a href="#">Learn More →</a></div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/3/400/300" alt="" class="card__image">
+                    <div class="card__content">
+                        <h3 class="card__title">Responsive Layouts</h3>
+                        <p class="card__text">Fluid grids and flexbox ensure a perfect look on any screen.</p>
+                    </div>
+                    <div class="card__footer"><a href="#">Learn More →</a></div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/4/400/300" alt="" class="card__image">
+                    <div class="card__content">
+                        <h3 class="card__title">Performance First</h3>
+                        <p class="card__text">Lightweight code, no external CSS frameworks required.</p>
+                    </div>
+                    <div class="card__footer"><a href="#">Learn More →</a></div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p style="margin-top: var(--gap); text-align:center; font-size:0.85rem; color: var(--text-secondary);">
+                © 2026 MyBrand. All rights reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
