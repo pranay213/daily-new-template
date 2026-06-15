@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Template</title>
+<style>
+:root {
+  --primary: #4A90E2;
+  --bg-main: #F5F7FA;
+  --bg-surface: #FFFFFF;
+  --text-primary: #212121;
+  --text-secondary: #555555;
+  --border: #E0E0E0;
+  --radius: 8px;
+  --transition: 0.3s ease;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Layout */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+/* Header */
+header {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  position: relative;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: var(--transition);
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 70vh;
+  background: linear-gradient(135deg, var(--primary) 0%, #6ab7ff 100%);
+  color: #fff;
+  padding: 2rem 0;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+.hero .cta a {
+  display: inline-block;
+  background: #fff;
+  color: var(--primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+.hero .cta a:hover {
+  background: #e6e6e6;
+}
+
+/* Section */
+section {
+  padding: 4rem 0;
+}
+section:nth-of-type(even) {
+  background-color: var(--bg-surface);
+}
+
+/* Cards */
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.card-body {
+  flex: 1;
+  padding: 1.5rem;
+}
+.card-body h3 {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+.card-body p {
+  color: var(--text-secondary);
+  flex-grow: 1;
+}
+.card-body .link {
+  margin-top: 1rem;
+  display: inline-block;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+.card-body .link::after {
+  content: " →";
+}
+
+/* Footer */
+footer {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+footer p {
+  color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  .hero {
+    align-items: center;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a href="#" class="logo">MyBrand</a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Elegant Solutions for Modern Web</h1>
+    <p>Craft beautiful, fast, and responsive websites with our intuitive design system and powerful components.</p>
+    <div class="cta">
+      <a href="#features">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <h2 style="text-align:center; margin-bottom:2rem; color:var(--text-primary);">Features</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://picsum.photos/seed/1/600/400" alt="Responsive">
+        <div class="card-body">
+          <h3>Responsive Design</h3>
+          <p>Layouts that adapt gracefully to any screen size, ensuring a great experience everywhere.</p>
+          <a href="#" class="link">Learn more</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/seed/2/600/400" alt="Customizable">
+        <div class="card-body">
+          <h3>Easy Theming</h3>
+          <p>Use CSS variables to switch colors, fonts, and more with a single line of code.</p>
+          <a href="#" class="link">Learn more</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/seed/3/600/400" alt="Performance">
+        <div class="card-body">
+          <h3>Performance Optimized</h3>
+          <p>Minimal CSS, lazy‑loaded assets and best practices keep your site lightning fast.</p>
+          <a href="#" class="link">Learn more</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/seed/4/600/400" alt="Accessibility">
+        <div class="card-body">
+          <h3>Accessible</h3>
+          <p>Semantic HTML and ARIA support help you meet accessibility standards.</p>
+          <a href="#" class="link">Learn more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <h2 style="text-align:center; margin-bottom:2rem; color:var(--text-primary);">Pricing</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-body">
+          <h3>Free</h3>
+          <p style="font-size:2rem; margin:1rem 0;">$0</p>
+          <p>Perfect for personal projects and learning.</p>
+          <a href="#" class="link">Sign up</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3>Pro</h3>
+          <p style="font-size:2rem; margin:1rem 0;">$19/mo</p>
+          <p>All features, priority support, and unlimited projects.</p>
+          <a href="#" class="link">Upgrade</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3>Enterprise</h3>
+          <p style="font-size:2rem; margin:1rem 0;">Custom</p>
+          <p>Tailored solutions for large teams and organizations.</p>
+          <a href="#" class="link">Contact sales</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2024 MyBrand. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
