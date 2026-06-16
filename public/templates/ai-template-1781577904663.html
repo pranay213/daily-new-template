@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Template</title>
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        a:hover { text-decoration: underline; }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #357ab8 100%);
+            color: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin: 0 0 1rem;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+        }
+
+        .hero p {
+            margin: 0 0 2rem;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #fff;
+            color: var(--primary);
+            border-radius: 0.4rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .btn-primary:hover {
+            background: rgba(255,255,255,0.9);
+        }
+
+        .section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section + .section {
+            border-top: 1px solid var(--border);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 600px) {
+            .grid-2 { grid-template-columns: repeat(2, 1fr); }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.6rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            margin: 0 0 0.5rem;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .card-text {
+            flex: 1;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        footer {
+            background: var(--bg-surface);
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 2rem 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .theme-switcher {
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-main: #181a1b;
+                --bg-surface: #242526;
+                --text-primary: #e4e6eb;
+                --text-secondary: #b0b3b8;
+                --border: #3a3b3c;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MySite</div>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#cards">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-switcher" aria-label="Toggle dark mode">🌓</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Elevate Your Digital Experience</h1>
+        <p>Discover a modern, responsive template that adapts to any device. Customize colors instantly with CSS variables.</p>
+        <a href="#features" class="btn-primary">Learn More</a>
+    </section>
+
+    <section id="features" class="section">
+        <h2 style="text-align:center; margin-bottom:2rem;">Key Features</h2>
+        <div class="grid grid-2">
+            <div>
+                <h3>Responsive Design</h3>
+                <p>Built with flexible grid and media queries, your content looks perfect on phones, tablets, and desktops.</p>
+            </div>
+            <div>
+                <h3>Themeable Colors</h3>
+                <p>All core colors are defined as CSS variables, making branding changes as simple as updating a few values.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="cards" class="section">
+        <h2 style="text-align:center; margin-bottom:2rem;">Our Products</h2>
+        <div class="grid grid-3">
+            <article class="card">
+                <img src="https://picsum.photos/400/250?random=1" alt="Product 1">
+                <div class="card-body">
+                    <h3 class="card-title">Product One</h3>
+                    <p class="card-text">A brief description of the product highlighting its main benefits and features.</p>
+                    <a href="#" class="btn-primary">Details</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/400/250?random=2" alt="Product 2">
+                <div class="card-body">
+                    <h3 class="card-title">Product Two</h3>
+                    <p class="card-text">Quick overview of why this product stands out in the market.</p>
+                    <a href="#" class="btn-primary">Details</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/400/250?random=3" alt="Product 3">
+                <div class="card-body">
+                    <h3 class="card-title">Product Three</h3>
+                    <p class="card-text">Key features and benefits presented succinctly for the user.</p>
+                    <a href="#" class="btn-primary">Details</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 style="text-align:center; margin-bottom:2rem;">Get In Touch</h2>
+        <form style="max-width:600px;margin:auto;" action="#" method="POST">
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                <input type="text" name="name" placeholder="Your Name" required style="flex:1;padding:0.75rem;border:1px solid var(--border);border-radius:0.4rem;background:var(--bg-surface);color:var(--text-primary);">
+                <input type="email" name="email" placeholder="Email" required style="flex:1;padding:0.75rem;border:1px solid var(--border);border-radius:0.4rem;background:var(--bg-surface);color:var(--text-primary);">
+            </div>
+            <textarea name="message" rows="5" placeholder="Your Message" required style="width:100%;margin-top:1rem;padding:0.75rem;border:1px solid var(--border);border-radius:0.4rem;background:var(--bg-surface);color:var(--text-primary);"></textarea>
+            <button type="submit" class="btn-primary" style="margin-top:1rem;">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        © 2026 MySite • All rights reserved.
+    </footer>
+
+    <script>
+        // Simple theme toggle (adds a class to the html element)
+        const btn = document.querySelector('.theme-switcher');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        const setTheme = (dark) => {
+            document.documentElement.style.setProperty('--bg-main', dark ? '#181a1b' : '#f5f7fa');
+            document.documentElement.style.setProperty('--bg-surface', dark ? '#242526' : '#ffffff');
+            document.documentElement.style.setProperty('--text-primary', dark ? '#e4e6eb' : '#212529');
+            document.documentElement.style.setProperty('--text-secondary', dark ? '#b0b3b8' : '#6c757d');
+            document.documentElement.style.setProperty('--border', dark ? '#3a3b3c' : '#e0e0e0');
+        };
+        btn.addEventListener('click', () => {
+            const isDark = getComputedStyle(document.documentElement).getPropertyValue('--bg-main').trim() === '#181a1b';
+            setTheme(!isDark);
+        });
+        // Initialize with system preference
+        setTheme(prefersDark.matches);
+    </script>
+</body>
+</html>
