@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant One‑Page Template</title>
+    <style>
+        :root {
+            --primary: #6200ee;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212121;
+            --text-secondary: #555555;
+            --border: #e0e0e0;
+
+            /* Optional: dark theme */
+            --primary-dark: #bb86fc;
+            --bg-main-dark: #121212;
+            --bg-surface-dark: #1e1e1e;
+            --text-primary-dark: #ffffff;
+            --text-secondary-dark: #cccccc;
+            --border-dark: #333333;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: var(--primary-dark);
+                --bg-main: var(--bg-main-dark);
+                --bg-surface: var(--bg-surface-dark);
+                --text-primary: var(--text-primary-dark);
+                --text-secondary: var(--text-secondary-dark);
+                --border: var(--border-dark);
+            }
+        }
+
+        /* Global reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav__brand {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav__list {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav__link {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav__link:hover {
+            color: var(--primary);
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://picsum.photos/1600/900?blur=2') center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .hero__title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero__subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero__cta {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .hero__cta:hover {
+            background: #4b00c5;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section__title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 600px) {
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            }
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+        }
+
+        .card__icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .card__title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .card__text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .footer__links a {
+            margin: 0 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .footer__links a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav" aria-label="Main navigation">
+            <div class="nav__brand">MyBrand</div>
+            <ul class="nav__list">
+                <li><a class="nav__link" href="#features">Features</a></li>
+                <li><a class="nav__link" href="#pricing">Pricing</a></li>
+                <li><a class="nav__link" href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 class="hero__title">Elegant One‑Page Design</h1>
+            <p class="hero__subtitle">A clean, responsive template built with modern CSS variables. Perfect for landing pages, portfolios, or small business sites.</p>
+            <button class="hero__cta">Get Started</button>
+        </section>
+
+        <section id="features" class="section">
+            <h2 class="section__title">Features</h2>
+            <div class="grid">
+                <article class="card">
+                    <div class="card__icon">⚡</div>
+                    <h3 class="card__title">Fast Performance</h3>
+                    <p class="card__text">Lightweight HTML/CSS only – no JavaScript bloat.</p>
+                </article>
+                <article class="card">
+                    <div class="card__icon">🎨</div>
+                    <h3 class="card__title">Customizable Theme</h3>
+                    <p class="card__text">All colors are controlled via CSS variables for easy branding.</p>
+                </article>
+                <article class="card">
+                    <div class="card__icon">📱</div>
+                    <h3 class="card__title">Responsive Layout</h3>
+                    <p class="card__text">Flexbox & Grid adapt gracefully to any screen size.</p>
+                </article>
+                <article class="card">
+                    <div class="card__icon">🔒</div>
+                    <h3 class="card__title">Accessibility</h3>
+                    <p class="card__text">Semantic HTML and sufficient color contrast.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="pricing" class="section" style="background: var(--bg-main);">
+            <h2 class="section__title">Pricing</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3 class="card__title">Starter</h3>
+                    <p class="card__text"><strong>$0</strong> / month</p>
+                    <p class="card__text">Ideal for hobby projects.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card__title">Pro</h3>
+                    <p class="card__text"><strong>$19</strong> / month</p>
+                    <p class="card__text">For freelancers and small teams.</p>
+                </article>
+                <article class="card">
+                    <h3 class="card__title">Enterprise</h3>
+                    <p class="card__text"><strong>Contact us</strong></p>
+                    <p class="card__text">Custom solutions for large organizations.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2 class="section__title">Get in Touch</h2>
+            <p style="text-align:center; max-width:600px; margin:auto; color:var(--text-secondary);">
+                Have questions or need a custom solution? <a href="mailto:hello@example.com">Email us</a> and we'll get back to you within 24 hours.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MyBrand. All rights reserved.</p>
+        <div class="footer__links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Sitemap</a>
+        </div>
+    </footer>
+</body>
+</html>
