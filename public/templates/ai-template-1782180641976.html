@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive CSS Variable Template</title>
+  <style>
+    :root {
+      --primary: #0066ff;
+      --bg-main: #f5f7fa;
+      --bg-surface: #ffffff;
+      --text-primary: #212121;
+      --text-secondary: #555555;
+      --border: #e0e0e0;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg-main);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav a {
+      font-weight: 500;
+    }
+    .hero {
+      background: var(--primary);
+      color: #fff;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+    }
+    .hero .btn {
+      background: #fff;
+      color: var(--primary);
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+    }
+    main {
+      padding: 2rem 0;
+    }
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .card-body {
+      flex: 1;
+      padding: 1rem;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .card-text {
+      flex: 1;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+    .card-footer {
+      padding: 0.75rem 1rem;
+      background: var(--bg-main);
+      text-align: right;
+    }
+    footer {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-main: #121212;
+        --bg-surface: #1e1e1e;
+        --text-primary: #e0e0e0;
+        --text-secondary: #b0b0b0;
+        --border: #333;
+        --primary: #3b82f6;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo"><a href="#"><strong>MySite</strong></a></div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Welcome to MySite</h1>
+      <p>Crafted with modern design, responsive layout, and themable colors.</p>
+      <a href="#" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="grid">
+      <article class="card">
+        <img src="https://picsum.photos/seed/1/400/200" alt="Sample image">
+        <div class="card-body">
+          <h2 class="card-title">Card Title One</h2>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+        </div>
+        <div class="card-footer"><a href="#">Read more →</a></div>
+      </article>
+
+      <article class="card">
+        <img src="https://picsum.photos/seed/2/400/200" alt="Sample image">
+        <div class="card-body">
+          <h2 class="card-title">Card Title Two</h2>
+          <p class="card-text">Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
+        </div>
+        <div class="card-footer"><a href="#">Read more →</a></div>
+      </article>
+
+      <article class="card">
+        <img src="https://picsum.photos/seed/3/400/200" alt="Sample image">
+        <div class="card-body">
+          <h2 class="card-title">Card Title Three</h2>
+          <p class="card-text">Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.</p>
+        </div>
+        <div class="card-footer"><a href="#">Read more →</a></div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 MySite. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
