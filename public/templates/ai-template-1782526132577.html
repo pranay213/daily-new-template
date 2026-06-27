@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Single‑Page Template</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: min(100% - 2rem, 1200px);
+            margin-inline: auto;
+            padding: 1rem;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 40rem;
+            margin-inline: auto;
+            opacity: .9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            margin-top: 1.5rem;
+            background: #fff;
+            color: var(--primary);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background .2s, color .2s;
+        }
+
+        .btn:hover {
+            background: var(--bg-surface);
+        }
+
+        section {
+            padding: 4rem 1rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .card h3 {
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">MyBrand</div>
+                <div class="nav-links">
+                    <a href="#features">Features</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to the Future of Web Design</h1>
+        <p>Craft beautiful, responsive interfaces with ease. This template demonstrates modern design principles, a clean codebase, and a flexible theming system.</p>
+        <a href="#features" class="btn">Explore Features</a>
+    </section>
+
+    <section id="features" class="container">
+        <h2 style="text-align:center; margin-bottom:2rem;">Features</h2>
+        <div class="grid grid-3">
+            <div class="card">
+                <svg width="48" height="48" fill="var(--primary)" aria-hidden="true"><circle cx="24" cy="24" r="24"/></svg>
+                <h3>Responsive Layout</h3>
+                <p>Adaptable grids that look great on any device, from phones to widescreen monitors.</p>
+            </div>
+            <div class="card">
+                <svg width="48" height="48" fill="var(--primary)" aria-hidden="true"><rect width="48" height="48" rx="8"/></svg>
+                <h3>CSS Variables</h3>
+                <p>Easily switch color schemes by updating a few variables in the root.</p>
+            </div>
+            <div class="card">
+                <svg width="48" height="48" fill="var(--primary)" aria-hidden="true"><polygon points="24,0 48,48 0,48"/></svg>
+                <h3>Accessible</h3>
+                <p>Built with semantic HTML and sufficient contrast for better accessibility.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="bg-surface" style="background: var(--bg-surface);">
+        <div class="container grid grid-2" style="align-items:center;">
+            <div>
+                <h2>About This Template</h2>
+                <p>This single‑file HTML/CSS example serves as a solid starting point for any project. The design follows a minimalistic aesthetic while still providing essential UI components.</p>
+                <p>All styles are scoped to the file, making it easy to copy, paste, and customize without external dependencies.</p>
+            </div>
+            <div style="text-align:center;">
+                <img src="https://via.placeholder.com/400x300" alt="Illustration" style="max-width:100%; border-radius:0.5rem;">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2 style="text-align:center; margin-bottom:2rem;">Get In Touch</h2>
+        <form style="max-width:600px; margin:auto;">
+            <div style="display:grid; gap:1rem;">
+                <input type="text" placeholder="Your name" required style="padding:0.75rem; border:1px solid var(--border); border-radius:0.5rem;">
+                <input type="email" placeholder="Email address" required style="padding:0.75rem; border:1px solid var(--border); border-radius:0.5rem;">
+                <textarea placeholder="Your message" rows="5" required style="padding:0.75rem; border:1px solid var(--border); border-radius:0.5rem;"></textarea>
+                <button type="submit" style="background:var(--primary); color:#fff; border:none; padding:0.75rem 1.5rem; border-radius:0.5rem; cursor:pointer;">Send Message</button>
+            </div>
+        </form>
+    </section>
+
+    <footer>
+        &copy; <script>document.write(new Date().getFullYear())</script> MyBrand. All rights reserved.
+    </footer>
+</body>
+</html>
