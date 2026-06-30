@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Template</title>
+    <style>
+        :root {
+            /* Theme variables – adjust to recolor the whole site */
+            --primary: #0066ff;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+
+            /* Typography */
+            --font-sans: "Helvetica Neue", Arial, sans-serif;
+            --font-size-base: 1rem;
+            --line-height-base: 1.5;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-base);
+            color: var(--text-primary);
+            background-color: var(--bg-main);
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: 0.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 500;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #0044aa 100%);
+            color: #fff;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .btn-primary {
+            background-color: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.4rem;
+            font-weight: 600;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .card-body {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .card-text {
+            flex: 1;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .card a {
+            align-self: flex-start;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        footer {
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MySite</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to the Future of Web Design</h1>
+        <p>Craft beautiful, responsive interfaces with a single, themeable template. Adjust the colors in one place and watch the whole site transform.</p>
+        <a href="#features" class="btn-primary">Discover More</a>
+    </section>
+
+    <main>
+        <section id="features" class="section">
+            <h2 class="section-title">Features</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://picsum.photos/seed/1/400/250" alt="Feature 1">
+                    <div class="card-body">
+                        <h3 class="card-title">Responsive Layout</h3>
+                        <p class="card-text">Built with CSS Grid and Flexbox to adapt gracefully to any screen size.</p>
+                        <a href="#">Learn more →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/2/400/250" alt="Feature 2">
+                    <div class="card-body">
+                        <h3 class="card-title">Theming Made Easy</h3>
+                        <p class="card-text">Swap colors via CSS variables – no need to touch the HTML.</p>
+                        <a href="#">Learn more →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/3/400/250" alt="Feature 3">
+                    <div class="card-body">
+                        <h3 class="card-title">Clean Code</h3>
+                        <p class="card-text">Well‑structured, semantic markup and minimal CSS for easy maintenance.</p>
+                        <a href="#">Learn more →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="section">
+            <h2 class="section-title">Pricing</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Starter</h3>
+                        <p class="card-text"><strong>$0</strong>/month</p>
+                        <p class="card-text">Ideal for personal projects and learning.</p>
+                        <a href="#">Get started →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Pro</h3>
+                        <p class="card-text"><strong>$19</strong>/month</p>
+                        <p class="card-text">For freelancers and small teams.</p>
+                        <a href="#">Choose Pro →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Enterprise</h3>
+                        <p class="card-text"><strong>Contact us</strong></p>
+                        <p class="card-text">Custom solutions for large organizations.</p>
+                        <a href="#">Contact sales →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2 class="section-title">Get in Touch</h2>
+            <p style="text-align:center; color:var(--text-secondary); max-width:600px; margin:auto;">
+                Have questions or need a custom implementation? Drop us a line and we'll get back to you shortly.
+            </p>
+            <div style="text-align:center; margin-top:2rem;">
+                <a href="mailto:hello@example.com" class="btn-primary">Email Us</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 MySite. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+    </footer>
+</body>
+</html>
