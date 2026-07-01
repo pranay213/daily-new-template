@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Single‑Page Template</title>
+<style>
+/* ---- Theme variables ---- */
+:root {
+    --primary: #4a90e2;
+    --bg-main: #f5f7fa;
+    --bg-surface: #ffffff;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --border: #e0e0e0;
+}
+
+/* ---- Reset & base ---- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text-primary);
+    background-color: var(--bg-main);
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---- Layout ---- */
+header {
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav .logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary);
+    text-decoration: none;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color .2s;
+}
+nav a:hover {
+    color: var(--primary);
+}
+
+/* ---- Hero ---- */
+.hero {
+    background: var(--primary);
+    color: #fff;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 0.5rem;
+}
+.hero p {
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ---- Main Content ---- */
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Card grid */
+.grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .2s, box-shadow .2s;
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+.card-body {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.card-body h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+.card-body p {
+    flex: 1;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+.card-body a {
+    margin-top: 1rem;
+    align-self: flex-start;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+.card-body a::after {
+    content: " →";
+}
+
+/* ---- Footer ---- */
+footer {
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border);
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+footer a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* ---- Responsive tweaks ---- */
+@media (max-width: 600px) {
+    nav ul {
+        gap: 1rem;
+    }
+    .hero {
+        padding: 3rem 1rem;
+    }
+}
+</style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="#" class="logo">MyBrand</a>
+        <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Elegant & Responsive Design</h1>
+    <p>Start building beautiful web experiences fast with this modern, theme‑able template.</p>
+</section>
+
+<main>
+    <section id="features" class="grid">
+        <article class="card">
+            <img src="https://picsum.photos/seed/1/600/400" alt="Feature 1">
+            <div class="card-body">
+                <h3>Responsive Layout</h3>
+                <p>Adaptive design that works seamlessly on all device sizes, from phones to widescreen monitors.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </article>
+        <article class="card">
+            <img src="https://picsum.photos/seed/2/600/400" alt="Feature 2">
+            <div class="card-body">
+                <h3>Customizable Theme</h3>
+                <p>Easily switch colors by editing a few CSS variables—no recompilation required.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </article>
+        <article class="card">
+            <img src="https://picsum.photos/seed/3/600/400" alt="Feature 3">
+            <div class="card-body">
+                <h3>Modern UI Components</h3>
+                <p>Clean, minimal components designed with accessibility and performance in mind.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </article>
+    </section>
+</main>
+
+<footer>
+    © 2026 MyBrand. All rights reserved. <a href="mailto:info@mybrand.com">Contact us</a>
+</footer>
+</body>
+</html>
