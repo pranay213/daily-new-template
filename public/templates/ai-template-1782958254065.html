@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CSS‑Variable Template</title>
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+        }
+
+        /* Dark theme overrides */
+        html.dark {
+            --primary: #66b2ff;
+            --bg-main: #121212;
+            --bg-surface: #1e1e1e;
+            --text-primary: #f1f1f1;
+            --text-secondary: #b0b0b0;
+            --border: #333333;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        header {
+            padding: 1rem 2rem;
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-weight: 600; font-size: 1.25rem; color: var(--primary); }
+        nav ul { list-style:none; display:flex; gap:1.5rem; }
+        nav a { font-weight:500; }
+
+        .theme-toggle {
+            background:none;
+            border:none;
+            cursor:pointer;
+            font-size:1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .hero {
+            min-height: 70vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            background: var(--bg-surface);
+            padding:2rem;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom:0.5rem;
+            color: var(--primary);
+        }
+        .hero p {
+            max-width: 600px;
+            color: var(--text-secondary);
+        }
+        .hero .cta {
+            margin-top:1.5rem;
+            padding:0.8rem 1.6rem;
+            background: var(--primary);
+            color:#fff;
+            border:none;
+            border-radius:0.4rem;
+            font-size:1rem;
+            cursor:pointer;
+            transition:background .3s;
+        }
+        .hero .cta:hover { background:#357ab8; }
+
+        .section {
+            padding:4rem 2rem;
+            background: var(--bg-main);
+        }
+        .section:nth-of-type(even) { background: var(--bg-surface); }
+        .section h2 {
+            text-align:center;
+            margin-bottom:2rem;
+            color: var(--primary);
+        }
+        .grid {
+            display:grid;
+            gap:2rem;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+        }
+        .card {
+            background: var(--bg-surface);
+            border:1px solid var(--border);
+            border-radius:0.6rem;
+            padding:1.5rem;
+            display:flex;
+            flex-direction:column;
+            gap:0.8rem;
+            transition:transform .2s, box-shadow .2s;
+        }
+        .card:hover {
+            transform:translateY(-4px);
+            box-shadow:0 8px 20px rgba(0,0,0,0.08);
+        }
+        .card h3 { margin:0; color: var(--primary); }
+        .card p { flex-grow:1; color: var(--text-secondary); }
+
+        footer {
+            background: var(--bg-surface);
+            color: var(--text-secondary);
+            padding:2rem;
+            text-align:center;
+            border-top:1px solid var(--border);
+            font-size:0.9rem;
+        }
+        footer a { color: var(--primary); }
+
+        @media (prefers-color-scheme: dark) {
+            html { color-scheme: dark; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MySite</div>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="theme-toggle" aria-label="Toggle light/dark theme">🌓</button>
+    </header>
+
+    <section class="hero">
+        <h1>Elegant Design, Zero Effort</h1>
+        <p>Start building beautiful, responsive web experiences instantly. This template uses modern CSS, variables for theming, and pure HTML/CSS – ready to customize.</p>
+        <button class="cta">Get Started</button>
+    </section>
+
+    <section id="features" class="section">
+        <h2>Features</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Responsive Layout</h3>
+                <p>Flexbox and CSS Grid adapt gracefully to any screen size.</p>
+            </div>
+            <div class="card">
+                <h3>Theme Ready</h3>
+                <p>All colours are driven by CSS variables, making dark mode or brand changes trivial.</p>
+            </div>
+            <div class="card">
+                <h3>Accessible</h3>
+                <p>Semantic markup, focus styles and colour‑contrast awareness.</p>
+            </div>
+            <div class="card">
+                <h3>Fast Load</h3>
+                <p>No external libraries – just pure HTML and CSS for lightning‑quick performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section">
+        <h2>Pricing</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Free</h3>
+                <p>All core features, no credit‑card required.</p>
+                <a href="#">Learn More →</a>
+            </div>
+            <div class="card">
+                <h3>Pro</h3>
+                <p>Advanced components, priority support, and more.</p>
+                <a href="#">Upgrade →</a>
+            </div>
+            <div class="card">
+                <h3>Enterprise</h3>
+                <p>Custom solutions and dedicated account management.</p>
+                <a href="#">Contact Sales →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>© 2026 MySite. All rights reserved.</p>
+        <p>Follow us on <a href="#">Twitter</a>, <a href="#">LinkedIn</a> or <a href="#">GitHub</a>.</p>
+    </footer>
+
+    <script>
+        const toggle = document.querySelector('.theme-toggle');
+        const root = document.documentElement;
+
+        // Load saved preference
+        if (localStorage.getItem('theme') === 'dark') {
+            root.classList.add('dark');
+        }
+
+        toggle.addEventListener('click', () => {
+            root.classList.toggle('dark');
+            localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+        });
+    </script>
+</body>
+</html>
