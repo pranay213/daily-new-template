@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive CSS Variables Template</title>
+<style>
+:root{
+  --primary:#4a90e2;
+  --bg-main:#f5f7fa;
+  --bg-surface:#ffffff;
+  --text-primary:#333333;
+  --text-secondary:#666666;
+  --border:#e0e0e0;
+}
+
+/* Reset */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background:var(--bg-main);
+  color:var(--text-primary);
+  line-height:1.6;
+}
+
+/* Header */
+header{
+  background:var(--primary);
+  color:#fff;
+  padding:1rem 2rem;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+}
+header .logo{
+  font-size:1.5rem;
+  font-weight:bold;
+}
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:500;
+}
+nav a:hover{
+  opacity:0.8;
+}
+
+/* Hero */
+.hero{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:4rem 2rem;
+  background:var(--bg-surface);
+  border-bottom:1px solid var(--border);
+}
+.hero h1{
+  font-size:2.5rem;
+  margin-bottom:.5rem;
+}
+.hero p{
+  font-size:1.125rem;
+  color:var(--text-secondary);
+  max-width:600px;
+  margin-bottom:1.5rem;
+}
+.hero .cta{
+  background:var(--primary);
+  color:#fff;
+  padding:.75rem 1.5rem;
+  border:none;
+  border-radius:.5rem;
+  cursor:pointer;
+  font-size:1rem;
+  text-decoration:none;
+}
+.hero .cta:hover{
+  background:#357ab8;
+}
+
+/* Main Content */
+.main{
+  padding:2rem;
+  max-width:1200px;
+  margin:auto;
+}
+.grid{
+  display:grid;
+  gap:1.5rem;
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+}
+.card{
+  background:var(--bg-surface);
+  padding:1.5rem;
+  border:1px solid var(--border);
+  border-radius:.5rem;
+  box-shadow:0 2px 4px rgba(0,0,0,.05);
+  transition:transform .2s;
+}
+.card:hover{
+  transform:translateY(-4px);
+}
+.card h3{
+  margin-bottom:.5rem;
+}
+.card p{
+  color:var(--text-secondary);
+  font-size:.95rem;
+}
+
+/* Footer */
+footer{
+  background:var(--bg-surface);
+  text-align:center;
+  padding:2rem;
+  border-top:1px solid var(--border);
+  color:var(--text-secondary);
+}
+footer a{
+  color:var(--primary);
+  text-decoration:none;
+}
+footer a:hover{
+  opacity:0.8;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark){
+  :root{
+    --primary:#4a90e2;
+    --bg-main:#121212;
+    --bg-surface:#1e1e1e;
+    --text-primary:#e0e0e0;
+    --text-secondary:#b0b0b0;
+    --border:#333333;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">MySite</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">Pricing</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Welcome to Your Next Project</h1>
+  <p>Elegant, responsive, and fully customizable. Build beautiful web experiences with ease using this starter template.</p>
+  <a href="#" class="cta">Get Started</a>
+</section>
+
+<main class="main">
+  <div class="grid">
+    <article class="card">
+      <h3>Responsive Layout</h3>
+      <p>Built with flexbox and CSS grid to adapt seamlessly to any screen size.</p>
+    </article>
+    <article class="card">
+      <h3>CSS Variables</h3>
+      <p>Easily theme the whole site by tweaking a handful of color variables.</p>
+    </article>
+    <article class="card">
+      <h3>Modern UI</h3>
+      <p>Clean typography, subtle shadows, and smooth interactions.</p>
+    </article>
+    <article class="card">
+      <h3>Accessible</h3>
+      <p>Semantic markup and high‑contrast options for better usability.</p>
+    </article>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> MySite. <a href="#">Privacy Policy</a>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
