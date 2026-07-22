@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Template</title>
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #222222;
+            --text-secondary: #555555;
+            --border: #e0e0e0;
+            --radius: 8px;
+            --transition: 0.3s ease;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        a:hover {
+            color: darken(var(--primary), 10%);
+        }
+
+        header {
+            background: var(--primary);
+            color: #fff;
+            padding: 1rem 2rem;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav {
+            margin-top: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        nav li a {
+            color: #fff;
+            font-weight: 500;
+            transition: opacity var(--transition);
+        }
+
+        nav li a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: var(--bg-surface);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero .cta {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: background var(--transition);
+        }
+
+        .hero .cta:hover {
+            background: #357ab8;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1rem;
+            flex-grow: 1;
+        }
+
+        .card-content h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .card-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .card-actions {
+            padding: 0.75rem 1rem;
+            background: var(--bg-main);
+            text-align: right;
+        }
+
+        .card-actions a {
+            background: var(--primary);
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--radius);
+            font-size: 0.85rem;
+            transition: background var(--transition);
+        }
+
+        .card-actions a:hover {
+            background: #357ab8;
+        }
+
+        footer {
+            background: var(--bg-surface);
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 2rem 1rem;
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-main: #1e1e1e;
+                --bg-surface: #2c2c2c;
+                --text-primary: #e0e0e0;
+                --text-secondary: #b0b0b0;
+                --border: #444;
+            }
+            header, .hero, footer {
+                background: var(--bg-surface);
+                color: var(--text-primary);
+            }
+            nav li a {
+                color: var(--text-primary);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MyBrand</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Design with Simplicity & Power</h1>
+        <p>Craft beautiful, responsive websites with a modern, clean codebase. All colors are theme‑ready thanks to CSS variables.</p>
+        <a href="#" class="cta">Get Started</a>
+    </section>
+
+    <main>
+        <section class="grid">
+            <article class="card">
+                <img src="https://picsum.photos/seed/1/400/300" alt="Sample image">
+                <div class="card-content">
+                    <h3>Responsive Layouts</h3>
+                    <p>Fluid grid systems that adapt to any screen size without breaking the design.</p>
+                </div>
+                <div class="card-actions"><a href="#">Learn More</a></div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/2/400/300" alt="Sample image">
+                <div class="card-content">
+                    <h3>Theming Made Easy</h3>
+                    <p>Swap out palette colors by redefining a few CSS variables—no code changes needed.</p>
+                </div>
+                <div class="card-actions"><a href="#">Learn More</a></div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/3/400/300" alt="Sample image">
+                <div class="card-content">
+                    <h3>Performance Optimized</h3>
+                    <p>Minimal CSS, no external libraries, and fast load times for excellent UX.</p>
+                </div>
+                <div class="card-actions"><a href="#">Learn More</a></div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/4/400/300" alt="Sample image">
+                <div class="card-content">
+                    <h3>Accessibility First</h3>
+                    <p>Semantic markup and color contrast that meets WCAG guidelines.</p>
+                </div>
+                <div class="card-actions"><a href="#">Learn More</a></div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 MyBrand. All rights reserved.
+    </footer>
+</body>
+</html>
