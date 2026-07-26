@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modern Responsive Template</title>
+  <style>
+    :root {
+      --primary: #0066ff;
+      --bg-main: #f5f8ff;
+      --bg-surface: #ffffff;
+      --text-primary: #212529;
+      --text-secondary: #6c757d;
+      --border: #e0e0e0;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(100% - 2rem, 1200px);
+      margin-inline: auto;
+      padding: 1rem;
+    }
+
+    header {
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+    }
+
+    .nav-brand {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, #0044aa 100%);
+      color: #fff;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      margin-bottom: 1.5rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .hero .btn {
+      display: inline-block;
+      background-color: #fff;
+      color: var(--primary);
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.35rem;
+      font-weight: 600;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .hero .btn:hover {
+      background-color: rgba(255,255,255,0.9);
+    }
+
+    main {
+      padding: 2rem 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .card-body {
+      flex: 1;
+      padding: 1rem;
+    }
+
+    .card-title {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .card-text {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .card .btn {
+      align-self: start;
+      background-color: var(--primary);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 0.35rem;
+      font-size: 0.9rem;
+      transition: background-color 0.2s;
+    }
+
+    .card .btn:hover {
+      background-color: #0044aa;
+    }
+
+    footer {
+      background-color: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-main: #1e1e1e;
+        --bg-surface: #2c2c2c;
+        --text-primary: #fafafa;
+        --text-secondary: #c0c0c0;
+        --border: #444;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="nav-brand">MySite</div>
+        <div class="nav-links">
+          <a href="#">Home</a>
+          <a href="#">Features</a>
+          <a href="#">Pricing</a>
+          <a href="#">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Welcome to the Future of Web Design</h1>
+      <p>Elegant, responsive, and fully customizable templates at your fingertips.</p>
+      <a href="#" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <section class="grid">
+        <article class="card">
+          <img src="https://picsum.photos/seed/1/400/250" alt="Feature 1">
+          <div class="card-body">
+            <h2 class="card-title">Responsive Layouts</h2>
+            <p class="card-text">Design that adapts seamlessly to any screen size, from mobile to desktop.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/2/400/250" alt="Feature 2">
+          <div class="card-body">
+            <h2 class="card-title">Customizable Themes</h2>
+            <p class="card-text">Easily switch colors using CSS variables and create your brand identity.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/3/400/250" alt="Feature 3">
+          <div class="card-body">
+            <h2 class="card-title">Clean Code</h2>
+            <p class="card-text">Well‑structured HTML and modern CSS for maintainability and performance.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://picsum.photos/seed/4/400/250" alt="Feature 4">
+          <div class="card-body">
+            <h2 class="card-title">Fast Loading</h2>
+            <p class="card-text">Optimized assets and minimal dependencies keep your site lightning‑fast.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    © 2026 MySite. All rights reserved.
+  </footer>
+</body>
+</html>
