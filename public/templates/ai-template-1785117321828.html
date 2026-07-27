@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stunning One‑Page Template</title>
+    <style>
+        :root {
+            /* Theme colors – adjust these to re‑theme the whole site */
+            --primary: #0066ff;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+
+            /* Typography */
+            --font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --h1-size: 2.5rem;
+            --h2-size: 2rem;
+            --h3-size: 1.5rem;
+            --base-space: 1rem;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: var(--base-space);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-inline: var(--base-space);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--base-space);
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+            padding: 4rem var(--base-space);
+        }
+
+        .hero h1 {
+            font-size: var(--h1-size);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.4rem;
+            font-weight: 600;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #e6e6e6;
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            padding: 4rem var(--base-space);
+            background: var(--bg-main);
+        }
+
+        .features h2 {
+            font-size: var(--h2-size);
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .cards {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: var(--base-space);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            font-size: var(--h3-size);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem var(--base-space);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        @media (min-width: 600px) {
+            .footer-inner {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-logo">MyBrand</div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Elevate Your Digital Experience</h1>
+            <p>Clean, responsive, and fully customizable. Ready to launch your project?</p>
+            <a href="#features" class="btn-primary">Explore Features</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Powerful Features</h2>
+            <div class="cards">
+                <article class="card">
+                    <h3>Responsive Layout</h3>
+                    <p>Designed to look great on any device, from phones to 4K monitors.</p>
+                </article>
+                <article class="card">
+                    <h3>Customizable Theme</h3>
+                    <p>Swap colors instantly by editing CSS variables – no code changes needed.</p>
+                </article>
+                <article class="card">
+                    <h3>Fast Performance</h3>
+                    <p>Lightweight markup and optimized CSS for blazing‑fast load times.</p>
+                </article>
+                <article class="card">
+                    <h3>SEO Friendly</h3>
+                    <p>Semantic HTML structure helps search engines understand your content.</p>
+                </article>
+                <article class="card">
+                    <h3>Accessibility First</h3>
+                    <p>Colors and contrast meet WCAG standards, ensuring inclusivity.</p>
+                </article>
+                <article class="card">
+                    <h3>Open Source</h3>
+                    <p>Free to use, modify, and share under the MIT license.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div>&copy; 2026 MyBrand. All rights reserved.</div>
+                <ul class="footer-links">
+                    <li><a href="#privacy">Privacy</a></li>
+                    <li><a href="#terms">Terms</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
