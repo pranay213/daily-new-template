@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CSS‑Variable Template</title>
+    <style>
+        :root {
+            /* Theme colors – override these in a <style> block or via JS */
+            --primary:        #4f46e5;   /* Indigo */
+            --bg-main:       #f5f7fa;
+            --bg-surface:    #ffffff;
+            --text-primary:  #1f2937;
+            --text-secondary:#4b5563;
+            --border:        #e5e7eb;
+            --radius:        0.5rem;
+            --shadow:        0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover { text-decoration: underline; }
+
+        header, footer {
+            background: var(--bg-surface);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo { font-weight: 600; font-size: 1.25rem; color: var(--primary); }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        main { padding: 2rem; }
+
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: var(--radius);
+        }
+
+        .hero h1 { margin: 0 0 0.5rem; font-size: clamp(2rem, 5vw, 3rem); }
+
+        .hero p { margin: 0 0 1.5rem; font-size: 1.125rem; }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #fff;
+            color: var(--primary);
+            border-radius: var(--radius);
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background: rgba(255,255,255,0.9);
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .card-content {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .card-content h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .card-content p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .card-footer {
+            padding: 0.75rem 1rem;
+            background: var(--bg-main);
+            text-align: right;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 480px) {
+            header, footer { padding: 1rem; }
+            .hero { padding: 3rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MySite</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to the Future</h1>
+            <p>Elegant design, flexible theming, and full responsiveness – all in one single‑file template.</p>
+            <a href="#" class="btn-primary">Get Started</a>
+        </section>
+
+        <section class="grid">
+            <article class="card">
+                <img src="https://picsum.photos/seed/1/400/200" alt="Sample image">
+                <div class="card-content">
+                    <h3>Design System</h3>
+                    <p>Consistent UI components built with CSS variables for effortless theming.</p>
+                </div>
+                <div class="card-footer"><a href="#">Learn more →</a></div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/2/400/200" alt="Sample image">
+                <div class="card-content">
+                    <h3>Responsive Layout</h3>
+                    <p>Every section adapts gracefully to any screen size using modern CSS grid.</p>
+                </div>
+                <div class="card-footer"><a href="#">Learn more →</a></div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/3/400/200" alt="Sample image">
+                <div class="card-content">
+                    <h3>Fast Performance</h3>
+                    <p>Lightweight HTML/CSS only – no external frameworks, no JavaScript required.</p>
+                </div>
+                <div class="card-footer"><a href="#">Learn more →</a></div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/4/400/200" alt="Sample image">
+                <div class="card-content">
+                    <h3>Customizable Theme</h3>
+                    <p>Override the CSS variables to match your brand in a single line of code.</p>
+                </div>
+                <div class="card-footer"><a href="#">Learn more →</a></div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 MySite. All rights reserved.
+    </footer>
+</body>
+</html>
