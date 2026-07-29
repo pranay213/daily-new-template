@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Template</title>
+    <style>
+        :root {
+            /* Theme colors – change these to re‑theme the site */
+            --primary: #0066ff;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #dee2e6;
+
+            /* Additional spacing variables */
+            --radius: 8px;
+            --gap: 1.5rem;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:focus {
+            text-decoration: underline;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: var(--gap);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav__brand {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav__list {
+            list-style: none;
+            display: flex;
+            gap: var(--gap);
+        }
+
+        .nav__link {
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav__link:hover,
+        .nav__link:focus {
+            color: var(--primary);
+        }
+
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: calc(var(--gap) * 2) var(--gap);
+            text-align: center;
+        }
+
+        .hero__title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero__subtitle {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero__cta {
+            display: inline-block;
+            background: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .hero__cta:hover,
+        .hero__cta:focus {
+            background: #e6e6e6;
+            color: var(--primary);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: var(--gap) auto;
+            padding: 0 var(--gap);
+        }
+
+        .section {
+            margin-bottom: calc(var(--gap) * 2);
+        }
+
+        .section__title {
+            font-size: 1.75rem;
+            margin-bottom: var(--gap);
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--gap);
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover,
+        .card:focus-within {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card__img {
+            width: 100%;
+            height: 0;
+            padding-top: 56.25%; /* 16:9 ratio */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card__body {
+            flex: 1;
+            padding: var(--gap);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card__title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .card__text {
+            flex: 1;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .card__link {
+            align-self: flex-start;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: var(--gap);
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-main: #1a1b1e;
+                --bg-surface: #26272b;
+                --text-primary: #e1e1e1;
+                --text-secondary: #a9a9b3;
+                --border: #383a40;
+            }
+
+            .hero {
+                background: #004fbf;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav" aria-label="Main navigation">
+            <div class="nav__brand">MySite</div>
+            <ul class="nav__list">
+                <li><a class="nav__link" href="#">Home</a></li>
+                <li><a class="nav__link" href="#">Features</a></li>
+                <li><a class="nav__link" href="#">Pricing</a></li>
+                <li><a class="nav__link" href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 class="hero__title">Stunning Modern Design</h1>
+        <p class="hero__subtitle">Responsive, accessible, and ready to customize.</p>
+        <a href="#" class="hero__cta">Get Started</a>
+    </section>
+
+    <main>
+        <section class="section">
+            <h2 class="section__title">Features</h2>
+            <div class="grid">
+                <article class="card">
+                    <div class="card__img" style="background-image:url('https://picsum.photos/id/1015/600/400');" role="img" aria-label="Responsive layout"></div>
+                    <div class="card__body">
+                        <h3 class="card__title">Responsive Layout</h3>
+                        <p class="card__text">Built with CSS Grid and Flexbox to adapt to any screen size.</p>
+                        <a href="#" class="card__link">Learn more →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card__img" style="background-image:url('https://picsum.photos/id/1025/600/400');" role="img" aria-label="Customizable colors"></div>
+                    <div class="card__body">
+                        <h3 class="card__title">Theming</h3>
+                        <p class="card__text">Use CSS variables to easily change colors across the whole site.</p>
+                        <a href="#" class="card__link">Learn more →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card__img" style="background-image:url('https://picsum.photos/id/1035/600/400');" role="img" aria-label="Fast performance"></div>
+                    <div class="card__body">
+                        <h3 class="card__title">Performance</h3>
+                        <p class="card__text">Optimized markup and minimal assets for lightning‑fast loading.</p>
+                        <a href="#" class="card__link">Learn more →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card__img" style="background-image:url('https://picsum.photos/id/1045/600/400');" role="img" aria-label="Accessibility"></div>
+                    <div class="card__body">
+                        <h3 class="card__title">Accessibility</h3>
+                        <p class="card__text">Semantic HTML and focus management for inclusive experiences.</p>
+                        <a href="#" class="card__link">Learn more →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Get In Touch</h2>
+            <form style="max-width:600px;margin:auto;" action="#" method="post">
+                <div style="display:grid;gap:var(--gap);grid-template-columns:1fr 1fr;">
+                    <input type="text" name="first" placeholder="First name" required style="padding:0.75rem;border:1px solid var(--border);border-radius:var(--radius);">
+                    <input type="text" name="last" placeholder="Last name" required style="padding:0.75rem;border:1px solid var(--border);border-radius:var(--radius);">
+                </div>
+                <input type="email" name="email" placeholder="Email address" required style="width:100%;margin-top:var(--gap);padding:0.75rem;border:1px solid var(--border);border-radius:var(--radius);">
+                <textarea name="message" rows="4" placeholder="Your message" required style="width:100%;margin-top:var(--gap);padding:0.75rem;border:1px solid var(--border);border-radius:var(--radius);"></textarea>
+                <button type="submit" style="margin-top:var(--gap);background:var(--primary);color:#fff;padding:0.75rem 1.5rem;border:none;border-radius:var(--radius);cursor:pointer;">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        © <script>document.write(new Date().getFullYear())</script> MySite. All rights reserved.
+    </footer>
+</body>
+</html>
