@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stunning CSS‑Variable Template</title>
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+            --radius: .5rem;
+            --transition: 0.3s ease;
+            --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-sans);
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            opacity: .8;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav a {
+            font-weight: 500;
+        }
+
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin: 0 0 .5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            margin-bottom: 2rem;
+            opacity: .9;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: var(--primary);
+            padding: .75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background: #f0f0f0;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,.08);
+            transform: translateY(-4px);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: .875rem;
+            color: var(--text-secondary);
+        }
+
+        .footer a {
+            margin: 0 .5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <div class="logo"><a href="#">MyBrand</a></div>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Elegant Design, Seamless Experience</h1>
+            <p>Build beautiful, responsive web pages with a modern, themable template.</p>
+            <button class="btn-primary">Get Started</button>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom:2rem;">Features</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3>Responsive Layout</h3>
+                    <p>Fluid grids and media queries make your site look great on any device.</p>
+                </div>
+                <div class="card">
+                    <h3>CSS Variables</h3>
+                    <p>All colors are defined as variables, enabling instant theming.</p>
+                </div>
+                <div class="card">
+                    <h3>Modern UI</h3>
+                    <p>Clean typography, subtle shadows, and smooth interactions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section" style="background: var(--bg-surface);">
+        <div class="container grid grid-2">
+            <div>
+                <h2>About This Template</h2>
+                <p>This single‑file HTML/CSS starter uses best practices: semantic markup, CSS custom properties for theming, and a mobile‑first responsive design. It's perfect for portfolios, landing pages, or small business sites.</p>
+                <p>Feel free to adjust the variables at the top of the stylesheet to match your brand palette.</p>
+            </div>
+            <div>
+                <img src="https://via.placeholder.com/540x360.png?text=Responsive+Design" alt="Responsive design preview" style="width:100%; border-radius: var(--radius);">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <p>&copy; 2026 MyBrand. All rights reserved.</p>
+            <p>
+                <a href="#">Privacy</a> |
+                <a href="#">Terms</a> |
+                <a href="#">Support</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
