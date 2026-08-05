@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Template</title>
+    <style>
+        :root {
+            --primary: #4a90e2;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 2rem auto;
+            width: 90%;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: var(--bg-surface);
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero .cta {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 0.25rem;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .hero .cta:hover {
+            background: #357ab8;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .card p {
+            flex: 1;
+            color: var(--text-secondary);
+        }
+
+        .card a {
+            margin-top: 1rem;
+            align-self: flex-start;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">MyBrand</div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Elegant, Responsive Design</h1>
+            <p>Crafted with modern CSS, flexible theming, and a mobile‑first approach.</p>
+            <a href="#features" class="cta">Explore Features</a>
+        </section>
+
+        <section id="features" class="grid grid-3">
+            <article class="card">
+                <h3>Fast Performance</h3>
+                <p>Optimized code and lightweight assets ensure lightning‑quick load times on any device.</p>
+                <a href="#">Learn more →</a>
+            </article>
+            <article class="card">
+                <h3>Customizable Theme</h3>
+                <p>Easily switch colors by updating a few CSS variables without touching the markup.</p>
+                <a href="#">Learn more →</a>
+            </article>
+            <article class="card">
+                <h3>Responsive Layout</h3>
+                <p>Designed to adapt gracefully from large desktops to small smartphones.</p>
+                <a href="#">Learn more →</a>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        © <span id="year"></span> MyBrand. All rights reserved.
+    </footer>
+
+    <script>
+        // Simple script to keep the year up‑to‑date
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
