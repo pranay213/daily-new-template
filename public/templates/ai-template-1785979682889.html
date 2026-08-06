@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern CSS‑Variable Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0066ff;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #555e68;
+            --border: #e2e8f0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.5;
+            color: var(--text-primary);
+            background-color: var(--bg-main);
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            display: grid;
+            gap: 2rem;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 48rem;
+            margin: 0 auto;
+        }
+
+        .hero .cta {
+            margin-top: 1.5rem;
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary);
+            color: #fff;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .hero .cta:hover {
+            background-color: #0052cc;
+        }
+
+        .features {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: left;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+
+        footer {
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-main: #181a1b;
+                --bg-surface: #242526;
+                --text-primary: #e4e6eb;
+                --text-secondary: #b0b3b8;
+                --border: #3a3b3c;
+            }
+
+            .hero .cta {
+                background-color: #4a90e2;
+            }
+
+            .hero .cta:hover {
+                background-color: #357ab8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MyBrand</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Design Beautifully, Code Efficiently</h1>
+            <p>Leverage modern web standards, responsive layouts, and CSS variables for a maintainable, future‑proof design system.</p>
+            <a href="#" class="cta">Get Started</a>
+        </section>
+
+        <section class="features">
+            <article class="feature-card">
+                <h3>Responsive Grid</h3>
+                <p>Layouts adapt flawlessly from mobile to desktop using CSS Grid and Flexbox without media‑query overload.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Themeable Colours</h3>
+                <p>All colours are controlled with CSS variables, making brand updates and dark‑mode toggles trivial.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Modern UI</h3>
+                <p>Clean typography, subtle shadows, and smooth interactions give a professional look & feel.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Performance Optimised</h3>
+                <p>Minimal DOM, native CSS, and no heavy frameworks keep load times low and SEO high.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        © <script>document.write(new Date().getFullYear())</script> MyBrand. All rights reserved.
+    </footer>
+</body>
+</html>
