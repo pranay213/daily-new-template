@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CSS‑Variable Template</title>
+    <style>
+        /* ---- Theme variables ---- */
+        :root {
+            --primary: #0066ff;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+            --radius: .5rem;
+            --transition: 0.3s ease;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-main: #11171e;
+                --bg-surface: #1e2a38;
+                --text-primary: #f1f3f5;
+                --text-secondary: #adb5bd;
+                --border: #2c3e50;
+            }
+        }
+
+        /* ---- Global reset ---- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-main);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            opacity: 0.85;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            font: inherit;
+        }
+
+        /* ---- Layout components ---- */
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .nav ul {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav a {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            border-radius: var(--radius);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: .5rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            opacity: .9;
+        }
+
+        .hero .cta {
+            background: #fff;
+            color: var(--primary);
+            padding: .75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .hero .cta:hover {
+            background: #eaeaea;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,.08);
+        }
+
+        .card img {
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .card-body {
+            flex: 1;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body h3 {
+            margin-bottom: .5rem;
+            font-size: 1.25rem;
+        }
+
+        .card-body p {
+            flex: 1;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: .95rem;
+        }
+
+        .card-body .read-more {
+            align-self: flex-start;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            font-size: .9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ---- Responsive adjustments ---- */
+        @media (max-width: 600px) {
+            .nav ul {
+                flex-direction: column;
+                gap: .5rem;
+                width: 100%;
+                text-align: center;
+                margin-top: .5rem;
+            }
+
+            header, footer {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo">MySite</div>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Build Beautiful Web Experiences</h1>
+            <p>Responsive, themeable, and ready to customize. Jump‑start your project with this clean, modern template.</p>
+            <a href="#features" class="cta">Explore Features</a>
+        </section>
+
+        <section id="features" class="grid">
+            <article class="card">
+                <img src="https://picsum.photos/seed/1/600/400" alt="Feature 1">
+                <div class="card-body">
+                    <h3>Responsive Layout</h3>
+                    <p>Fluid grids and flexible images ensure your site looks great on any device.</p>
+                    <a href="#" class="read-more">Learn more →</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/2/600/400" alt="Feature 2">
+                <div class="card-body">
+                    <h3>CSS Variables</h3>
+                    <p>Easily switch colors, dark mode, or create brand‑specific themes in seconds.</p>
+                    <a href="#" class="read-more">Learn more →</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/3/600/400" alt="Feature 3">
+                <div class="card-body">
+                    <h3>Modern UI</h3>
+                    <p>Clean typography, subtle shadows, and smooth interactions give a polished feel.</p>
+                    <a href="#" class="read-more">Learn more →</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://picsum.photos/seed/4/600/400" alt="Feature 4">
+                <div class="card-body">
+                    <h3>Accessibility Ready</h3>
+                    <p>Semantic HTML and sufficient color contrast support all users.</p>
+                    <a href="#" class="read-more">Learn more →</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        © <script>document.write(new Date().getFullYear())</script> MySite • All rights reserved.
+    </footer>
+</body>
+</html>
