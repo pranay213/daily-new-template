@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CSS‑Variable Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --bg-main: #F9FAFB;
+            --bg-surface: #FFFFFF;
+            --text-primary: #111827;
+            --text-secondary: #6B7280;
+            --border: #E5E7EB;
+            --radius: .5rem;
+            --gap: 1.5rem;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a { color: var(--primary); text-decoration:none; }
+        a:hover { text-decoration: underline; }
+
+        header {
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .container {
+            width: min(100% - 2rem, 1200px);
+            margin-inline: auto;
+            padding: var(--gap) 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 4rem var(--gap);
+            background-color: var(--bg-surface);
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem,5vw,3.5rem);
+            margin-bottom: .5rem;
+        }
+
+        .hero p {
+            max-width: 45ch;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #fff;
+            padding: .75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            opacity: .9;
+        }
+
+        .features {
+            background-color: var(--bg-main);
+            padding: 4rem var(--gap);
+        }
+
+        .grid {
+            display: grid;
+            gap: var(--gap);
+        }
+
+        @media (min-width: 640px) {
+            .grid-2 { grid-template-columns: repeat(2,1fr); }
+            .grid-3 { grid-template-columns: repeat(3,1fr); }
+        }
+
+        .card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,.08);
+        }
+
+        .card h3 {
+            margin-bottom: .5rem;
+            color: var(--primary);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+        }
+
+        .contact {
+            background-color: var(--bg-surface);
+            padding: 4rem var(--gap);
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        .contact input,
+        .contact textarea {
+            padding: .75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font: inherit;
+            resize: vertical;
+        }
+
+        .contact button {
+            align-self: start;
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            padding: .75rem 1.5rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .contact button:hover {
+            opacity: .9;
+        }
+
+        footer {
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 2rem var(--gap);
+            font-size: .875rem;
+            color: var(--text-secondary);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-main: #111827;
+                --bg-surface: #1F2937;
+                --text-primary: #F9FAFB;
+                --text-secondary: #D1D5DB;
+                --border: #374151;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">MyBrand</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>Elegant, Responsive Design</h1>
+        <p>Build beautiful web experiences fast with a themable, mobile‑first template that adapts to any brand.</p>
+        <button class="btn-primary">Get Started</button>
+    </div>
+</section>
+
+<section id="features" class="features">
+    <div class="container">
+        <h2 style="text-align:center; margin-bottom:2rem;">Features</h2>
+        <div class="grid grid-3">
+            <div class="card">
+                <h3>Responsive Layout</h3>
+                <p>Flexbox and CSS Grid keep your content beautiful on any screen size.</p>
+            </div>
+            <div class="card">
+                <h3>CSS Variables</h3>
+                <p>Easily switch colors or create dark mode with a single line of CSS.</p>
+            </div>
+            <div class="card">
+                <h3>Accessible</h3>
+                <p>Semantic HTML and focus styles ensure usability for everyone.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="features">
+    <div class="container grid grid-2">
+        <div>
+            <h2>About This Template</h2>
+            <p>This single‑file solution demonstrates modern best practices: mobile‑first breakpoints, scalable typography, and reusable components. It's perfect for landing pages, portfolios, or SaaS sites.</p>
+            <ul style="margin-left:1.2rem; color:var(--text-secondary);">
+                <li>HTML5 semantic markup</li>
+                <li>Pure CSS – no framework required</li>
+                <li>Fully themable via CSS custom properties</li>
+            </ul>
+        </div>
+        <div>
+            <img src="https://via.placeholder.com/500x300" alt="Placeholder image" style="width:100%; border-radius:var(--radius);">
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="container">
+        <h2 style="text-align:center; margin-bottom:2rem;">Get in Touch</h2>
+        <form>
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        © <span id="year"></span> MyBrand. All rights reserved.
+    </div>
+</footer>
+
+<script>
+    // Simple script to keep the year up‑to‑date
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
