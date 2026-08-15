@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial‑scale=1.0">
+    <title>Modern Responsive Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --bg-main: #f9fafb;
+            --bg-surface: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+            --radius: 0.5rem;
+            --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+            --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav li {
+            font-weight: 500;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
+            color: #fff;
+            text-align: center;
+            padding: 6rem 1rem;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+        }
+
+        .hero p {
+            margin-top: 1rem;
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        .hero .cta {
+            margin-top: 2rem;
+            display: inline-flex;
+            gap: 1rem;
+        }
+
+        .button {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: #fff;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #f3f4f6;
+        }
+
+        .btn-secondary {
+            background-color: rgba(255,255,255,0.2);
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            margin: 0.75rem 0 0;
+        }
+
+        footer {
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-main: #111827;
+                --bg-surface: #1f2937;
+                --text-primary: #f3f4f6;
+                --text-secondary: #9ca3af;
+                --border: #374151;
+            }
+
+            .hero {
+                background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%);
+            }
+
+            .btn-primary {
+                background-color: var(--primary);
+                color: #fff;
+            }
+
+            .btn-primary:hover {
+                background-color: #7c3aed;
+            }
+
+            .btn-secondary {
+                background-color: rgba(255,255,255,0.1);
+                color: #fff;
+            }
+
+            .btn-secondary:hover {
+                background-color: rgba(255,255,255,0.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">MyBrand</div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Elegant Design, Seamless Experience</h1>
+        <p>Build beautiful, responsive websites with a modern, themable foundation.</p>
+        <div class="cta">
+            <button class="button btn-primary">Get Started</button>
+            <button class="button btn-secondary">Learn More</button>
+        </div>
+    </section>
+
+    <main>
+        <section id="features" class="section">
+            <h2 class="section-title">Features</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>Responsive Layout</h3>
+                    <p>Automatically adapts to any screen size using CSS Grid and Flexbox.</p>
+                </article>
+                <article class="card">
+                    <h3>Customizable Theme</h3>
+                    <p>Change the look instantly by updating CSS variables.</p>
+                </article>
+                <article class="card">
+                    <h3>Accessible Markup</h3>
+                    <p>Semantic HTML ensures better SEO and accessibility.</p>
+                </article>
+                <article class="card">
+                    <h3>Fast Performance</h3>
+                    <p>Lightweight code and no external dependencies.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="pricing" class="section">
+            <h2 class="section-title">Pricing</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>Free</h3>
+                    <p><strong>$0 / month</strong></p>
+                    <p>Basic features for personal projects.</p>
+                </article>
+                <article class="card">
+                    <h3>Pro</h3>
+                    <p><strong>$19 / month</strong></p>
+                    <p>All features, priority support, and updates.</p>
+                </article>
+                <article class="card">
+                    <h3>Enterprise</h3>
+                    <p><strong>Contact us</strong></p>
+                    <p>Custom solutions for large teams.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2 class="section-title">Get in Touch</h2>
+            <form action="#" method="POST" style="max-width:600px;margin:auto;">
+                <div style="display:flex;flex-direction:column;gap:1rem;">
+                    <input type="text" name="name" placeholder="Your name" required
+                        style="padding:0.75rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-surface);color:var(--text-primary);">
+                    <input type="email" name="email" placeholder="Email address" required
+                        style="padding:0.75rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-surface);color:var(--text-primary);">
+                    <textarea name="message" rows="5" placeholder="Your message" required
+                        style="padding:0.75rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg-surface);color:var(--text-primary);"></textarea>
+                    <button type="submit" class="button btn-primary" style="align-self:flex-start;">Send Message</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 MyBrand. All rights reserved.
+    </footer>
+</body>
+</html>
