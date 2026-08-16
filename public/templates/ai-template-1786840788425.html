@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Template</title>
+<style>
+:root {
+  --primary: #4a90e2;
+  --bg-main: #f5f7fa;
+  --bg-surface: #ffffff;
+  --text-primary: #212121;
+  --text-secondary: #666666;
+  --border: #e0e0e0;
+}
+
+/* Reset & base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Header & Navigation */
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: 1rem 2rem;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1.5rem;
+}
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* Hero Section */
+.hero {
+  background: var(--bg-surface);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+.hero p {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+.hero .btn {
+  background: var(--primary);
+  color: #fff;
+  padding: .75rem 1.5rem;
+  border: none;
+  border-radius: .4rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.hero .btn:hover {
+  opacity: 0.9;
+}
+
+/* Cards Grid */
+section.cards {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: .5rem;
+  padding: 1.5rem;
+  transition: transform .2s, box-shadow .2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+.card h3 {
+  margin-bottom: .5rem;
+}
+.card p {
+  color: var(--text-secondary);
+  font-size: .9rem;
+}
+
+/* Footer */
+footer {
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: .85rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav a {
+    margin: .5rem 0 0;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo"><strong>MySite</strong></div>
+    <div class="links">
+      <a href="#">Home</a>
+      <a href="#">Features</a>
+      <a href="#">Pricing</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Welcome to Your New Site</h1>
+  <p>Crafted with modern HTML and CSS, this responsive template adapts beautifully to any device.</p>
+  <a href="#" class="btn">Get Started</a>
+</section>
+
+<section class="cards">
+  <div class="card">
+    <h3>Responsive Layout</h3>
+    <p>Flexible grid system ensures your content looks great on every screen size.</p>
+  </div>
+  <div class="card">
+    <h3>Customizable Theme</h3>
+    <p>All colors are controlled via CSS variables – change them in one place.</p>
+  </div>
+  <div class="card">
+    <h3>Modern UI</h3>
+    <p>Clean typography, subtle shadows, and smooth interactions.</p>
+  </div>
+  <div class="card">
+    <h3>Easy to Extend</h3>
+    <p>Add new sections or components without rewriting the base styles.</p>
+  </div>
+</section>
+
+<footer>
+  © 2024 MySite. All rights reserved.
+</footer>
+</body>
+</html>
