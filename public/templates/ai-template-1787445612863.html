@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern HTML/CSS Template</title>
+    <style>
+        /* ==== Theme variables ==== */
+        :root {
+            --primary: #0066ff;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border: #e0e0e0;
+            --radius: .5rem;
+            --transition: 0.3s ease;
+        }
+
+        /* Optional dark theme – just add class "dark" to <html> */
+        .dark {
+            --primary: #4da3ff;
+            --bg-main: #181a1b;
+            --bg-surface: #242526;
+            --text-primary: #e4e6eb;
+            --text-secondary: #b0b3b8;
+            --border: #414344;
+        }
+
+        /* ==== Reset & base ==== */
+        *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        a { color: var(--primary); text-decoration:none; transition: var(--transition); }
+        a:hover { opacity: .8; }
+
+        /* ==== Layout helpers ==== */
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        @media (min-width: 640px) {
+            .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 960px) {
+            .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* ==== Header ==== */
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: .75rem 0;
+        }
+        .logo { font-weight: 600; font-size: 1.25rem; color: var(--text-primary); }
+        nav ul { list-style:none; display:flex; gap:1.5rem; }
+        nav a { font-weight:500; }
+
+        /* ==== Hero ==== */
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            text-align:center;
+            padding: 4rem 1rem;
+        }
+        .hero h1 { font-size: clamp(2rem,5vw,3.5rem); margin-bottom:.5rem; }
+        .hero p { font-size: 1.125rem; margin-bottom:1.5rem; max-width: 45ch; margin-left:auto; margin-right:auto; }
+
+        .btn-primary {
+            background: #fff;
+            color: var(--primary);
+            padding: .75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight:600;
+            transition: var(--transition);
+        }
+        .btn-primary:hover {
+            background: rgba(255,255,255,.9);
+        }
+
+        /* ==== Section ==== */
+        section {
+            padding: 3rem 0;
+        }
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align:center;
+            transition: var(--transition);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,.08);
+        }
+        .card h3 { margin-top:.75rem; margin-bottom:.5rem; }
+        .card p { color: var(--text-secondary); font-size:.95rem; }
+
+        /* ==== Footer ==== */
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            margin-top:auto;
+        }
+        .footer-links { display:flex; flex-wrap:wrap; gap:.5rem; }
+        .footer-links a { font-size:.9rem; color: var(--text-secondary); }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container flex-between" style="display:flex; align-items:center; justify-content:space-between;">
+            <div class="logo">MyBrand</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Stunning Modern Design</h1>
+            <p>Build beautiful, responsive websites faster with this lightweight, themable template.</p>
+            <a href="#" class="btn-primary">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section>
+        <div class="container">
+            <h2 style="text-align:center; margin-bottom:2rem;">Features</h2>
+            <div class="grid grid-cols-3">
+                <div class="card">
+                    <svg width="48" height="48" fill="var(--primary)" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    <h3>Responsive Layout</h3>
+                    <p>Works flawlessly on any device, from phones to large desktops.</p>
+                </div>
+                <div class="card">
+                    <svg width="48" height="48" fill="var(--primary)" viewBox="0 0 24 24"><path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/></svg>
+                    <h3>Easy Customization</h3>
+                    <p>All colors are controlled by CSS variables – change your theme in seconds.</p>
+                </div>
+                <div class="card">
+                    <svg width="48" height="48" fill="var(--primary)" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    <h3>Semantic HTML</h3>
+                    <p>Built with accessibility and SEO best practices in mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:1rem;">
+                <p style="color:var(--text-secondary);">© 2026 MyBrand. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Support</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
