@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Template</title>
+    <style>
+        /* ------- Color variables (can be overridden) ------- */
+        :root {
+            --primary: #0066ff;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212529;
+            --text-secondary: #555555;
+            --border: #e0e0e0;
+        }
+
+        /* ------- Reset & base styles ------- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ------- Layout ------- */
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        nav {
+            margin-top: 0.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: 4rem 2rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            max-width: 40rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .cta {
+            background: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.3rem;
+            font-weight: 600;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,.08);
+        }
+
+        .card img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .card-body {
+            flex: 1;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .card-body p {
+            flex: 1;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .card-body .read-more {
+            align-self: flex-start;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ------- Responsiveness ------- */
+        @media (min-width: 600px) {
+            nav ul {
+                margin-left: auto;
+                margin-top: 0;
+                gap: 2rem;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            }
+        }
+
+        @media (min-width: 900px) {
+            header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 1rem 2rem;
+            }
+
+            nav {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MySite</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Elegant Design, Seamless Experience</h1>
+            <p>Crafted with modern web standards, this template adapts to any device while keeping the visual hierarchy clear and inviting.</p>
+            <a href="#" class="cta">Get Started</a>
+        </section>
+
+        <section class="grid">
+            <article class="card">
+                <img src="https://picsum.photos/seed/pic1/800/450" alt="Sample image">
+                <div class="card-body">
+                    <h3>Responsive Layout</h3>
+                    <p>Built with CSS Grid and Flexbox to ensure content reflows naturally across all screen sizes.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/pic2/800/450" alt="Sample image">
+                <div class="card-body">
+                    <h3>Customizable Theme</h3>
+                    <p>Swap colors by overriding CSS variables—no need to touch the core stylesheet.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/pic3/800/450" alt="Sample image">
+                <div class="card-body">
+                    <h3>Clean Code</h3>
+                    <p>Semantic HTML and well‑structured CSS make maintenance a breeze.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/pic4/800/450" alt="Sample image">
+                <div class="card-body">
+                    <h3>Fast Performance</h3>
+                    <p>Lightweight design and optimized assets keep load times short.</p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 MySite • <a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a>
+    </footer>
+</body>
+</html>
