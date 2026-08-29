@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Template</title>
+    <style>
+        :root {
+            --primary: #1e88e5;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #212121;
+            --text-secondary: #555555;
+            --border: #e0e0e0;
+            --radius: 8px;
+            --transition: 0.3s ease;
+        }
+
+        /* Dark theme example */
+        .dark-theme {
+            --primary: #90caf9;
+            --bg-main: #121212;
+            --bg-surface: #1e1e1e;
+            --text-primary: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --border: #333333;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            opacity: 0.85;
+        }
+
+        header {
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #42a5f5 100%);
+            color: #fff;
+            padding: 8rem 1rem 6rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            max-width: 720px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn-primary {
+            background-color: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(255,255,255,0.9);
+        }
+
+        .section {
+            padding: 4rem 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-size: 2rem;
+            color: var(--text-primary);
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background-color: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #90caf9;
+                --bg-main: #121212;
+                --bg-surface: #1e1e1e;
+                --text-primary: #e0e0e0;
+                --text-secondary: #b0b0b0;
+                --border: #333333;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">MySite</div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Design with Simplicity & Elegance</h1>
+            <p>Craft beautiful, responsive web experiences using modern HTML, CSS, and a flexible theming system.</p>
+            <a href="#features" class="btn-primary">Explore Features</a>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title">Features</h2>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3>Responsive Layout</h3>
+                    <p>Built with flexbox and CSS grid, the template adapts to any screen size.</p>
+                </div>
+                <div class="card">
+                    <h3>CSS Variables</h3>
+                    <p>Easily switch colors and themes without touching the markup.</p>
+                </div>
+                <div class="card">
+                    <h3>Modern UI</h3>
+                    <p>Clean typography, subtle shadows, and smooth transitions.</p>
+                </div>
+                <div class="card">
+                    <h3>Zero Dependencies</h3>
+                    <p>No external libraries—just pure HTML and CSS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section" style="background-color: var(--bg-surface);">
+        <div class="container">
+            <h2 class="section-title">About This Template</h2>
+            <p style="max-width: 800px; margin: 0 auto; text-align:center; color: var(--text-secondary);">
+                This single‑file template demonstrates best practices in web design: semantic HTML5, mobile‑first CSS,
+                and a themable color palette using CSS custom properties. Feel free to customize the variables at the top
+                of the stylesheet to match your brand colors.
+            </p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            © 2026 MySite • <a href="mailto:info@mysite.com">info@mysite.com</a> • <a href="#">Privacy Policy</a>
+        </div>
+    </footer>
+</body>
+</html>
