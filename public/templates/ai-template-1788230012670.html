@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Template</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            padding: 0.8rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            background: var(--bg-surface);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            background: #4338ca;
+            transform: translateY(-2px);
+        }
+
+        .features {
+            max-width: 1200px;
+            margin: 3rem auto;
+            display: grid;
+            gap: 1.5rem;
+            padding: 0 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .theme-switch {
+            cursor: pointer;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 0.4rem;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo">MyBrand</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+                <button class="theme-switch" onclick="toggleTheme()">Dark</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Elegant Design Meets Modern Functionality</h1>
+            <p>Build beautiful web experiences with our clean, responsive, and fully themeable UI kit.</p>
+            <a href="#features" class="cta-btn">Get Started</a>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="card">
+            <h3>Responsive Layout</h3>
+            <p>Automatically adapts to any screen size using CSS Grid and Flexbox.</p>
+        </div>
+        <div class="card">
+            <h3>Customizable Themes</h3>
+            <p>Change colors instantly with CSS variables – no rebuild needed.</p>
+        </div>
+        <div class="card">
+            <h3>Accessible Components</h3>
+            <p>Built with best practices for accessibility and usability.</p>
+        </div>
+        <div class="card">
+            <h3>Fast Performance</h3>
+            <p>Lightweight HTML and CSS for quick load times.</p>
+        </div>
+        <div class="card">
+            <h3>Modern Aesthetics</h3>
+            <p>Sleek design language with subtle shadows and smooth interactions.</p>
+        </div>
+        <div class="card">
+            <h3>Easy Integration</h3>
+            <p>Plug-and-play components that fit any project structure.</p>
+        </div>
+    </section>
+
+    <footer>
+        © <span id="year"></span> MyBrand. All rights reserved.
+    </footer>
+
+    <script>
+        // Update year dynamically
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Simple dark theme toggle (demo purposes)
+        const darkTheme = {
+            '--primary': '#2563eb',
+            '--bg-main': '#1f2937',
+            '--bg-surface': '#111827',
+            '--text-primary': '#f9fafb',
+            '--text-secondary': '#d1d5db',
+            '--border': '#374151'
+        };
+        const lightTheme = {
+            '--primary': '#4f46e5',
+            '--bg-main': '#f5f7fa',
+            '--bg-surface': '#ffffff',
+            '--text-primary': '#111827',
+            '--text-secondary': '#6b7280',
+            '--border': '#e5e7eb'
+        };
+        let isDark = false;
+        function toggleTheme() {
+            const theme = isDark ? lightTheme : darkTheme;
+            for (const [varName, value] of Object.entries(theme)) {
+                document.documentElement.style.setProperty(varName, value);
+            }
+            document.querySelector('.theme-switch').textContent = isDark ? 'Dark' : 'Light';
+            isDark = !isDark;
+        }
+    </script>
+</body>
+</html>
