@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern One‑Page Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: 'Inter', system-ui, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .nav__logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav__list {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav__link {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav__link:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: 6rem 0 5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), transparent);
+        }
+
+        .hero__content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 45ch;
+            margin: 0 auto 2rem;
+            font-size: 1.125rem;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: rgba(255,255,255,0.9);
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section__title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-size: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .features {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .feature-card {
+            background: var(--bg-surface);
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .about {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .about__text {
+            max-width: 600px;
+        }
+
+        .about__text h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .about__text p {
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .about__img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .contact {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 2rem;
+        }
+
+        .contact form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .contact label {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .contact input,
+        .contact textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .contact button {
+            align-self: start;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact button:hover {
+            background: #3730a3;
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @media (min-width: 768px) {
+            .about {
+                flex-direction: row;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="nav__logo">MyBrand</div>
+            <ul class="nav__list">
+                <li><a href="#features" class="nav__link">Features</a></li>
+                <li><a href="#about" class="nav__link">About</a></li>
+                <li><a href="#contact" class="nav__link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero__content">
+            <h1>Elevate Your Digital Presence</h1>
+            <p>Crafted with modern design principles, responsive layouts, and a flexible theming system.</p>
+            <button class="btn-primary">Get Started</button>
+        </div>
+    </section>
+
+    <section id="features" class="container">
+        <h2 class="section__title">Features</h2>
+        <div class="grid features">
+            <div class="feature-card">
+                <h3>Responsive Design</h3>
+                <p>Adaptive layouts that look great on any device, from phones to large desktops.</p>
+            </div>
+            <div class="feature-card">
+                <h3>CSS Variables</h3>
+                <p>Easily switch color themes by adjusting a few variables.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Accessibility</h3>
+                <p>Semantic HTML and ARIA‑friendly components for inclusive experiences.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Performance</h3>
+                <p>Optimized assets and minimal CSS for fast load times.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="container about">
+        <div class="about__text">
+            <h2>About This Template</h2>
+            <p>This one‑page template demonstrates a clean, modern UI built with pure HTML and CSS. It's perfect as a starter for portfolios, product pages, or any small web project. The design is fully responsive and uses CSS custom properties to enable effortless theming.</p>
+        </div>
+        <div class="about__img">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60" alt="Illustrative view">
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2 class="section__title">Get in Touch</h2>
+        <div class="contact">
+            <form>
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your name" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                </div>
+                <div>
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" placeholder="Your message…" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            © 2026 MyBrand. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
