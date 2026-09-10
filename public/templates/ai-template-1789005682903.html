@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modern HTML Template</title>
+<style>
+:root {
+  --primary: #0066ff;
+  --bg-main: #f5f7fa;
+  --bg-surface: #ffffff;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --border: #e0e0e0;
+}
+
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+body { font-family: system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; line-height:1.6; background: var(--bg-main); color: var(--text-primary); }
+
+/* Layout */
+header { background: var(--bg-surface); border-bottom: 1px solid var(--border); }
+nav { display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:auto; padding:1rem; }
+nav a { color: var(--text-primary); text-decoration:none; margin:0 .5rem; }
+nav a:hover { color: var(--primary); }
+
+.hero { padding:4rem 1rem; text-align:center; background: var(--primary); color:#fff; }
+.hero h1 { font-size:2.5rem; margin-bottom:.5rem; }
+.hero p { font-size:1.2rem; max-width:600px; margin:auto; }
+
+section { max-width:1200px; margin:auto; padding:2rem 1rem; }
+.grid { display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); }
+.card { background: var(--bg-surface); border:1px solid var(--border); border-radius:8px; overflow:hidden; box-shadow:0 2px 4px rgba(0,0,0,.05); transition:transform .2s;}
+.card:hover { transform:translateY(-4px); }
+.card img { width:100%; height:auto; display:block; }
+.card-body { padding:1rem; }
+.card-title { margin:0 0 .5rem; font-size:1.25rem; color: var(--text-primary); }
+.card-text { margin:0; color: var(--text-secondary); font-size:.9rem; }
+
+footer { background: var(--bg-surface); border-top:1px solid var(--border); text-align:center; padding:1.5rem; font-size:.9rem; color: var(--text-secondary); }
+
+/* Responsive typography */
+@media (min-width:768px){
+  .hero h1{font-size:3rem;}
+}
+</style>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo"><a href="#"><strong>MySite</strong></a></div>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">Features</a>
+      <a href="#">Pricing</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Welcome to MySite</h1>
+  <p>Crafting beautiful experiences with modern web design. Explore our features and see what we have to offer.</p>
+</section>
+
+<section>
+  <h2 style="margin-bottom:1.5rem; text-align:center;">Our Services</h2>
+  <div class="grid">
+    <article class="card">
+      <img src="https://via.placeholder.com/400x200" alt="Service 1">
+      <div class="card-body">
+        <h3 class="card-title">Design</h3>
+        <p class="card-text">Elegant, responsive designs that adapt to any device.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://via.placeholder.com/400x200" alt="Service 2">
+      <div class="card-body">
+        <h3 class="card-title">Development</h3>
+        <p class="card-text">Fast, clean code built with the latest standards.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://via.placeholder.com/400x200" alt="Service 3">
+      <div class="card-body">
+        <h3 class="card-title">SEO</h3>
+        <p class="card-text">Optimized content to boost visibility and traffic.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://via.placeholder.com/400x200" alt="Service 4">
+      <div class="card-body">
+        <h3 class="card-title">Support</h3>
+        <p class="card-text">24/7 assistance to keep your site running smoothly.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer>
+  © 2026 MySite. All rights reserved.
+</footer>
+</body>
+</html>
