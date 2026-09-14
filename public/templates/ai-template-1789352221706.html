@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CSS‑Variable Template</title>
+    <style>
+        :root {
+            /* Theme colors – change these to re‑theme the whole site */
+            --primary: #0066ff;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --border: #e0e0e0;
+
+            /* Base spacing */
+            --space-sm: .5rem;
+            --space-md: 1rem;
+            --space-lg: 2rem;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        header, footer { background: var(--bg-surface); border-bottom: 1px solid var(--border); }
+        footer { border-top: 1px solid var(--border); border-bottom: none; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-md);
+        }
+
+        /* ---- Header ---- */
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-sm) var(--space-md);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        nav a {
+            font-weight: 500;
+        }
+
+        /* ---- Hero ---- */
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            padding: calc(4 * var(--space-lg)) var(--space-md);
+            text-align: center;
+        }
+
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: var(--space-md); }
+        .hero p { font-size: 1.125rem; margin-bottom: var(--space-lg); }
+
+        .hero .cta {
+            display: inline-block;
+            background: #fff;
+            color: var(--primary);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: 0.25rem;
+            font-weight: 600;
+            transition: background .3s, color .3s;
+        }
+
+        .hero .cta:hover {
+            background: #e6e6e6;
+        }
+
+        /* ---- Main Content ---- */
+        .features {
+            display: grid;
+            gap: var(--space-lg);
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            padding: var(--space-lg) 0;
+        }
+
+        .feature-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            padding: var(--space-md);
+            text-align: center;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,.08);
+        }
+
+        .feature-card h3 {
+            margin-bottom: var(--space-sm);
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: .95rem;
+        }
+
+        /* ---- Footer ---- */
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-md);
+            text-align: center;
+            font-size: .9rem;
+        }
+
+        .footer-content a { color: var(--text-secondary); }
+
+        @media (min-width: 600px) {
+            .footer-content { flex-direction: row; justify-content: space-between; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header container">
+        <div class="logo">MySite</div>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://github.com">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Build Beautiful Web Experiences</h1>
+        <p>Responsive, themable, and ready to customize – start your project in seconds.</p>
+        <a href="#features" class="cta">Explore Features</a>
+    </section>
+
+    <main class="container">
+        <section id="features" class="features">
+            <article class="feature-card">
+                <h3>Responsive Layout</h3>
+                <p>Automatically adapts to any screen size with flexbox and CSS grid.</p>
+            </article>
+            <article class="feature-card">
+                <h3>CSS Variables</h3>
+                <p>Easily switch themes by redefining a handful of variables.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Modern UI</h3>
+                <p>Clean, minimalistic design focused on readability and usability.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Performance</h3>
+                <p>Lightweight markup and no external libraries for fast load times.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="footer-content container">
+            <div>&copy; 2026 MySite. All rights reserved.</div>
+            <div>
+                <a href="#">Privacy Policy</a> •
+                <a href="#">Terms of Service</a> •
+                <a href="mailto:info@mysite.com">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
