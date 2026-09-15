@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Template</title>
+<style>
+:root {
+  --primary: #4a90e2;
+  --bg-main: #f5f7fa;
+  --bg-surface: #ffffff;
+  --text-primary: #222222;
+  --text-secondary: #555555;
+  --border: #e0e0e0;
+  --radius: 8px;
+  --max-width: 1200px;
+}
+
+/* Reset & base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--bg-main);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+}
+header .container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+nav a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: color .2s;
+}
+nav a:hover {
+  color: var(--primary);
+}
+
+/* Hero */
+.hero {
+  background: var(--primary);
+  color: #fff;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+.hero .container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: .5rem;
+}
+.hero p {
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+}
+.hero .btn {
+  background: #fff;
+  color: var(--primary);
+  padding: .75rem 1.5rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background .2s, color .2s;
+}
+.hero .btn:hover {
+  background: rgba(255,255,255,.9);
+}
+
+/* Sections */
+.section {
+  padding: 3rem 1.5rem;
+}
+.section .container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.section h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+.section p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* Card grid */
+.cards {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform .2s, box-shadow .2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+.card h3 {
+  margin-bottom: .5rem;
+  color: var(--primary);
+}
+.card p {
+  font-size: .95rem;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  padding: 2rem 1.5rem;
+}
+footer .container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+  font-size: .9rem;
+  color: var(--text-secondary);
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .container {
+    padding: 0;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="logo">MySite</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Welcome to MySite</h1>
+    <p>Crafting beautiful, responsive experiences with modern web standards.</p>
+    <a href="#" class="btn">Get Started</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Our Services</h2>
+    <p>We provide a range of solutions designed to help your business thrive in the digital age.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Design</h3>
+        <p>Elegant, user‑centric designs that align with your brand identity.</p>
+      </div>
+      <div class="card">
+        <h3>Development</h3>
+        <p>Fast, clean, and maintainable code built with the latest technologies.</p>
+      </div>
+      <div class="card">
+        <h3>SEO</h3>
+        <p>Optimized content and structure to boost visibility and traffic.</p>
+      </div>
+      <div class="card">
+        <h3>Support</h3>
+        <p>Ongoing assistance to keep your web presence running smoothly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> MySite. All rights reserved.
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
