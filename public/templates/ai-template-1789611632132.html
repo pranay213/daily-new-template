@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Responsive Template</title>
+    <style>
+        /* ==== CSS Variables (Theme) ==== */
+        :root {
+            --primary: #0066ff;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #222222;
+            --text-secondary: #555555;
+            --border: #e0e0e0;
+        }
+
+        /* ==== Reset & Base ==== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ==== Layout ==== */
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav a {
+            font-weight: 500;
+        }
+
+        /* ==== Hero ==== */
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+            padding: 6rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero .btn {
+            margin-top: 2rem;
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #fff;
+            color: var(--primary);
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .hero .btn:hover {
+            background: #e6e6e6;
+        }
+
+        /* ==== Sections ==== */
+        section {
+            padding: 4rem 0;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-content h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .card-content p {
+            color: var(--text-secondary);
+            flex-grow: 1;
+        }
+
+        .card-content .link {
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        /* ==== Footer ==== */
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* ==== Responsive Nav (Mobile) ==== */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: background 0.3s;
+        }
+
+        @media (max-width: 767px) {
+            .nav ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-surface);
+                flex-direction: column;
+                border-bottom: 1px solid var(--border);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+            }
+
+            .nav ul.open {
+                max-height: 500px; /* enough for menu items */
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo" aria-label="Home"><strong>Brand</strong></a>
+                <div class="nav-toggle" aria-controls="nav-menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </div>
+                <ul id="nav-menu">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Elegant, Modern, Responsive</h1>
+            <p>Start building beautiful web experiences fast with this ready‑to‑use HTML/CSS template.</p>
+            <a href="#features" class="btn">Explore Features</a>
+        </div>
+    </section>
+
+    <section id="features" class="bg-surface">
+        <div class="container">
+            <h2 style="text-align:center;margin-bottom:2rem;">Features</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <img src="https://picsum.photos/seed/1/400/300" alt="Feature 1">
+                    <div class="card-content">
+                        <h3>Responsive Layout</h3>
+                        <p>Fully adaptive grid and flexbox layouts that look great on any device.</p>
+                        <a href="#" class="link">Learn more →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/2/400/300" alt="Feature 2">
+                    <div class="card-content">
+                        <h3>CSS Variables</h3>
+                        <p>Easily theme the site by adjusting a few color variables.</p>
+                        <a href="#" class="link">Learn more →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/3/400/300" alt="Feature 3">
+                    <div class="card-content">
+                        <h3>Modern UI</h3>
+                        <p>Clean typography, subtle shadows, and smooth interactions.</p>
+                        <a href="#" class="link">Learn more →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" style="background: var(--bg-main);">
+        <div class="container">
+            <h2 style="text-align:center;margin-bottom:2rem;">Pricing</h2>
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Basic</h3>
+                        <p style="font-size:2rem;color:var(--primary);margin:1rem 0;">$9/mo</p>
+                        <p>Essential features for personal projects.</p>
+                        <a href="#" class="link">Get Started →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Pro</h3>
+                        <p style="font-size:2rem;color:var(--primary);margin:1rem 0;">$29/mo</p>
+                        <p>Advanced tools for growing businesses.</p>
+                        <a href="#" class="link">Get Started →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="bg-surface">
+        <div class="container">
+            <h2 style="text-align:center;margin-bottom:2rem;">About Us</h2>
+            <p style="max-width:800px;margin:auto;text-align:center;">
+                We are a team of designers and developers passionate about crafting clean, performant, and accessible web experiences. This template showcases best practices and can be a solid foundation for any project.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            © <span id="year"></span> Brand. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.getElementById('nav-menu');
+
+        toggle.addEventListener('click', () => {
+            const expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', !expanded);
+            menu.classList.toggle('open');
+        });
+
+        // Footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
