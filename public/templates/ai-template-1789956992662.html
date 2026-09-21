@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CSS‑Variable Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --bg-main: #f5f7fa;
+            --bg-surface: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+            --radius: .5rem;
+            --transition: 0.25s ease;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        a:hover {
+            color: #3730a3;
+        }
+
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+
+        .nav__logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .nav__links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav__links a {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .nav__links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            background: var(--bg-surface);
+            border-radius: var(--radius);
+            padding: 4rem 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: .5rem;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            padding: .75rem 1.5rem;
+            background: var(--primary);
+            color: #fff;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: background var(--transition);
+        }
+
+        .hero .btn:hover {
+            background: #3730a3;
+        }
+
+        .features {
+            display: grid;
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        @media (min-width: 640px) {
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .feature-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,.07);
+        }
+
+        .feature-card h3 {
+            margin-top: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            margin-top: .5rem;
+            color: var(--text-secondary);
+            font-size: .95rem;
+        }
+
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: .875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .nav__links {
+                display: none;
+            }
+            .hero {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav">
+                <div class="nav__logo">MyBrand</div>
+                <div class="nav__links">
+                    <a href="#">Home</a>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Beautifully Crafted UI</h1>
+            <p>Responsive, modern, and fully themeable with CSS variables. Build amazing experiences with a clean, lightweight foundation.</p>
+            <a href="#" class="btn">Get Started</a>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <svg width="48" height="48" fill="var(--primary)" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM11 17l-5-5 1.41-1.42L11 14.17l6.59-6.59L19 9l-8 8z"/></svg>
+                <h3>Fast Performance</h3>
+                <p>Optimized code and minimal assets ensure lightning‑fast load times.</p>
+            </div>
+            <div class="feature-card">
+                <svg width="48" height="48" fill="var(--primary)" viewBox="0 0 24 24"><path d="M4 5h16v2H4V5zm0 6h16v2H4v-2zm0 6h16v2H4v-2z"/></svg>
+                <h3>Clean Layout</h3>
+                <p>Flexbox and Grid build a robust, adaptable structure for any content.</p>
+            </div>
+            <div class="feature-card">
+                <svg width="48" height="48" fill="var(--primary)" viewBox="0 0 24 24"><path d="M12 7a5 5 0 110 10 5 5 0 010-10zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                <h3>Customizable Theme</h3>
+                <p>Easily switch colors by updating a few CSS variables.</p>
+            </div>
+            <div class="feature-card">
+                <svg width="48" height="48" fill="var(--primary)" viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 8h14v-2H7v2zm0-4h14v-2H7v2zm0-6v2h14V7H7z"/></svg>
+                <h3>Accessible</h3>
+                <p>Contrast ratios and semantic markup keep your site inclusive.</p>
+            </div>
+            <div class="feature-card">
+                <svg width="48" height="48" fill="var(--primary)" viewBox="0 0 24 24"><path d="M12 4.5c-4.14 0-7.5 3.36-7.5 7.5S7.86 19.5 12 19.5 19.5 16.14 19.5 12 16.14 4.5 12 4.5zm0 13c-3.04 0-5.5-2.46-5.5-5.5S8.96 6.5 12 6.5s5.5 2.46 5.5 5.5-2.46 5.5-5.5 5.5z"/></svg>
+                <h3>Scalable Vector Icons</h3>
+                <p>SVGs ensure crisp visuals at any resolution.</p>
+            </div>
+            <div class="feature-card">
+                <svg width="48" height="48" fill="var(--primary)" viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+                <h3>Simple Integration</h3>
+                <p>Drop the file into any project and start building instantly.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2026 MyBrand — All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
