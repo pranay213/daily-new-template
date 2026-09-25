@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive CSS‑Variable Template</title>
+    <style>
+        /* -------------------------------------------------
+           CSS Variables – easy theming
+        --------------------------------------------------- */
+        :root {
+            --primary:        #3b82f6;   /* blue-500 */
+            --bg-main:        #f3f4f6;   /* gray-100 */
+            --bg-surface:     #ffffff;  /* white */
+            --text-primary:  #111827;  /* gray-900 */
+            --text-secondary:#6b7280;  /* gray-500 */
+            --border:        #e5e7eb;  /* gray-200 */
+            --radius:        0.5rem;
+            --transition:    0.25s ease;
+            --font-sans:     system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        }
+
+        /* -------------------------------------------------
+           Reset & Base Styles
+        --------------------------------------------------- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html { font-size: 100%; } /* 16px = 1rem */
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        img, picture, video, canvas, svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+        a:hover { text-decoration: underline; }
+
+        /* -------------------------------------------------
+           Layout Components
+        --------------------------------------------------- */
+        header {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border);
+        }
+        .container {
+            width: min(100% - 2rem, 1200px);
+            margin-inline: auto;
+            padding: 1rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 0.5rem;
+        }
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            margin-bottom: 1.5rem;
+        }
+        .hero .cta {
+            background: #fff;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: background var(--transition), color var(--transition);
+        }
+        .hero .cta:hover {
+            background: #e5e7eb;
+        }
+
+        main {
+            flex: 1;
+            background: var(--bg-main);
+        }
+        section {
+            padding: 3rem 1rem;
+        }
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+        .cards {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        footer a { color: var(--text-primary); }
+
+        /* -------------------------------------------------
+           Responsive Tweaks
+        --------------------------------------------------- */
+        @media (min-width: 640px) {
+            .hero { padding: 6rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">YourBrand</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Stunning Modern Design</h1>
+    <p>Responsive, themable, and ready for your next project.</p>
+    <a href="#features" class="cta">Explore Features</a>
+</section>
+
+<main>
+    <section id="features">
+        <div class="container">
+            <h2 class="section-title">Features</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Responsive Layout</h3>
+                    <p>Fluid grid and flex utilities keep your design looking great on any device.</p>
+                </div>
+                <div class="card">
+                    <h3>CSS Variables</h3>
+                    <p>All colours are controlled by CSS custom properties for easy theming.</p>
+                </div>
+                <div class="card">
+                    <h3>Modern UI</h3>
+                    <p>Clean typographic scale, subtle shadows and smooth transitions.</p>
+                </div>
+                <div class="card">
+                    <h3>Accessible</h3>
+                    <p>Semantic HTML and color contrast that meets WCAG AA standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="background: var(--bg-surface);">
+        <div class="container">
+            <h2 class="section-title">About This Template</h2>
+            <p style="max-width: 720px; margin: auto; text-align:center; color: var(--text-secondary);">
+                This is a minimal, single‑file starter kit for building sleek websites. Replace the placeholder
+                content with your own, adjust the CSS variables in <code>:root</code> to match your brand,
+                and you’re ready to go.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <form style="max-width: 560px; margin:auto;">
+                <div style="display:grid; gap:1rem;">
+                    <input type="text" placeholder="Name" required style="padding:0.75rem; border:1px solid var(--border); border-radius:var(--radius);">
+                    <input type="email" placeholder="Email" required style="padding:0.75rem; border:1px solid var(--border); border-radius:var(--radius);">
+                    <textarea placeholder="Message" rows="4" required style="padding:0.75rem; border:1px solid var(--border); border-radius:var(--radius);"></textarea>
+                    <button type="submit" style="background:var(--primary); color:#fff; border:none; padding:0.75rem 1.5rem; border-radius:var(--radius); cursor:pointer; font-weight:600; transition:background var(--transition);">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer>
+    © <span id="year"></span> YourBrand. All rights reserved. |
+    <a href="#">Privacy Policy</a> |
+    <a href="#">Terms of Service</a>
+</footer>
+
+<script>
+    // Insert current year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
